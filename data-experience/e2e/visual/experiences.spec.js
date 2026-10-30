@@ -5,6 +5,8 @@ import { test, expect } from '../fixtures.js'
 // with `npm run test:visual -- --update-snapshots` (see e2e/README.md).
 const experiences = [
   { slug: 'apple-tracker', sample: 'apple-tracker.ndjson' },
+  // the Messenger sample: the Messenger tabs are filled, the ads tabs show their missing files
+  { slug: 'facebook', sample: 'facebook-messenger.zip' },
   { slug: 'tracker-control', sample: 'tracker-control.csv' }
 ]
 

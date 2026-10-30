@@ -5,9 +5,11 @@
     "url": "https://eyeballs.hestialabs.org/"
   },
   "dataPortal": "https://www.facebook.com/help/212802592074644",
-  "dataPortalMessage": "<strong>Important:</strong> To make the experiment work, please request your data in <strong>JSON</strong> format.",
+  "dataPortalMessage": "<strong>Important:</strong> To make the experiment work, please request your data in <strong>JSON</strong> format. The Messenger tabs also work with an export in HTML format.",
   "dataSamples": [
-    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/facebook.zip?contenthash=9ebe7f31f91e24e87abd&filename=facebook.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/facebook.zip?contenthash=9ebe7f31f91e24e87abd&filename=facebook.zip",
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/facebook-messenger.zip?contenthash=640b860ea2c71e6ae02a&filename=facebook-messenger.zip",
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/facebook-messenger-html.zip?contenthash=2e1cbfb1c7c4dc0fc641&filename=facebook-messenger-html.zip"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": true,
@@ -17,7 +19,7 @@
       "intro": {
         "title": "Facebook",
         "dataPortal": "https://www.facebook.com/help/212802592074644",
-        "dataPortalMessage": "<strong>Important:</strong> To make the experiment work, please request your data in <strong>JSON</strong> format."
+        "dataPortalMessage": "<strong>Important:</strong> To make the experiment work, please request your data in <strong>JSON</strong> format. The Messenger tabs also work with an export in HTML format."
       },
       "viewBlocks": {
         "off-facebook-activity-count": {
@@ -96,7 +98,7 @@
       "intro": {
         "title": "Facebook",
         "dataPortal": "https://www.facebook.com/help/212802592074644",
-        "dataPortalMessage": "<strong>Important:</strong> Pour que l'expérience fonctionne, veuillez demander vos données au format <strong>JSON</strong>."
+        "dataPortalMessage": "<strong>Important:</strong> Pour que l'expérience fonctionne, veuillez demander vos données au format <strong>JSON</strong>. Les onglets Messenger fonctionnent aussi avec un export au format HTML."
       },
       "viewBlocks": {
         "off-facebook-activity-count": {
@@ -167,6 +169,105 @@
             "Latitude": "Latitude",
             "Longitude": "Longitude",
             "Description": "Description"
+          }
+        },
+        "messenger-overview": {
+          "title": "Conversations Messenger",
+          "text": "Vos conversations Messenger dans cet export : combien, avec qui (à deux ou en groupe), dans quels dossiers, et combien de messages vous avez envoyés et reçus chaque année. Le texte des messages n'est pas repris dans les tableaux, seulement les nombres et les dates. Fonctionne avec un export JSON ou HTML.",
+          "vizProps": {
+            "messages": {
+              "conversations": "Conversations",
+              "oneToOneAndGroups": "À deux / en groupe",
+              "sent": "Messages envoyés",
+              "received": "Messages reçus",
+              "period": "Période",
+              "perYear": "Messages par année",
+              "folders": "Conversations par dossier",
+              "folder": "Dossier",
+              "messages": "Messages",
+              "sources": "Lu à partir de {json} conversations en JSON et {html} en HTML.",
+              "noData": "Aucune conversation Messenger n'a été trouvée dans cet export.",
+              "folder_inbox": "Boîte de réception",
+              "folder_filtered_threads": "Filtrés (spam)",
+              "folder_message_requests": "Invitations",
+              "folder_archived_threads": "Archivés",
+              "folder_legacy_threads": "Anciens",
+              "folder_e2ee_cutover": "Passés au chiffrement de bout en bout"
+            }
+          }
+        },
+        "messenger-deleted-accounts": {
+          "title": "Comptes supprimés dans vos conversations",
+          "text": "Les conversations avec une personne dont le compte a été supprimé ou n'est plus disponible, que Facebook affiche comme « Utilisateur(ice) Facebook ». Votre export peut encore contenir ses messages, avec leur texte : cet onglet les compte.",
+          "vizProps": {
+            "messages": {
+              "affected": "Conversations avec un compte supprimé ou sans nom",
+              "theirMessages": "Leurs messages encore dans l'export",
+              "withText": "Dont avec du texte",
+              "perYear": "Messages de comptes supprimés ou sans nom, par année",
+              "conversationsTitle": "Conversations",
+              "labelNote": "Facebook nomme « Utilisateur(ice) Facebook » les comptes supprimés ou indisponibles. Cette mention seule ne prouve pas qu'un compte a été supprimé.",
+              "conversation": "Conversation",
+              "kind": "Type",
+              "folder": "Dossier",
+              "messages": "Tous les messages",
+              "first": "Leur premier message",
+              "last": "Leur dernier message",
+              "group": "Groupe",
+              "oneToOne": "À deux",
+              "none": "Aucune conversation de cet export n'a de participant supprimé ou sans nom.",
+              "noData": "Aucune conversation Messenger n'a été trouvée dans cet export.",
+              "folder_inbox": "Boîte de réception",
+              "folder_filtered_threads": "Filtrés (spam)",
+              "folder_message_requests": "Invitations",
+              "folder_archived_threads": "Archivés",
+              "folder_legacy_threads": "Anciens",
+              "folder_e2ee_cutover": "Passés au chiffrement de bout en bout"
+            }
+          }
+        },
+        "messenger-anomalies": {
+          "title": "Messages vides, retirés et géobloqués",
+          "text": "Les messages que votre export indique comme retirés ou géobloqués, ou dont le texte est vide. Comparer ces nombres entre deux exports du même compte montre si des messages ont disparu ou ont été vidés entre-temps.",
+          "vizProps": {
+            "messages": {
+              "empty": "Messages vides",
+              "allEmpty": "Conversations entièrement vides",
+              "unsent": "Messages retirés",
+              "geoblocked": "Messages géobloqués",
+              "htmlNote": "Parmi ces conversations, {html} proviennent d'un export HTML. Un export HTML n'indique pas les messages retirés ou géobloqués, et ne distingue pas un message vide d'un message manquant : pour lui, « vide » compte les {emptyHtml} messages sans texte ni pièce jointe.",
+              "conversationsTitle": "Conversations avec des messages vides, retirés ou géobloqués",
+              "conversation": "Conversation",
+              "folder": "Dossier",
+              "format": "Format",
+              "messages": "Messages",
+              "none": "Aucune conversation de cet export n'a de message vide, retiré ou géobloqué.",
+              "noData": "Aucune conversation Messenger n'a été trouvée dans cet export.",
+              "folder_inbox": "Boîte de réception",
+              "folder_filtered_threads": "Filtrés (spam)",
+              "folder_message_requests": "Invitations",
+              "folder_archived_threads": "Archivés",
+              "folder_legacy_threads": "Anciens",
+              "folder_e2ee_cutover": "Passés au chiffrement de bout en bout"
+            }
+          }
+        },
+        "messenger-ids": {
+          "title": "Identifiants des conversations dans le temps",
+          "text": "Chaque dossier de conversation se termine par un identifiant numérique. Placer ces identifiants en regard des dates des messages montre comment Facebook a numéroté les conversations au fil des années.",
+          "vizProps": {
+            "messages": {
+              "shortId": "À deux, identifiant court",
+              "longId": "À deux, identifiant long",
+              "group": "Groupe",
+              "chartTitle": "Identifiant de conversation et date des messages",
+              "categoriesNote": "Chaque point est une conversation : son identifiant (tiré du nom du dossier, en échelle logarithmique) en regard de la date de son premier ou dernier message. Les identifiants « courts » sont inférieurs à 5 000 000 000 000 000, le seuil utilisé par l'analyse hors ligne dont cet onglet s'inspire. Ces groupes décrivent la structure des identifiants, pas l'existence d'un compte.",
+              "first": "Premier message",
+              "last": "Dernier message",
+              "deleted": "participant supprimé ou sans nom",
+              "messages": "Messages",
+              "noData": "Aucune conversation Messenger avec un identifiant numérique n'a été trouvée dans cet export."
+            }
           }
         }
       }
@@ -248,6 +349,42 @@
       "visualization": "ChartViewGenericLocationViewer.vue",
       "title": "Location observations",
       "text": "See all the location events in your files, corresponding to data that has been collected on you at or concerning a specific location."
+    },
+    {
+      "id": "messenger-overview",
+      "customPipeline": "messenger_overview",
+      "files": ["messenger"],
+      "visualization": "facebook/MessengerOverview.vue",
+      "showTable": false,
+      "title": "Messenger conversations",
+      "text": "Your Messenger conversations in this export: how many, with whom (one-to-one or in groups), in which folders, and how many messages you sent and received each year. Message text is not read into the tables, only counts and dates. Works with exports in JSON or HTML."
+    },
+    {
+      "id": "messenger-deleted-accounts",
+      "customPipeline": "messenger_deleted_accounts",
+      "files": ["messenger"],
+      "visualization": "facebook/MessengerDeletedAccounts.vue",
+      "showTable": false,
+      "title": "Deleted accounts in your conversations",
+      "text": "Conversations with someone whose account was deleted or is unavailable, shown by Facebook as \"Facebook user\". Your export may still contain their messages, with their text: this tab counts them."
+    },
+    {
+      "id": "messenger-anomalies",
+      "customPipeline": "messenger_anomalies",
+      "files": ["messenger"],
+      "visualization": "facebook/MessengerAnomalies.vue",
+      "showTable": false,
+      "title": "Empty, unsent and geo-blocked messages",
+      "text": "Messages your export marks as unsent or geo-blocked, or whose text is empty. Comparing these counts between two exports of the same account shows whether messages disappeared or were emptied in between."
+    },
+    {
+      "id": "messenger-ids",
+      "customPipeline": "messenger_ids",
+      "files": ["messenger"],
+      "visualization": "facebook/MessengerIds.vue",
+      "showTable": false,
+      "title": "Conversation IDs over time",
+      "text": "Each conversation folder ends with a numeric ID. Plotting these IDs against the dates of the messages shows how Facebook numbered conversations over the years."
     }
   ],
   "version": 1

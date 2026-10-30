@@ -268,6 +268,109 @@ Object {
 }
 `;
 
+exports[`facebook with facebook.zip view block outputs match the snapshots: messenger-anomalies 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "conversations": Array [],
+      "summary": Object {
+        "allEmpty": 0,
+        "emptyHtml": 0,
+        "emptyJson": 0,
+        "geoblocked": 0,
+        "htmlConversations": 0,
+        "htmlMessages": 0,
+        "jsonConversations": 0,
+        "jsonMessages": 0,
+        "unsent": 0,
+      },
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "conversations",
+  ],
+  "sha256": "05bfdc1c973083e3f60cf39849c504d19934577e8029b36738d21064f812101c",
+}
+`;
+
+exports[`facebook with facebook.zip view block outputs match the snapshots: messenger-deleted-accounts 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "conversations": Array [],
+      "summary": Object {
+        "affected": 0,
+        "conversations": 0,
+        "groups": 0,
+        "oneToOne": 0,
+        "theirMessages": 0,
+        "theirMessagesWithText": 0,
+        "withTheirMessages": 0,
+      },
+      "years": Array [],
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "conversations",
+    "years",
+  ],
+  "sha256": "5de07531b387de913ed89a2b300a9627e0ecf94d797d3d9c52efa568e3eb0642",
+}
+`;
+
+exports[`facebook with facebook.zip view block outputs match the snapshots: messenger-ids 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [
+    "id",
+    "idNumber",
+    "category",
+    "title",
+    "folder",
+    "deletedParticipant",
+    "messages",
+    "first",
+    "last",
+  ],
+  "sha256": "8083f4bf7ade54f183d887ca96faeecc440650e3f574846ad70071cbf1da98df",
+}
+`;
+
+exports[`facebook with facebook.zip view block outputs match the snapshots: messenger-overview 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "folders": Array [],
+      "summary": Object {
+        "conversations": 0,
+        "first": null,
+        "groups": 0,
+        "htmlConversations": 0,
+        "jsonConversations": 0,
+        "last": null,
+        "messages": 0,
+        "oneToOne": 0,
+        "received": 0,
+        "sent": 0,
+      },
+      "years": Array [],
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "folders",
+    "years",
+  ],
+  "sha256": "b0bff7141523ef0500f67710a2b33eb86caa4d2fa62d302a8a7dcbe5409f07c6",
+}
+`;
+
 exports[`facebook with facebook.zip view block outputs match the snapshots: off-facebook-activity-count 1`] = `
 Object {
   "count": 1780,
@@ -356,6 +459,713 @@ Object {
     "name",
   ],
   "sha256": "a2be1ec58460c3336215c78cac59d6589f1f4f4718804ede113e9c97889aa406",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: ad-interactions 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: advertisers-contact-list 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: custom-audiences 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: genericDateViewer 1`] = `
+Object {
+  "count": 32,
+  "firstItems": Array [
+    Object {
+      "date": Object {},
+      "description": "Messages > [Sender Name : Alice Martin, Content : Bon 1er mai !]",
+      "filename": "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_1.js…",
+    },
+    Object {
+      "date": Object {},
+      "description": "Messages > [Sender Name : Camille Exemple, Content : Tu as retiré un message ?]",
+      "filename": "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_1.js…",
+    },
+    Object {
+      "date": Object {},
+      "description": "Messages > [Sender Name : Alice Martin, Is Unsent : true]",
+      "filename": "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_1.js…",
+    },
+  ],
+  "headers": Array [
+    "date",
+    "description",
+    "filename",
+  ],
+  "sha256": "b4e57dbc790369786f73f54d0edd4af45a4679dcfc42016b5536c1f76496d1c1",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: genericLocationViewer 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [
+    "filename",
+    "latitude",
+    "longitude",
+    "path",
+    "description",
+  ],
+  "sha256": "b8e33101bb1ba60305589a4ac58eee0178408fe48726998095b0651a26f92a5e",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: messenger-anomalies 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "conversations": Array [
+        Object {
+          "allEmpty": false,
+          "empty": 0,
+          "folder": "inbox",
+          "format": "json",
+          "geoblocked": 0,
+          "id": "10102289880000013",
+          "messages": 7,
+          "title": "Alice Martin",
+          "unsent": 1,
+        },
+        Object {
+          "allEmpty": false,
+          "empty": 0,
+          "folder": "inbox",
+          "format": "json",
+          "geoblocked": 1,
+          "id": "10102289880000063",
+          "messages": 8,
+          "title": "Emma Jones",
+          "unsent": 0,
+        },
+        Object {
+          "allEmpty": false,
+          "empty": 1,
+          "folder": "inbox",
+          "format": "json",
+          "geoblocked": 0,
+          "id": "1096618500000033",
+          "messages": 5,
+          "title": "Randonnée du dimanche",
+          "unsent": 0,
+        },
+      ],
+      "summary": Object {
+        "allEmpty": 0,
+        "emptyHtml": 0,
+        "emptyJson": 1,
+        "geoblocked": 1,
+        "htmlConversations": 0,
+        "htmlMessages": 0,
+        "jsonConversations": 8,
+        "jsonMessages": 31,
+        "unsent": 1,
+      },
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "conversations",
+  ],
+  "sha256": "43cb142d4dba44c1a6e40ffdebcba5a0f0eee7c8ffb8ae3b01e0614154eea3ce",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: messenger-deleted-accounts 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "conversations": Array [
+        Object {
+          "first": "2008-06-12T14:02:33.000Z",
+          "folder": "inbox",
+          "group": false,
+          "id": "10101989430000023",
+          "last": "2010-08-30T19:30:00.000Z",
+          "messages": 4,
+          "participants": 2,
+          "theirMessages": 3,
+          "theirMessagesWithText": 3,
+          "title": "Utilisateur(ice) Facebook",
+        },
+        Object {
+          "first": "2015-09-06T07:05:00.000Z",
+          "folder": "inbox",
+          "group": true,
+          "id": "1096618500000033",
+          "last": "2015-12-20T10:00:00.000Z",
+          "messages": 5,
+          "participants": 4,
+          "theirMessages": 2,
+          "theirMessagesWithText": 2,
+          "title": "Randonnée du dimanche",
+        },
+      ],
+      "summary": Object {
+        "affected": 2,
+        "conversations": 8,
+        "groups": 1,
+        "oneToOne": 1,
+        "theirMessages": 5,
+        "theirMessagesWithText": 5,
+        "withTheirMessages": 2,
+      },
+      "years": Array [
+        Object {
+          "messages": 1,
+          "year": 2008,
+        },
+        Object {
+          "messages": 1,
+          "year": 2009,
+        },
+        Object {
+          "messages": 1,
+          "year": 2010,
+        },
+        Object {
+          "messages": 0,
+          "year": 2011,
+        },
+        Object {
+          "messages": 0,
+          "year": 2012,
+        },
+      ],
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "conversations",
+    "years",
+  ],
+  "sha256": "9715792e6fc647735ce670d7047847134873c07e7dc4e4a7222711240214176b",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: messenger-ids 1`] = `
+Object {
+  "count": 8,
+  "firstItems": Array [
+    Object {
+      "category": "shortId",
+      "deletedParticipant": false,
+      "first": "2007-10-09T21:12:00.000Z",
+      "folder": "archived_threads",
+      "id": "5581460000",
+      "idNumber": 5581460000,
+      "last": "2007-10-10T08:03:00.000Z",
+      "messages": 2,
+      "title": "David",
+    },
+    Object {
+      "category": "group",
+      "deletedParticipant": true,
+      "first": "2015-09-06T07:00:00.000Z",
+      "folder": "inbox",
+      "id": "1096618500000033",
+      "idNumber": 1096618500000033,
+      "last": "2015-12-20T10:00:00.000Z",
+      "messages": 5,
+      "title": "Randonnée du dimanche",
+    },
+    Object {
+      "category": "longId",
+      "deletedParticipant": true,
+      "first": "2008-06-12T14:02:33.000Z",
+      "folder": "inbox",
+      "id": "10101989430000023",
+      "idNumber": 10101989430000024,
+      "last": "2010-08-30T19:30:00.000Z",
+      "messages": 4,
+      "title": "Utilisateur(ice) Facebook",
+    },
+  ],
+  "headers": Array [
+    "id",
+    "idNumber",
+    "category",
+    "title",
+    "folder",
+    "deletedParticipant",
+    "messages",
+    "first",
+    "last",
+  ],
+  "sha256": "60be94dd1dd8405e36a774cbb9993de3dcee46e3fb1079d1628e1a6eb32d9830",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: messenger-overview 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "folders": Array [
+        Object {
+          "conversations": 4,
+          "folder": "inbox",
+          "messages": 24,
+        },
+        Object {
+          "conversations": 1,
+          "folder": "archived_threads",
+          "messages": 2,
+        },
+        Object {
+          "conversations": 1,
+          "folder": "e2ee_cutover",
+          "messages": 2,
+        },
+        Object {
+          "conversations": 1,
+          "folder": "filtered_threads",
+          "messages": 2,
+        },
+        Object {
+          "conversations": 1,
+          "folder": "message_requests",
+          "messages": 1,
+        },
+      ],
+      "summary": Object {
+        "conversations": 8,
+        "first": "2007-10-09T21:12:00.000Z",
+        "groups": 1,
+        "htmlConversations": 0,
+        "jsonConversations": 8,
+        "last": "2023-02-14T12:30:00.000Z",
+        "messages": 31,
+        "oneToOne": 7,
+        "received": 20,
+        "sent": 11,
+      },
+      "years": Array [
+        Object {
+          "received": 1,
+          "sent": 1,
+          "year": 2007,
+        },
+        Object {
+          "received": 1,
+          "sent": 1,
+          "year": 2008,
+        },
+        Object {
+          "received": 1,
+          "sent": 0,
+          "year": 2009,
+        },
+        Object {
+          "received": 1,
+          "sent": 0,
+          "year": 2010,
+        },
+        Object {
+          "received": 0,
+          "sent": 0,
+          "year": 2011,
+        },
+      ],
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "folders",
+    "years",
+  ],
+  "sha256": "f37ae7d4d7993cecdb6f9ebf06013c40b58ba02bf19e9223bca1ad69ee09d130",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: off-facebook-activity-count 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: off-facebook-activity-type-count 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger.zip view block outputs match the snapshots: your-topics 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: ad-interactions 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: advertisers-contact-list 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: custom-audiences 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: genericDateViewer 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [
+    "date",
+    "description",
+    "filename",
+  ],
+  "sha256": "8f19083794b1e9f652f470ce2214088719fe3dc2ad8f1b40c6790bd7b6ba2c79",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: genericLocationViewer 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [
+    "filename",
+    "latitude",
+    "longitude",
+    "path",
+    "description",
+  ],
+  "sha256": "b8e33101bb1ba60305589a4ac58eee0178408fe48726998095b0651a26f92a5e",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: messenger-anomalies 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "conversations": Array [
+        Object {
+          "allEmpty": false,
+          "empty": 1,
+          "folder": "inbox",
+          "format": "html",
+          "geoblocked": 0,
+          "id": "10102289880000013",
+          "messages": 7,
+          "title": "Alice Martin",
+          "unsent": 0,
+        },
+        Object {
+          "allEmpty": false,
+          "empty": 1,
+          "folder": "inbox",
+          "format": "html",
+          "geoblocked": 0,
+          "id": "1096618500000033",
+          "messages": 5,
+          "title": "Randonnée du dimanche",
+          "unsent": 0,
+        },
+      ],
+      "summary": Object {
+        "allEmpty": 0,
+        "emptyHtml": 2,
+        "emptyJson": 0,
+        "geoblocked": 0,
+        "htmlConversations": 8,
+        "htmlMessages": 31,
+        "jsonConversations": 0,
+        "jsonMessages": 0,
+        "unsent": 0,
+      },
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "conversations",
+  ],
+  "sha256": "2e051a777eaca71717af2f5f4ae2808b5f26617b800ef82256eaa17e60e6093d",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: messenger-deleted-accounts 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "conversations": Array [
+        Object {
+          "first": "2008-06-12T14:02:33.000Z",
+          "folder": "inbox",
+          "group": false,
+          "id": "10101989430000023",
+          "last": "2010-08-30T19:30:00.000Z",
+          "messages": 4,
+          "participants": 2,
+          "theirMessages": 3,
+          "theirMessagesWithText": 3,
+          "title": "Utilisateur(ice) Facebook",
+        },
+        Object {
+          "first": "2015-09-06T07:05:00.000Z",
+          "folder": "inbox",
+          "group": true,
+          "id": "1096618500000033",
+          "last": "2015-12-20T10:00:00.000Z",
+          "messages": 5,
+          "participants": 4,
+          "theirMessages": 2,
+          "theirMessagesWithText": 2,
+          "title": "Randonnée du dimanche",
+        },
+      ],
+      "summary": Object {
+        "affected": 2,
+        "conversations": 8,
+        "groups": 1,
+        "oneToOne": 1,
+        "theirMessages": 5,
+        "theirMessagesWithText": 5,
+        "withTheirMessages": 2,
+      },
+      "years": Array [
+        Object {
+          "messages": 1,
+          "year": 2008,
+        },
+        Object {
+          "messages": 1,
+          "year": 2009,
+        },
+        Object {
+          "messages": 1,
+          "year": 2010,
+        },
+        Object {
+          "messages": 0,
+          "year": 2011,
+        },
+        Object {
+          "messages": 0,
+          "year": 2012,
+        },
+      ],
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "conversations",
+    "years",
+  ],
+  "sha256": "9715792e6fc647735ce670d7047847134873c07e7dc4e4a7222711240214176b",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: messenger-ids 1`] = `
+Object {
+  "count": 8,
+  "firstItems": Array [
+    Object {
+      "category": "shortId",
+      "deletedParticipant": false,
+      "first": "2007-10-09T21:12:00.000Z",
+      "folder": "archived_threads",
+      "id": "5581460000",
+      "idNumber": 5581460000,
+      "last": "2007-10-10T08:03:00.000Z",
+      "messages": 2,
+      "title": "David",
+    },
+    Object {
+      "category": "group",
+      "deletedParticipant": true,
+      "first": "2015-09-06T07:00:00.000Z",
+      "folder": "inbox",
+      "id": "1096618500000033",
+      "idNumber": 1096618500000033,
+      "last": "2015-12-20T10:00:00.000Z",
+      "messages": 5,
+      "title": "Randonnée du dimanche",
+    },
+    Object {
+      "category": "longId",
+      "deletedParticipant": true,
+      "first": "2008-06-12T14:02:33.000Z",
+      "folder": "inbox",
+      "id": "10101989430000023",
+      "idNumber": 10101989430000024,
+      "last": "2010-08-30T19:30:00.000Z",
+      "messages": 4,
+      "title": "Utilisateur(ice) Facebook",
+    },
+  ],
+  "headers": Array [
+    "id",
+    "idNumber",
+    "category",
+    "title",
+    "folder",
+    "deletedParticipant",
+    "messages",
+    "first",
+    "last",
+  ],
+  "sha256": "60be94dd1dd8405e36a774cbb9993de3dcee46e3fb1079d1628e1a6eb32d9830",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: messenger-overview 1`] = `
+Object {
+  "count": 1,
+  "firstItems": Array [
+    Object {
+      "folders": Array [
+        Object {
+          "conversations": 4,
+          "folder": "inbox",
+          "messages": 24,
+        },
+        Object {
+          "conversations": 1,
+          "folder": "archived_threads",
+          "messages": 2,
+        },
+        Object {
+          "conversations": 1,
+          "folder": "e2ee_cutover",
+          "messages": 2,
+        },
+        Object {
+          "conversations": 1,
+          "folder": "filtered_threads",
+          "messages": 2,
+        },
+        Object {
+          "conversations": 1,
+          "folder": "message_requests",
+          "messages": 1,
+        },
+      ],
+      "summary": Object {
+        "conversations": 8,
+        "first": "2007-10-09T21:12:00.000Z",
+        "groups": 1,
+        "htmlConversations": 8,
+        "jsonConversations": 0,
+        "last": "2023-02-14T12:30:00.000Z",
+        "messages": 31,
+        "oneToOne": 7,
+        "received": 20,
+        "sent": 11,
+      },
+      "years": Array [
+        Object {
+          "received": 1,
+          "sent": 1,
+          "year": 2007,
+        },
+        Object {
+          "received": 1,
+          "sent": 1,
+          "year": 2008,
+        },
+        Object {
+          "received": 1,
+          "sent": 0,
+          "year": 2009,
+        },
+        Object {
+          "received": 1,
+          "sent": 0,
+          "year": 2010,
+        },
+        Object {
+          "received": 0,
+          "sent": 0,
+          "year": 2011,
+        },
+      ],
+    },
+  ],
+  "headers": Array [
+    "summary",
+    "folders",
+    "years",
+  ],
+  "sha256": "c3c751972b4be34512694a04c7d401f9b7f54469c92b236edfbe83df52620fa1",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: off-facebook-activity-count 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: off-facebook-activity-type-count 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
+}
+`;
+
+exports[`facebook with facebook-messenger-html.zip view block outputs match the snapshots: your-topics 1`] = `
+Object {
+  "count": 0,
+  "firstItems": Array [],
+  "headers": Array [],
+  "sha256": "510bf9eaa5c02b4b5bb7027a1bb6c36788a4204c24b2abb94bde9a679c2bd2c6",
 }
 `;
 
