@@ -11,9 +11,7 @@
   "vueCompilerOptions": {
     "experimentalDisableTemplateSupport": true,
     "target": 2,
-    "extensions": [
-      ".vue"
-    ]
+    "extensions": [".vue"]
   },
   "exclude": [
     ".circleci",
