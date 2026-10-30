@@ -20,7 +20,7 @@ const cdnAssets = [
   },
   // Sample data, from this checkout rather than from master on GitHub
   {
-    url: /^https:\/\/raw\.githubusercontent\.com\/hestiaAI\/hestialabs-experiences\/[^/]+\/packages\/lib\/data-samples\/([^?]+)(\?.*)?$/,
+    url: /^https:\/\/raw\.githubusercontent\.com\/(?:hestiaAI|digipower-academy)\/(?:hestialabs|digipower)-experiences\/[^/]+\/packages\/lib\/data-samples\/([^?]+)(\?.*)?$/,
     path: ([, file]) => fileURLToPath(new URL(`../../packages/lib/data-samples/${decodeURIComponent(file)}`, import.meta.url)),
     contentType: 'application/octet-stream'
   },

@@ -1,13 +1,13 @@
 {
   "collaborator": {
     "title": "The Eyeballs Collective",
-    "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/the-eyeballs.svg",
+    "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/the-eyeballs.svg",
     "url": "https://eyeballs.hestialabs.org/"
   },
   "dataPortal": "https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/twitter-small.zip?contenthash=c736a805d222d286962d&filename=twitter-small.zip",
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/twitter-large.zip?contenthash=635ec1966ca5584b8766&filename=twitter-large.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/twitter-small.zip?contenthash=c736a805d222d286962d&filename=twitter-small.zip",
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/twitter-large.zip?contenthash=635ec1966ca5584b8766&filename=twitter-large.zip"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": false,
@@ -350,7 +350,7 @@
   },
   "tutorialVideos": ["https://vimeo.com/691109800"],
   "title": "Twitter",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/twitter.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/twitter.png",
   "viewBlocks": [
     {
       "showTable": false,

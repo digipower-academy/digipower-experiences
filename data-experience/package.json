@@ -4,15 +4,15 @@
   "description": "analyse the data companies collect on you",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hestiaai/hestialabs-experiences.git"
+    "url": "git+https://github.com/digipower-academy/digipower-experiences.git"
   },
   "type": "module",
   "author": "hestia.ai",
   "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/hestiaai/hestialabs-experiences/issues"
+    "url": "https://github.com/digipower-academy/digipower-experiences/issues"
   },
-  "homepage": "https://github.com/hestiaAI/hestialabs-experiences/blob/master/data-experience/README.md",
+  "homepage": "https://github.com/digipower-academy/digipower-experiences/blob/master/data-experience/README.md",
   "scripts": {
     "test": "jest",
     "perf:ubereats": "cross-env RUN_PERF=true jest src/__tests__/uber-eats/performance --runInBand",
@@ -22,7 +22,7 @@
     "dev": "npm-run-all -p -r dev:bubble-server dev:monorepo dev:app",
     "dev:app": "vue-cli-service serve ./dev/main.js --open --host 0.0.0.0",
     "dev:monorepo": "cd ../packages && npm run dev",
-    "dev:bubble-server": "cd ../../hestialabs-bubble-server/bubbleserver && cross-env DJANGO_DEBUG=True poetry run python ./manage.py runserver",
+    "dev:bubble-server": "cd ../../digipower-bubble-server/bubbleserver && cross-env DJANGO_DEBUG=True poetry run python ./manage.py runserver",
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib --name DataExperience src/main.js",
     "build-watch": "npm run build -- --watch",

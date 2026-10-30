@@ -6,7 +6,7 @@
   "files": ["dist", "src/uber-eats-viewer.json"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hestiaai/hestialabs-experiences",
+    "url": "https://github.com/digipower-academy/digipower-experiences",
     "directory": "packages/packages/experiences/uber-eats"
   },
   "publishConfig": {

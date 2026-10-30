@@ -1,7 +1,7 @@
 {
   "dataPortalHtml": "Install and enable TrackerControl to monitor the behaviour of the apps on your Android phone, using <a href=\"https://github.com/hestiaAI/data-catalog/blob/main/workshop/install-and-enable-trackercontrol.md\" target=\"_blank\" rel=\"noreferrer noopener\" >these install instructions</a>. Once you have collected some data, export it (<a href=\"https://github.com/hestiaAI/data-catalog/blob/main/workshop/how-to-export-data-from-trackercontrol.md\" target=\"_blank\" rel=\"noreferrer noopener\" >export instructions here</a>) and analyze it here.",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/tracker-control.csv?contenthash=33759ca9b1fefc876ba7&filename=tracker-control.csv"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/tracker-control.csv?contenthash=33759ca9b1fefc876ba7&filename=tracker-control.csv"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": true,
@@ -68,7 +68,7 @@
   },
   "tutorialVideos": [],
   "title": "TrackerControl",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/tracker-control.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/tracker-control.png",
   "subtitle": "Tracking data",
   "viewBlocks": [
     {

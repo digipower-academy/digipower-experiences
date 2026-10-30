@@ -76,7 +76,7 @@ export default {
           // https://webpack.js.org/configuration/module/#rulegeneratorfilename
           // https://webpack.js.org/configuration/output/#template-strings
           filename:
-            'https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/[name][ext]?contenthash=[contenthash]&filename=[name][ext]'
+            'https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/[name][ext]?contenthash=[contenthash]&filename=[name][ext]'
         }
       }
     ]

@@ -76,7 +76,7 @@
     }
   },
   "tutorialVideos": [],
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/chatgpt.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/chatgpt.png",
   "viewBlocks": [
     {
       "showTable": false,

@@ -65,7 +65,7 @@
   },
   "tutorialVideos": [],
   "title": "TrackerControl Agg",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/tracker-control.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/tracker-control.png",
   "subtitle": "Tracking data",
   "viewBlocks": [
     {

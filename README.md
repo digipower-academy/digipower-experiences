@@ -1,4 +1,7 @@
-# HestiaLabs Experiences
+# Digipower Experiences
+
+Originally developed by [HestiaLabs](https://hestialabs.org) as `hestiaAI/hestialabs-experiences`; now maintained as `digipower-academy/digipower-experiences`. GitHub redirects the old URLs.
+
 
 This repo currently contains three projects:
 - [packages](packages/README.md): Monorepo for packages used throughout the system, including data experience packages.
@@ -7,7 +10,7 @@ This repo currently contains three projects:
 - [experiences](experiences/README.md): Nuxt app, this builds [digipower.academy](https://digipower.academy).
 
 
-This repo is also dependent on the [bubble-server](https://github.com/hestiaAI/hestialabs-bubble-server)
+This repo is also dependent on the [bubble-server](https://github.com/digipower-academy/digipower-bubble-server)
 
 ## Setup
 **This project needs Node 22 (LTS) and npm 10 or later. The version is pinned in [`.nvmrc`](.nvmrc); we recommend using `nvm` ([installation](https://heynode.com/tutorial/install-nodejs-locally-nvm/)).**
@@ -16,8 +19,8 @@ This repo is also dependent on the [bubble-server](https://github.com/hestiaAI/h
 
 First create a new directory, and clone this repo and the bubble-server:
 ```sh
-git clone https://github.com/hestiaAI/hestialabs-experiences.git
-git clone https://github.com/hestiaAI/hestialabs-bubble-server.git
+git clone https://github.com/digipower-academy/digipower-experiences.git
+git clone https://github.com/digipower-academy/digipower-bubble-server.git
 ```
 
 You must use the correct version of node and npm to run the project (note that nvm for Windows may have a different syntax.)
@@ -29,7 +32,7 @@ nvm use
 
 Then install and build the bubble-server:
 ```sh
-cd hestialabs-bubble-server
+cd digipower-bubble-server
 # This line install Poetry, only needed if you don't have it already
 pip install poetry
 poetry install
@@ -38,7 +41,7 @@ poetry run pre-commit install
 
 Then install and build the packages:
 ```sh
-cd ../hestialabs-experiences/packages
+cd ../digipower-experiences/packages
 npm i
 npm run build
 npm run prepare

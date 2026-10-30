@@ -73,7 +73,7 @@
   },
   "tutorialVideos": [],
   "title": "Fitbit",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/fitbit.jpg",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/fitbit.jpg",
   "viewBlocks": [
     {
       "showTable": false,

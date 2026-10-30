@@ -1,7 +1,7 @@
 {
   "dataPortal": "https://www.linkedin.com/help/linkedin/answer/50191/downloading-your-account-data",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/linkedin.zip?contenthash=9a067fd4d08481359234&filename=linkedin.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/linkedin.zip?contenthash=9a067fd4d08481359234&filename=linkedin.zip"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": false,
@@ -208,7 +208,7 @@
   },
   "tutorialVideos": [],
   "title": "LinkedIn",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/linkedin.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/linkedin.png",
   "viewBlocks": [
     {
       "showTable": false,

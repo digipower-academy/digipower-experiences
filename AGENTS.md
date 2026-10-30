@@ -1,4 +1,4 @@
-# Working in hestialabs-experiences
+# Working in digipower-experiences
 
 Instructions for coding agents and new contributors. Read this before changing anything.
 
@@ -12,7 +12,7 @@ Instructions for coding agents and new contributors. Read this before changing a
 | `data-experience/` | Vue 2 component library that loads an export and renders an experience. Published as `@hestia.ai/data-experience`. Has the Jest and Playwright tests. |
 | `dc-dashboard/` | Vue 2 dashboard library (dc.js), used by the site. |
 | `experiences/` | Nuxt 2 static site that builds digipower.academy. `config/<name>.json` selects experiences and bubbles. |
-| `../hestialabs-bubble-server` | Separate repo: Django server storing encrypted submissions for bubbles. Needed only for bubble flows and the Playwright tests. |
+| `../digipower-bubble-server` | Separate repo: Django server storing encrypted submissions for bubbles. Needed only for bubble flows and the Playwright tests. |
 
 ## Setup and checks
 

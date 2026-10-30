@@ -1,6 +1,6 @@
 {
   "title": "Yoojo",
-  "icon": "https://raw.githubusercontent.com/digipower-academy/hestialabs-experiences/master/packages/lib/icons/yoojo.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/yoojo.png",
   "credits": "Developed by Serhii Moshtakov and Fabian Studer, students at <a href=\"https://www.fhnw.ch\" target=\"_blank\" rel=\"noopener noreferrer\">FHNW University of Applied Sciences and Arts Northwestern Switzerland</a>, with Prof. Anton Fedosov. Improved under the SPARK project “Participatory Methodology for AI Accountability in the Gig Economy” (Principal Investigator: Jessica Pidoux, University of Neuchâtel).",
   "messages": {
     "en": {
@@ -74,7 +74,7 @@
     }
   ],
   "dataSamples": [
-    "https://raw.githubusercontent.com/digipower-academy/hestialabs-experiences/master/packages/lib/data-samples/yoojo-sample.zip?contenthash=540b127f5a592687411c4352bef711c935ad41e226822e69ac42fe4d6a3855c6&filename=yoojo-sample.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/yoojo-sample.zip?contenthash=540b127f5a592687411c4352bef711c935ad41e226822e69ac42fe4d6a3855c6&filename=yoojo-sample.zip"
   ],
   "version": 1
 }
