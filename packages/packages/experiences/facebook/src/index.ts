@@ -4,6 +4,7 @@ import viewerOptions from './facebook-viewer.json'
 import viewerFunctions from './viewer-functions'
 import preprocessor from './preprocessor'
 import databaseConfig from './database'
+import { MESSENGER_FILE_ID, MESSENGER_GLOB } from './messenger'
 
 const loaderOptions: LoaderOptions = {
   viewerVersion: 1,
@@ -17,7 +18,8 @@ const loaderOptions: LoaderOptions = {
       '**/ads_information/advertisers_using_your_activity_or_information.json',
     'off-facebook-activity':
       '**/apps_and_websites_off_of_facebook/your_off-facebook_activity.json',
-    'ads-interests': '**/other_logged_information/ads_interests.json'
+    'ads-interests': '**/other_logged_information/ads_interests.json',
+    [MESSENGER_FILE_ID]: MESSENGER_GLOB
   },
   preprocessors: {
     '**/*.json': preprocessor

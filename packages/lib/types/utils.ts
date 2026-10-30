@@ -9,6 +9,8 @@ export type PipelineOutput = {
 }
 
 export abstract class FileManager {
+  abstract getFilePathsFromId(id: string): string[]
+  abstract getPreprocessedText(filePath: string): Promise<string>
   abstract getPreprocessedTextFromId(id: string): Promise<string[]>
   abstract getCsvItemsFromId(id: string): Promise<PipelineOutput[]>
 }
