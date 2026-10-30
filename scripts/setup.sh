@@ -10,7 +10,9 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-BUBBLE_SERVER_DIR="$ROOT_DIR/../hestialabs-bubble-server"
+BUBBLE_SERVER_DIR="$ROOT_DIR/../digipower-bubble-server"
+# Checkouts made before the repository was renamed
+[[ -d "$BUBBLE_SERVER_DIR" || ! -d "$ROOT_DIR/../hestialabs-bubble-server" ]] || BUBBLE_SERVER_DIR="$ROOT_DIR/../hestialabs-bubble-server"
 SITE=false
 BUBBLE=false
 CLEAN=false

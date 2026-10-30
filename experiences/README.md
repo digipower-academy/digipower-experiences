@@ -36,7 +36,7 @@ $ npm install
 npm run prepare
 ```
 
-5. Clone [hestialabs-bubble-server](https://github.com/hestiaAI/hestialabs-bubble-server), and install it as described in its README.md.
+5. Clone [digipower-bubble-server](https://github.com/digipower-academy/digipower-bubble-server), and install it as described in its README.md.
 
 6. to run experiences run `npm run dev`. This runs the three repos A tab should open in your browser and allow you to run the experiences. To run it without the bubble server and access our production server instead, run `API_URL=https://bubbles.hestialabs.org npm run dev:no-local-server`.
 
@@ -46,7 +46,7 @@ The instances are deployed on [netlify](https://app.netlify.com/teams/hestia/ove
 redirect-to-digipower-academy
 | Instance | [test.hestialabs.org](https://test.hestialabs.org/) | [digipower.academy](https://digipower.academy/) | [experiences.hestialabs.org](https://experiences.hestialabs.org/) | [digipower.hestialabs.org](https://digipower.hestialabs.org/) | [tfac.hestialabs.org](https://tfac.hestialabs.org/) |
 |:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|
-| branch | [netlify-test](https://github.com/hestiaAI/hestialabs-experiences/tree/netlify-test) | [netlify-academy](https://github.com/hestiaAI/hestialabs-experiences/tree/netlify-academy) | [redirect-to-digipower-academy](https://github.com/hestiaAI/hestialabs-experiences/tree/redirect-to-digipower-academy) | [redirect-to-digipower-academy](https://github.com/hestiaAI/hestialabs-experiences/tree/redirect-to-digipower-academy) | [redirect-to-digipower-academy](https://github.com/hestiaAI/hestialabs-experiences/tree/redirect-to-digipower-academy) |
+| branch | [netlify-test](https://github.com/digipower-academy/digipower-experiences/tree/netlify-test) | [netlify-academy](https://github.com/digipower-academy/digipower-experiences/tree/netlify-academy) | [redirect-to-digipower-academy](https://github.com/digipower-academy/digipower-experiences/tree/redirect-to-digipower-academy) | [redirect-to-digipower-academy](https://github.com/digipower-academy/digipower-experiences/tree/redirect-to-digipower-academy) | [redirect-to-digipower-academy](https://github.com/digipower-academy/digipower-experiences/tree/redirect-to-digipower-academy) |
 | netlify name | test-experiences | digipower.academy | hestia-experiences | digipower | tfac |
 | purpose | testing, typically with all features and experiences enabled | | | | |
 | config | `config/config.json` | `config/digipower-academy.json` | | | |
@@ -98,7 +98,7 @@ What the deployed site loads at runtime:
 - **Experiences listed in the config** are built into the site from this monorepo (`npm install` links them; it installs them from npm only when `NODE_ENV=production`). They need not be published to npm.
 - **Viewer options**: experiences listed under `experienceViewerOptions` in the config fetch their viewer JSON from that URL (the [experience-viewer-options](https://github.com/digipower-academy/experience-viewer-options) repo for digipower.academy). Experiences not listed there, such as `yoojo` and `uber-eats`, use the viewer JSON in their package. If you add an experience to that map, add its `<name>-viewer.json` to that repo first.
 - **Experiences a bubble uses but the site does not list** are loaded from jsDelivr (`https://cdn.jsdelivr.net/npm/@hestia.ai/<name>`), so they must be published to npm (see `packages/README.md`).
-- **Bubbles** are served by the bubble server at `API_URL`, deployed separately (see the [hestialabs-bubble-server](https://github.com/digipower-academy/hestialabs-bubble-server) README).
+- **Bubbles** are served by the bubble server at `API_URL`, deployed separately (see the [digipower-bubble-server](https://github.com/digipower-academy/digipower-bubble-server) README).
 
 `.gitlab-ci.yml` deploys only the `data-experience` dev app, not these sites.
 
@@ -189,9 +189,9 @@ We work with a version of npm more recent than the one shipped with the node LTS
 
 Is is possible to dynamically create graphic representation of the data. The can take the form of charts (hystograms, pie charts etc), maps with overlay, etc.
 
-Chart type are defined by files in [this directory](https://github.com/hestiaAI/hestialabs-experiences/tree/master/components/chart/view).
+Chart type are defined by files in [this directory](https://github.com/digipower-academy/digipower-experiences/tree/master/components/chart/view).
 The files use the [D3](https://vuejsexamples.com/tag/d3/) graphics and charts library on top of the [Vue framework](https://vuejs.org/).
 
-The charts are then available for use in [hestialabs](https://github.com/hestiaAI/hestialabs) experience packages. They are called in `blocks.ts` files. For instance, the [Netflix blocks.ts file](https://github.com/hestiaAI/hestialabs/blob/master/packages/experiences/netflix/src/blocks.ts) calls `ChartViewTimeSeries.vue` as defined in the file [ChartViewTimeSeries.vue](https://github.com/hestiaAI/hestialabs-experiences/blob/master/components/chart/view/ChartViewTimeSeries.vue).
+The charts are then available for use in [hestialabs](https://github.com/hestiaAI/hestialabs) experience packages. They are called in `blocks.ts` files. For instance, the [Netflix blocks.ts file](https://github.com/hestiaAI/hestialabs/blob/master/packages/experiences/netflix/src/blocks.ts) calls `ChartViewTimeSeries.vue` as defined in the file [ChartViewTimeSeries.vue](https://github.com/digipower-academy/digipower-experiences/blob/master/components/chart/view/ChartViewTimeSeries.vue).
 
 For debugging purposes, passing option `showTable: true` displays a text table representation of the data.

@@ -18,7 +18,7 @@ npm i -g "@hestia.ai/hestias-hearth"
 Run `hestias-hearth` script:
 
 ```bash
-hestias-hearth fire twitter -f "C:\Users\me\hestialabs-experiences\packages\lib\data-samples\twitter-small.zip"
+hestias-hearth fire twitter -f "C:\Users\me\digipower-experiences\packages\lib\data-samples\twitter-small.zip"
 ```
 
 ## Output
@@ -54,7 +54,7 @@ npm start -- <arguments>
 Example command:
 
 ```sh
-npm start -- fire twitter -f "C:\Users\me\hestialabs-experiences\packages\lib\data-samples\twitter-small.zip"
+npm start -- fire twitter -f "C:\Users\me\digipower-experiences\packages\lib\data-samples\twitter-small.zip"
 ```
 
 **Method 2:**
@@ -68,7 +68,7 @@ Run the Node.js script via the shell script:
 Example command:
 
 ```sh
-./bin/packages/packages/hestias-hearth/entry.sh fire twitter -f "C:\Users\me\hestialabs-experiences\packages\lib\data-samples\twitter-small.zip"
+./bin/packages/packages/hestias-hearth/entry.sh fire twitter -f "C:\Users\me\digipower-experiences\packages\lib\data-samples\twitter-small.zip"
 ```
 
 #### Generate the schema

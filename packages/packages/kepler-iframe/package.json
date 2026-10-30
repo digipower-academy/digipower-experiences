@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hestiaai/hestialabs-experiences.git",
+    "url": "git+https://github.com/digipower-academy/digipower-experiences.git",
     "directory": "packages/packages/kepler-iframe"
   },
   "author": "",
   "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/hestiaai/hestialabs-experiences/issues"
+    "url": "https://github.com/digipower-academy/digipower-experiences/issues"
   },
-  "homepage": "https://github.com/hestiaai/hestialabs-experiences#readme"
+  "homepage": "https://github.com/digipower-academy/digipower-experiences#readme"
 }

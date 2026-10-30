@@ -1,7 +1,7 @@
 {
   "collaborator": {
     "title": "The Eyeballs Collective",
-    "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/the-eyeballs.svg",
+    "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/the-eyeballs.svg",
     "url": "https://eyeballs.hestialabs.org/"
   },
   "dataSamples": [],
@@ -246,7 +246,7 @@
   },
   "tutorialVideos": [],
   "title": "Collective LinkedIn experience",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/linkedin.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/linkedin.png",
   "subtitle": "Unlock the power of Linkedin data",
   "viewBlocks": [
     {

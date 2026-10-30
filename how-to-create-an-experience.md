@@ -409,7 +409,7 @@ Change the address of your dataSamples in [wolt-viewer.json](packages/packages/e
 
 ``` json
   "dataSamples": [
-  "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/wolt.zip?contenthash=c03f3fb83b90ecaa150a&filename=wolt.zip"
+  "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/wolt.zip?contenthash=c03f3fb83b90ecaa150a&filename=wolt.zip"
   ],
 ```
 
@@ -431,7 +431,7 @@ Follow the documentation in the [packages README](packages/README.md#login-to-np
 ``` sh
 git push --set-upstream origin wolt-experience
 ```
-On github repo [hestialabs-experiences](https://github.com/hestiaAI/hestialabs-experiences/) go to your branch click on contribute and create a pull request.
+On github repo [digipower-experiences](https://github.com/digipower-academy/digipower-experiences/) go to your branch click on contribute and create a pull request.
 
 Wait until all the tests have passed, ask for a code review or not, and merge the pull request.
 
@@ -442,7 +442,7 @@ The website digipower.academy is built from subproject *experiences*. It imports
 For an experience to look nice on experiences, you want set a logo icon in [wolt-viewer.json](packages/packages/experiences/wolt/src/wolt-viewer.json), and republish the experience.
 
 As explained in the [packages README](packages/README.md#create-a-new-package),
-add the name of the new package to the `experiences` Array in [dev.json](https://github.com/hestiaAI/hestialabs-experiences/blob/master/experiences/config/dev.json).
+add the name of the new package to the `experiences` Array in [dev.json](https://github.com/digipower-academy/digipower-experiences/blob/master/experiences/config/dev.json).
 
 ``` sh
 cd ../data-experience
@@ -596,9 +596,9 @@ Create database-template-viewer.json from wolt. We change the visualization to u
   "hideEmptyTabs": true,
   "dataPortal": "https://example.com/en/isl/courier-privacy-policy",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/wolt.zip?contenthash=c03f3fb83b90ecaa150a&filename=wolt.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/wolt.zip?contenthash=c03f3fb83b90ecaa150a&filename=wolt.zip"
   ],
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/uber.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/uber.png",
   "viewBlocks": [
     {
       "id": "courierTasks",

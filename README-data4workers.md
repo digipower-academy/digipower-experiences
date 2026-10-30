@@ -131,7 +131,7 @@ nvm use
 Clone the project repository:
 
 ```bash
-git clone https://github.com/hestiaAI/hestialabs-experiences.git
+git clone https://github.com/digipower-academy/digipower-experiences.git
 ```
 
 Then install and build the packages:

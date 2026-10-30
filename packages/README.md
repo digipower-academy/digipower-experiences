@@ -100,7 +100,7 @@ This section explains how packages for experiences are created and updated. Simi
   "files": ["dist", "src/<NAME>-viewer.json"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hestiaai/hestialabs-experiences",
+    "url": "https://github.com/digipower-academy/digipower-experiences",
     "directory": "packages/packages/experiences/<NAME>"
   },
   "publishConfig": {
@@ -113,7 +113,7 @@ This section explains how packages for experiences are created and updated. Simi
 
 Replace `<NAME>` with the package name.
 
-4. Add the package name to the `experiences` Array in [dev.json](https://github.com/hestiaAI/hestialabs-experiences/blob/master/experiences/config/dev.json).
+4. Add the package name to the `experiences` Array in [dev.json](https://github.com/digipower-academy/digipower-experiences/blob/master/experiences/config/dev.json).
 
 5. Add an export statement for the package in [`packages.ts`](./packages.ts). This ensures [tests](./test.ts) are run for the package.
 

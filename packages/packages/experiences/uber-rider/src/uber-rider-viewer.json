@@ -5,9 +5,9 @@
   "hideEmptyTabs": true,
   "dataPortal": "https://myprivacy.uber.com/privacy/exploreyourdata/download",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/uber-driver-fr-paris.zip?contenthash=c03f3fb83b90ecaa150a&filename=uber-driver-fr-paris.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/uber-driver-fr-paris.zip?contenthash=c03f3fb83b90ecaa150a&filename=uber-driver-fr-paris.zip"
   ],
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/uber.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/uber.png",
   "messages": {
     "en": {
       "intro": {

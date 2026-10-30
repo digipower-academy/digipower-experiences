@@ -120,7 +120,7 @@
     },
     "dataPortalHtml": "In iOS 15.2, iPadOS 15.2, and watchOS 8.3 or later, users can view a privacy report of when your apps accesses certain kinds of user data, like photos and contacts or sensitive device resources, like the camera and microphone. You can also see when they contacts network domains, including websites that you visit from within your apps. Examine the data that your apps contributes to this summary to make sure that your app behaves as you expect. Once you receive it, analyze it here.<div style=\"margin: 1rem;\"><ul style=\"display: inline-block;\"><li align=\"left\">Go to the Settings app then choose <b>Privacy > App Privacy Report</b>.</li><li align=\"left\">Enable app activity recording on your device by tapping <b>Turn On App Privacy Report</b></li><li align=\"left\">Run your apps for a while</li><li align=\"left\">Download the report by tapping the <b>Share button</b> on the App Privacy Report screen</li><li align=\"left\">Drop the downloaded file below</li></ul></div>",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/apple-tracker.ndjson?contenthash=ffc0bae14b60435d936f&filename=apple-tracker.ndjson"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/apple-tracker.ndjson?contenthash=ffc0bae14b60435d936f&filename=apple-tracker.ndjson"
     ],
     "disabled": false,
     "files": {
@@ -309,7 +309,7 @@
     "dataPortal": "https://www.facebook.com/help/212802592074644",
     "dataPortalMessage": "<strong>Important:</strong> To make the experiment work, please request your data in <strong>JSON</strong> format.",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/facebook.zip?contenthash=9ebe7f31f91e24e87abd&filename=facebook.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/facebook.zip?contenthash=9ebe7f31f91e24e87abd&filename=facebook.zip"
     ],
     "disabled": false,
     "files": {
@@ -977,7 +977,7 @@
     "dataPortal": "https://takeout.google.com/settings/takeout",
     "dataPortalMessage": "<strong>Important:</strong> For the experiment to work, please click on <strong>\"deselect all\"</strong> and then select the following: <strong>\"Location History\"</strong><div>Once done you can click the blue \"Next Step\" button at the bottom of the page. This should queue your download",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/google-takeout.zip?contenthash=df64540e5e61160a0591&filename=google-takeout.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/google-takeout.zip?contenthash=df64540e5e61160a0591&filename=google-takeout.zip"
     ],
     "disabled": false,
     "files": {
@@ -1561,7 +1561,7 @@
     },
     "dataPortal": "https://weareher.com/privacy/",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/her.zip?contenthash=fc8c1cae013bd09047a6&filename=her.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/her.zip?contenthash=fc8c1cae013bd09047a6&filename=her.zip"
     ],
     "disabled": false,
     "files": {
@@ -2099,7 +2099,7 @@
     "dataPortal": "https://help.instagram.com/181231772500920",
     "dataPortalMessage": "<strong>Important:</strong> To make the experience work, please request your data in <strong>JSON</strong> format.",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/instagramV2.zip?contenthash=c03f3fb83b90ecaa150a&filename=instagramV2.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/instagramV2.zip?contenthash=c03f3fb83b90ecaa150a&filename=instagramV2.zip"
     ],
     "disabled": false,
     "files": {
@@ -2729,7 +2729,7 @@
     },
     "dataPortal": "https://www.linkedin.com/help/linkedin/answer/50191/downloading-your-account-data",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/linkedin.zip?contenthash=9a067fd4d08481359234&filename=linkedin.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/linkedin.zip?contenthash=9a067fd4d08481359234&filename=linkedin.zip"
     ],
     "disabled": false,
     "files": {
@@ -3030,7 +3030,7 @@
       ]
     },
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/netflix.zip?contenthash=a59583d957fa2e0081da&filename=netflix.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/netflix.zip?contenthash=a59583d957fa2e0081da&filename=netflix.zip"
     ],
     "disabled": false,
     "files": {
@@ -3524,7 +3524,7 @@
     "dataPortal": "https://support.tiktok.com/en/account-and-privacy/personalized-ads-and-data/requesting-your-data",
     "dataPortalMessage": "<strong>Important:</strong> To make the experiment work, please request your data in <strong>JSON</strong> format.",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/tiktok.zip?contenthash=3ff4f028df46e4815658&filename=tiktok.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/tiktok.zip?contenthash=3ff4f028df46e4815658&filename=tiktok.zip"
     ],
     "disabled": false,
     "files": {
@@ -3986,7 +3986,7 @@
     },
     "dataPortal": "https://account.gotinder.com/data",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/tinder.json?contenthash=3e158b8db4a8c9d5c7b4&filename=tinder.json"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/tinder.json?contenthash=3e158b8db4a8c9d5c7b4&filename=tinder.json"
     ],
     "disabled": false,
     "files": {
@@ -5679,7 +5679,7 @@
     },
     "dataPortalHtml": "Install and enable TrackerControl to monitor the behaviour of the apps on your Android phone, using <a href=\"https://github.com/hestiaAI/data-catalog/blob/main/workshop/install-and-enable-trackercontrol.md\" target=\"_blank\" rel=\"noreferrer noopener\" >these install instructions</a>. Once you have collected some data, export it (<a href=\"https://github.com/hestiaAI/data-catalog/blob/main/workshop/how-to-export-data-from-trackercontrol.md\" target=\"_blank\" rel=\"noreferrer noopener\" >export instructions here</a>) and analyze it here.",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/tracker-control.csv?contenthash=fd20437a40c53fb2749c&filename=tracker-control.csv"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/tracker-control.csv?contenthash=fd20437a40c53fb2749c&filename=tracker-control.csv"
     ],
     "disabled": false,
     "files": {
@@ -5951,8 +5951,8 @@
     },
     "dataPortal": "https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/twitter-small.zip?contenthash=c736a805d222d286962d&filename=twitter-small.zip",
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/twitter-large.zip?contenthash=635ec1966ca5584b8766&filename=twitter-large.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/twitter-small.zip?contenthash=c736a805d222d286962d&filename=twitter-small.zip",
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/twitter-large.zip?contenthash=635ec1966ca5584b8766&filename=twitter-large.zip"
     ],
     "disabled": false,
     "files": {
@@ -6848,7 +6848,7 @@
     },
     "dataPortal": "https://myprivacy.uber.com/privacy/exploreyourdata/download",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/uber.zip?contenthash=dee38ab158d7815be5ed&filename=uber.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/uber.zip?contenthash=dee38ab158d7815be5ed&filename=uber.zip"
     ],
     "disabled": false,
     "files": {
@@ -7181,7 +7181,7 @@
     },
     "dataPortal": "https://myprivacy.uber.com/privacy/exploreyourdata/download",
     "dataSamples": [
-      "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/uber-driver.zip?contenthash=15424ef7c615cd9fe36f&filename=uber-driver.zip"
+      "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/uber-driver.zip?contenthash=15424ef7c615cd9fe36f&filename=uber-driver.zip"
     ],
     "disabled": false,
     "files": {

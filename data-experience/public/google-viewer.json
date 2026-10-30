@@ -1,7 +1,7 @@
 {
   "dataPortal": "https://takeout.google.com/settings/takeout",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/google-takeout.zip?contenthash=df64540e5e61160a0591&filename=google-takeout.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/google-takeout.zip?contenthash=df64540e5e61160a0591&filename=google-takeout.zip"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": true,
@@ -242,7 +242,7 @@
   },
   "tutorialVideos": [],
   "title": "Google Takeout",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/google-takeout.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/google-takeout.png",
   "viewBlocks": [
     {
       "showTable": false,

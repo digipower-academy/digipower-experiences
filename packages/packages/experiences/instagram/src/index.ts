@@ -43,7 +43,7 @@ const loaderOptions: LoaderOptions = {
 //     '<strong>Important:</strong> To make the experience work, please request your data in <strong>JSON</strong> format.',
 //   dataSamples: [dataSample],
 //   // icon,
-//   icon: 'https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/a29ee41dca8d2d8aaf2e377e6422e820f66db1bd/packages/lib/icons/instagram.png',
+//   icon: 'https://raw.githubusercontent.com/digipower-academy/digipower-experiences/a29ee41dca8d2d8aaf2e377e6422e820f66db1bd/packages/lib/icons/instagram.png',
 //   hideFileExplorer: false,
 //   viewBlocks,
 //   messages
