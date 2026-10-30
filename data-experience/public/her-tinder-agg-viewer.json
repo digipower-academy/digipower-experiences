@@ -1,7 +1,7 @@
 {
   "collaborator": {
     "title": "The Dating Privacy Collective",
-    "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/dating-privacy-collective.svg",
+    "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/dating-privacy-collective.svg",
     "url": "https://dating-privacy.hestialabs.org/"
   },
   "dataSamples": [],
@@ -18,7 +18,7 @@
   },
   "tutorialVideos": [],
   "title": "Her + Tinder",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/tinder.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/tinder.png",
   "viewBlocks": [
     {
       "showTable": false,

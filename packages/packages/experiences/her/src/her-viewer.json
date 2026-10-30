@@ -1,12 +1,12 @@
 {
   "collaborator": {
     "title": "The Dating Privacy Collective",
-    "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/dating-privacy-collective.svg",
+    "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/dating-privacy-collective.svg",
     "url": "https://dating-privacy.hestialabs.org/"
   },
   "dataPortal": "https://weareher.com/privacy/",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/her.zip?contenthash=fc8c1cae013bd09047a6&filename=her.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/her.zip?contenthash=fc8c1cae013bd09047a6&filename=her.zip"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": true,
@@ -21,7 +21,7 @@
   },
   "tutorialVideos": [],
   "title": "HER",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/her.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/her.png",
   "viewBlocks": [
     {
       "showTable": false,

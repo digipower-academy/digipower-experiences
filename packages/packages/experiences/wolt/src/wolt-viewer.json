@@ -5,9 +5,9 @@
   "hideEmptyTabs": true,
   "dataPortal": "https://explore.wolt.com/en/isl/courier-privacy-policy",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/wolt.zip?contenthash=c03f3fb83b90ecaa150a&filename=wolt.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/wolt.zip?contenthash=c03f3fb83b90ecaa150a&filename=wolt.zip"
   ],
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/wolt.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/wolt.png",
   "viewBlocks": [
     {
       "id": "courierTasks",

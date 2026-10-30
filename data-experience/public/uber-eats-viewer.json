@@ -1,6 +1,6 @@
 {
   "title": "Uber Eats",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/ubereats.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/ubereats.png",
   "credits": "Developed by Serhii Moshtakov and Fabian Studer, students at <a href=\"https://www.fhnw.ch\" target=\"_blank\" rel=\"noopener noreferrer\">FHNW University of Applied Sciences and Arts Northwestern Switzerland</a>, with Prof. Anton Fedosov. Improved under the SPARK project “Participatory Methodology for AI Accountability in the Gig Economy” (Principal Investigator: Jessica Pidoux, University of Neuchâtel).",
   "messages": {
     "en": {
@@ -124,7 +124,7 @@
     }
   ],
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/uber-eats-sample.zip?contenthash=0631c1595fef379b2cfba284d4a74ab597f61923bcc3a585048e6928b5e4b314&filename=uber-eats-sample.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/uber-eats-sample.zip?contenthash=0631c1595fef379b2cfba284d4a74ab597f61923bcc3a585048e6928b5e4b314&filename=uber-eats-sample.zip"
   ],
   "dataPortal": "https://myprivacy.uber.com/privacy/exploreyourdata/download",
   "version": 1

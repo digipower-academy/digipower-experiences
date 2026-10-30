@@ -1,12 +1,12 @@
 {
   "collaborator": {
     "title": "The Dating Privacy Collective",
-    "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/dating-privacy-collective.svg",
+    "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/dating-privacy-collective.svg",
     "url": "https://dating-privacy.hestialabs.org/"
   },
   "dataPortal": "https://account.gotinder.com/data",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/tinder.json?contenthash=3e158b8db4a8c9d5c7b4&filename=tinder.json"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/tinder.json?contenthash=3e158b8db4a8c9d5c7b4&filename=tinder.json"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": true,
@@ -161,7 +161,7 @@
   },
   "tutorialVideos": [],
   "title": "Tinder",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/tinder.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/tinder.png",
   "viewBlocks": [
     {
       "showTable": false,

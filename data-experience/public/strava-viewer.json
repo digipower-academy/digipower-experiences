@@ -72,7 +72,7 @@
   },
   "tutorialVideos": [],
   "title": "Strava",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/strava.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/strava.png",
   "viewBlocks": [
     {
       "showTable": false,

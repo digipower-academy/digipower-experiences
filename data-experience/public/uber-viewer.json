@@ -1,7 +1,7 @@
 {
   "dataPortal": "https://myprivacy.uber.com/privacy/exploreyourdata/download",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/uber.zip?contenthash=0d805337d802fc857bc0&filename=uber.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/uber.zip?contenthash=0d805337d802fc857bc0&filename=uber.zip"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": true,
@@ -194,7 +194,7 @@
   },
   "tutorialVideos": [],
   "title": "Uber Rider",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/uber.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/uber.png",
   "subtitle": "Customer data",
   "viewBlocks": [
     {

@@ -11,7 +11,7 @@ import { ViewerFunctions } from './lib/types/experience-options'
 import { CustomPipeline } from './lib/types/view-block'
 const outputDir = 'viewer-opts'
 const iconUrlPrefix =
-  'https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons'
+  'https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons'
 
 function migrate(
   [name, experience]: [name: string, experience: Experience],

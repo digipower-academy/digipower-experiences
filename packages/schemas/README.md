@@ -5,7 +5,7 @@
 [`viewer/v1.json`](viewer/v1.json) is the JSON Schema (draft-07) for an experience's viewer options: `packages/packages/experiences/<name>/src/<name>-viewer.json`. It describes the tabs (view blocks), texts and translations that any renderer needs. Its stable URL is its `$id`:
 
 ```
-https://raw.githubusercontent.com/digipower-academy/hestialabs-experiences/master/packages/schemas/viewer/v1.json
+https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/schemas/viewer/v1.json
 ```
 
 `npm test` in `packages/` validates every viewer JSON against it (`validate-viewer.ts`). It also checks rules a schema can't express:
@@ -37,3 +37,4 @@ The viewer format has one integer version: `"version"` in each file, and `loader
 
 - **v1** (2026-10): first published schema, describing the format all 32 experiences already used.
 - **v1**, non-breaking (2026-10): optional `credits` (and `messages.<lang>.intro.credits`).
+- **v1**, non-breaking (2026-10): `$id` follows the repository rename (`hestialabs-experiences` → `digipower-experiences`); the old URL redirects.

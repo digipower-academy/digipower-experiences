@@ -1,6 +1,6 @@
 {
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/netflix.zip?contenthash=a59583d957fa2e0081da&filename=netflix.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/netflix.zip?contenthash=a59583d957fa2e0081da&filename=netflix.zip"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": true,
@@ -115,7 +115,7 @@
   },
   "tutorialVideos": [],
   "title": "Netflix",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/netflix.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/netflix.png",
   "viewBlocks": [
     {
       "showTable": false,

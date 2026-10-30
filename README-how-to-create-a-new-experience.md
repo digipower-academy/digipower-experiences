@@ -99,7 +99,7 @@ Generate the package metadata file at `packages/packages/experiences/my-experien
   "files": ["dist", "src/my-experience-viewer.json"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hestiaai/hestialabs-experiences",
+    "url": "https://github.com/digipower-academy/digipower-experiences",
     "directory": "packages/packages/experiences/my-experience"
   },
   "publishConfig": {
@@ -166,7 +166,7 @@ Create the viewer configuration file at `packages/packages/experiences/my-experi
 ```json
 {
   "title": "My Experience",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/my-icon.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/my-icon.png",
   "version": 1,
   "messages": {
     "en": {
@@ -192,7 +192,7 @@ Create the viewer configuration file at `packages/packages/experiences/my-experi
     }
   ],
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/my-experience-sample.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/my-experience-sample.zip"
   ],
   "dataPortal": "https://example.com/privacy/download"
 }

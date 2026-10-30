@@ -1,13 +1,13 @@
 {
   "collaborator": {
     "title": "The Eyeballs Collective",
-    "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/the-eyeballs.svg",
+    "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/the-eyeballs.svg",
     "url": "https://eyeballs.hestialabs.org/"
   },
   "dataPortal": "https://www.facebook.com/help/212802592074644",
   "dataPortalMessage": "<strong>Important:</strong> To make the experiment work, please request your data in <strong>JSON</strong> format.",
   "dataSamples": [
-    "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/data-samples/facebook.zip?contenthash=9ebe7f31f91e24e87abd&filename=facebook.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/facebook.zip?contenthash=9ebe7f31f91e24e87abd&filename=facebook.zip"
   ],
   "hideEmptyTabs": false,
   "hideFileExplorer": true,
@@ -174,7 +174,7 @@
   },
   "tutorialVideos": [],
   "title": "Facebook",
-  "icon": "https://raw.githubusercontent.com/hestiaAI/hestialabs-experiences/master/packages/lib/icons/facebook.png",
+  "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/facebook.png",
   "viewBlocks": [
     {
       "showTable": false,

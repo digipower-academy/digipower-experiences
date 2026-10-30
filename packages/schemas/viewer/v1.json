@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/digipower-academy/hestialabs-experiences/master/packages/schemas/viewer/v1.json",
+  "$id": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/schemas/viewer/v1.json",
   "title": "Experience viewer options, version 1",
   "description": "What a data experience shows: its tabs (view blocks), texts and translations. One file per experience: packages/packages/experiences/<name>/src/<name>-viewer.json. See packages/schemas/README.md for the versioning rules.",
   "type": "object",
