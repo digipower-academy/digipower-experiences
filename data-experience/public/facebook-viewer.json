@@ -222,7 +222,14 @@
               "folder_message_requests": "Invitations",
               "folder_archived_threads": "Archivés",
               "folder_legacy_threads": "Anciens",
-              "folder_e2ee_cutover": "Passés au chiffrement de bout en bout"
+              "folder_e2ee_cutover": "Passés au chiffrement de bout en bout",
+              "blackOut": "Noircir",
+              "blackOutHelp": "Cliquez sur une case, un titre de colonne ou le carré d'une ligne pour le noircir ; cliquez à nouveau pour l'afficher.",
+              "blackOutRow": "Noircir cette ligne",
+              "showAll": "Tout afficher",
+              "files": "Fichier",
+              "download": "Télécharger le fichier d'origine",
+              "hoverHelp": "Pointez une ligne pour voir où se trouve son fichier dans votre export."
             }
           }
         },
@@ -248,7 +255,14 @@
               "folder_message_requests": "Invitations",
               "folder_archived_threads": "Archivés",
               "folder_legacy_threads": "Anciens",
-              "folder_e2ee_cutover": "Passés au chiffrement de bout en bout"
+              "folder_e2ee_cutover": "Passés au chiffrement de bout en bout",
+              "blackOut": "Noircir",
+              "blackOutHelp": "Cliquez sur une case, un titre de colonne ou le carré d'une ligne pour le noircir ; cliquez à nouveau pour l'afficher.",
+              "blackOutRow": "Noircir cette ligne",
+              "showAll": "Tout afficher",
+              "files": "Fichier",
+              "download": "Télécharger le fichier d'origine",
+              "hoverHelp": "Pointez une ligne pour voir où se trouve son fichier dans votre export."
             }
           }
         },
@@ -266,7 +280,8 @@
               "last": "Dernier message",
               "deleted": "participant supprimé ou sans nom",
               "messages": "Messages",
-              "noData": "Aucune conversation Messenger avec un identifiant numérique n'a été trouvée dans cet export."
+              "noData": "Aucune conversation Messenger avec un identifiant numérique n'a été trouvée dans cet export.",
+              "files": "Fichier"
             }
           }
         }

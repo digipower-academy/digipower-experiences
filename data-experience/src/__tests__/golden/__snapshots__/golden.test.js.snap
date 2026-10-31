@@ -332,12 +332,13 @@ Object {
     "category",
     "title",
     "folder",
+    "files",
     "deletedParticipant",
     "messages",
     "first",
     "last",
   ],
-  "sha256": "8083f4bf7ade54f183d887ca96faeecc440650e3f574846ad70071cbf1da98df",
+  "sha256": "60e0ac7e66c51f83548011cb561476e1e35f784c6f004341481fb278d07e7a2a",
 }
 `;
 
@@ -542,6 +543,10 @@ Object {
         Object {
           "allEmpty": false,
           "empty": 0,
+          "files": Array [
+            "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_1.js…",
+            "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_2.js…",
+          ],
           "folder": "inbox",
           "format": "json",
           "geoblocked": 0,
@@ -553,6 +558,10 @@ Object {
         Object {
           "allEmpty": false,
           "empty": 0,
+          "files": Array [
+            "your_facebook_activity/messages/inbox/emmajones_10102289880000063/message_1.json",
+            "your_facebook_activity/messages/inbox/emmajones_10102289880000063/message_2.json",
+          ],
           "folder": "inbox",
           "format": "json",
           "geoblocked": 1,
@@ -564,6 +573,9 @@ Object {
         Object {
           "allEmpty": false,
           "empty": 1,
+          "files": Array [
+            "your_facebook_activity/messages/inbox/randonneedudimanche_1096618500000033/messa…",
+          ],
           "folder": "inbox",
           "format": "json",
           "geoblocked": 0,
@@ -590,7 +602,7 @@ Object {
     "summary",
     "conversations",
   ],
-  "sha256": "43cb142d4dba44c1a6e40ffdebcba5a0f0eee7c8ffb8ae3b01e0614154eea3ce",
+  "sha256": "1ccfc711d1c1f4282cf1f2cf63cb20f9c04b7cccb21a2ed5d74ffc0d42e414d4",
 }
 `;
 
@@ -601,6 +613,9 @@ Object {
     Object {
       "conversations": Array [
         Object {
+          "files": Array [
+            "your_facebook_activity/messages/inbox/utilisateuricefacebook_10101989430000023/m…",
+          ],
           "first": "2008-06-12T14:02:33.000Z",
           "folder": "inbox",
           "group": false,
@@ -613,6 +628,9 @@ Object {
           "title": "Utilisateur(ice) Facebook",
         },
         Object {
+          "files": Array [
+            "your_facebook_activity/messages/inbox/randonneedudimanche_1096618500000033/messa…",
+          ],
           "first": "2015-09-06T07:05:00.000Z",
           "folder": "inbox",
           "group": true,
@@ -663,7 +681,7 @@ Object {
     "conversations",
     "years",
   ],
-  "sha256": "9715792e6fc647735ce670d7047847134873c07e7dc4e4a7222711240214176b",
+  "sha256": "c9ad960cd9d46dd7b1f86536a5397f8c3241b82a95f5746fad98125eeb13bc06",
 }
 `;
 
@@ -674,6 +692,9 @@ Object {
     Object {
       "category": "shortId",
       "deletedParticipant": false,
+      "files": Array [
+        "your_facebook_activity/messages/archived_threads/david_5581460000/message_1.json",
+      ],
       "first": "2007-10-09T21:12:00.000Z",
       "folder": "archived_threads",
       "id": "5581460000",
@@ -685,6 +706,9 @@ Object {
     Object {
       "category": "group",
       "deletedParticipant": true,
+      "files": Array [
+        "your_facebook_activity/messages/inbox/randonneedudimanche_1096618500000033/messa…",
+      ],
       "first": "2015-09-06T07:00:00.000Z",
       "folder": "inbox",
       "id": "1096618500000033",
@@ -696,6 +720,9 @@ Object {
     Object {
       "category": "longId",
       "deletedParticipant": true,
+      "files": Array [
+        "your_facebook_activity/messages/inbox/utilisateuricefacebook_10101989430000023/m…",
+      ],
       "first": "2008-06-12T14:02:33.000Z",
       "folder": "inbox",
       "id": "10101989430000023",
@@ -711,12 +738,13 @@ Object {
     "category",
     "title",
     "folder",
+    "files",
     "deletedParticipant",
     "messages",
     "first",
     "last",
   ],
-  "sha256": "60be94dd1dd8405e36a774cbb9993de3dcee46e3fb1079d1628e1a6eb32d9830",
+  "sha256": "97e13fd91598f361fd2f8d8960f437ea4977f6ebc9b889d52ff7f2cf995f0f58",
 }
 `;
 
@@ -893,6 +921,9 @@ Object {
         Object {
           "allEmpty": false,
           "empty": 1,
+          "files": Array [
+            "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_1.ht…",
+          ],
           "folder": "inbox",
           "format": "html",
           "geoblocked": 0,
@@ -904,6 +935,9 @@ Object {
         Object {
           "allEmpty": false,
           "empty": 1,
+          "files": Array [
+            "your_facebook_activity/messages/inbox/randonneedudimanche_1096618500000033/messa…",
+          ],
           "folder": "inbox",
           "format": "html",
           "geoblocked": 0,
@@ -930,7 +964,7 @@ Object {
     "summary",
     "conversations",
   ],
-  "sha256": "2e051a777eaca71717af2f5f4ae2808b5f26617b800ef82256eaa17e60e6093d",
+  "sha256": "6138ac0e7bbaeb4091dfc806111eab063fda12f4695320723041f84be472c00c",
 }
 `;
 
@@ -941,6 +975,9 @@ Object {
     Object {
       "conversations": Array [
         Object {
+          "files": Array [
+            "your_facebook_activity/messages/inbox/utilisateuricefacebook_10101989430000023/m…",
+          ],
           "first": "2008-06-12T14:02:33.000Z",
           "folder": "inbox",
           "group": false,
@@ -953,6 +990,9 @@ Object {
           "title": "Utilisateur(ice) Facebook",
         },
         Object {
+          "files": Array [
+            "your_facebook_activity/messages/inbox/randonneedudimanche_1096618500000033/messa…",
+          ],
           "first": "2015-09-06T07:05:00.000Z",
           "folder": "inbox",
           "group": true,
@@ -1003,7 +1043,7 @@ Object {
     "conversations",
     "years",
   ],
-  "sha256": "9715792e6fc647735ce670d7047847134873c07e7dc4e4a7222711240214176b",
+  "sha256": "612266be0c0dd28399d183a69a069f4c6944f0224bb4cb8671cd008a0c5003ba",
 }
 `;
 
@@ -1014,6 +1054,9 @@ Object {
     Object {
       "category": "shortId",
       "deletedParticipant": false,
+      "files": Array [
+        "your_facebook_activity/messages/archived_threads/david_5581460000/message_1.html",
+      ],
       "first": "2007-10-09T21:12:00.000Z",
       "folder": "archived_threads",
       "id": "5581460000",
@@ -1025,6 +1068,9 @@ Object {
     Object {
       "category": "group",
       "deletedParticipant": true,
+      "files": Array [
+        "your_facebook_activity/messages/inbox/randonneedudimanche_1096618500000033/messa…",
+      ],
       "first": "2015-09-06T07:00:00.000Z",
       "folder": "inbox",
       "id": "1096618500000033",
@@ -1036,6 +1082,9 @@ Object {
     Object {
       "category": "longId",
       "deletedParticipant": true,
+      "files": Array [
+        "your_facebook_activity/messages/inbox/utilisateuricefacebook_10101989430000023/m…",
+      ],
       "first": "2008-06-12T14:02:33.000Z",
       "folder": "inbox",
       "id": "10101989430000023",
@@ -1051,12 +1100,13 @@ Object {
     "category",
     "title",
     "folder",
+    "files",
     "deletedParticipant",
     "messages",
     "first",
     "last",
   ],
-  "sha256": "60be94dd1dd8405e36a774cbb9993de3dcee46e3fb1079d1628e1a6eb32d9830",
+  "sha256": "dda767777ff8f8bc2b82ff105899e097c1412e52f3d91f4244cbb983d44ad53c",
 }
 `;
 

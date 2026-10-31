@@ -17,20 +17,12 @@
       </VAlert>
 
       <ViewCard class="mt-3" :title="msg('conversationsTitle')">
-        <VDataTable
+        <RedactableTable
           v-if="conversations.length"
           :headers="tableHeaders"
           :items="conversations"
-          :items-per-page="10"
-          dense
-        >
-          <template #[`item.folder`]="{ item }">
-            {{ msg(`folder_${item.folder}`) || item.folder }}
-          </template>
-          <template #[`item.format`]="{ item }">
-            {{ item.format.toUpperCase() }}
-          </template>
-        </VDataTable>
+          :messages="messages"
+        />
         <p v-else class="text--secondary mb-0">
           {{ msg('none') }}
         </p>
@@ -42,6 +34,7 @@
 <script>
 import mixin from '@/components/chart/view/mixin'
 import KpiTiles from '../shared/KpiTiles.vue'
+import RedactableTable from '../shared/RedactableTable.vue'
 import ViewCard from '../shared/ViewCard.vue'
 import { fill, formatNumber } from './messenger'
 
@@ -68,7 +61,7 @@ const DEFAULT_MESSAGES = {
 
 export default {
   name: 'MessengerAnomalies',
-  components: { KpiTiles, ViewCard },
+  components: { KpiTiles, RedactableTable, ViewCard },
   mixins: [mixin],
   computed: {
     locale() {
@@ -107,8 +100,8 @@ export default {
     tableHeaders() {
       return [
         { text: this.msg('conversation'), value: 'title' },
-        { text: this.msg('folder'), value: 'folder' },
-        { text: this.msg('format'), value: 'format' },
+        { text: this.msg('folder'), value: 'folder', format: folder => this.msg(`folder_${folder}`) || folder },
+        { text: this.msg('format'), value: 'format', format: format => format.toUpperCase() },
         { text: this.msg('messages'), value: 'messages', align: 'end' },
         { text: this.msg('empty'), value: 'empty', align: 'end' },
         { text: this.msg('unsent'), value: 'unsent', align: 'end' },

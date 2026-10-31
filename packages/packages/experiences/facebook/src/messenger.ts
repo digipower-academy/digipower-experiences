@@ -36,6 +36,8 @@ type Thread = {
   isGroup: boolean
   owner: string | null
   messages: Message[]
+  // paths of the conversation's files in the export, to find them again
+  files: string[]
 }
 
 // Labels Facebook uses for deleted or unavailable accounts, lowercase
@@ -313,10 +315,12 @@ async function readThreads(fileManager: FileManager): Promise<Thread[]> {
         participants: [],
         isGroup: false,
         owner: null,
-        messages: []
+        messages: [],
+        files: []
       }
       threads.set(location.key, thread)
     }
+    thread.files.push(path)
     let text: string
     try {
       text = await fileManager.getPreprocessedText(path)
@@ -358,8 +362,15 @@ async function readThreads(fileManager: FileManager): Promise<Thread[]> {
     }
     thread.owner = thread.owner ?? owner
     thread.messages.sort(byTimestamp)
+    thread.files.sort(byChunkNumber)
   }
   return list.sort((a, b) => a.key.localeCompare(b.key))
+}
+
+// message_2.json before message_10.json
+function byChunkNumber(a: string, b: string) {
+  const n = (path: string) => Number(/message_(\d+)\.\w+$/.exec(path)?.[1] ?? 0)
+  return n(a) - n(b) || a.localeCompare(b)
 }
 
 // undated messages last
@@ -517,6 +528,7 @@ export async function messenger_deleted_accounts({
         title: thread.title,
         folder: thread.folder,
         id: thread.numericId,
+        files: thread.files,
         group: thread.isGroup,
         participants: thread.participants.length,
         messages: thread.messages.length,
@@ -572,6 +584,7 @@ export async function messenger_anomalies({
       title: thread.title,
       folder: thread.folder,
       id: thread.numericId,
+      files: thread.files,
       format: thread.format,
       messages: thread.messages.length,
       empty,
@@ -639,6 +652,7 @@ export async function messenger_ids({
           : 'shortId',
         title: thread.title,
         folder: thread.folder,
+        files: thread.files,
         deletedParticipant: placeholderParticipants(thread) > 0,
         messages: thread.messages.length,
         ...firstLast(thread.messages)
@@ -653,6 +667,7 @@ export async function messenger_ids({
       'category',
       'title',
       'folder',
+      'files',
       'deletedParticipant',
       'messages',
       'first',
