@@ -22,6 +22,11 @@ async function run(inputFiles) {
   return outputs
 }
 
+// pipeline output without the file paths of its rows
+function withoutFiles(value) {
+  return JSON.parse(JSON.stringify(value, (key, v) => (key === 'files' ? undefined : v)))
+}
+
 function sample(name) {
   return new NodeFile(name, readFileSync(resolve(samplesDir, name)))
 }
@@ -48,8 +53,17 @@ describe('facebook – Messenger tabs', () => {
     expect(html['messenger-overview'].items[0].summary).toEqual({ ...overview, jsonConversations: 0, htmlConversations: 8 })
     expect(html['messenger-overview'].items[0].years).toEqual(json['messenger-overview'].items[0].years)
     expect(html['messenger-overview'].items[0].folders).toEqual(json['messenger-overview'].items[0].folders)
-    expect(html['messenger-deleted-accounts']).toEqual(json['messenger-deleted-accounts'])
-    expect(html['messenger-ids']).toEqual(json['messenger-ids'])
+    // same rows, apart from the files they come from
+    expect(withoutFiles(html['messenger-deleted-accounts'])).toEqual(withoutFiles(json['messenger-deleted-accounts']))
+    expect(withoutFiles(html['messenger-ids'])).toEqual(withoutFiles(json['messenger-ids']))
+    // JSON: message_1.json … message_N.json; HTML: one message_1.html per conversation
+    expect(html['messenger-ids'].items.map(row => row.files)).toEqual(
+      json['messenger-ids'].items.map(row => [row.files[0].replace(/\.json$/, '.html')])
+    )
+    expect(json['messenger-ids'].items.find(row => row.title === 'Emma Jones').files).toEqual([
+      'your_facebook_activity/messages/inbox/emmajones_10102289880000063/message_1.json',
+      'your_facebook_activity/messages/inbox/emmajones_10102289880000063/message_2.json'
+    ])
 
     expect(json['messenger-anomalies'].items[0].summary).toMatchObject({ emptyJson: 1, unsent: 1, geoblocked: 1 })
     // HTML: the unsent message has no text, so it counts as empty; no unsent or geoblocked flags

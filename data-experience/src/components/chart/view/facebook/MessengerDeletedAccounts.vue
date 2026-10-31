@@ -16,28 +16,14 @@
       </ViewCard>
 
       <ViewCard class="mt-3" :title="msg('conversationsTitle')" :info="msg('labelNote')">
-        <VDataTable
+        <RedactableTable
           v-if="conversations.length"
           :headers="tableHeaders"
           :items="conversations"
-          :items-per-page="10"
+          :messages="messages"
           sort-by="theirMessages"
           sort-desc
-          dense
-        >
-          <template #[`item.group`]="{ item }">
-            {{ item.group ? msg('group') : msg('oneToOne') }}
-          </template>
-          <template #[`item.folder`]="{ item }">
-            {{ msg(`folder_${item.folder}`) || item.folder }}
-          </template>
-          <template #[`item.first`]="{ item }">
-            {{ date(item.first) }}
-          </template>
-          <template #[`item.last`]="{ item }">
-            {{ date(item.last) }}
-          </template>
-        </VDataTable>
+        />
         <p v-else class="text--secondary mb-0">
           {{ msg('none') }}
         </p>
@@ -50,6 +36,7 @@
 import VueApexCharts from 'vue-apexcharts'
 import mixin from '@/components/chart/view/mixin'
 import KpiTiles from '../shared/KpiTiles.vue'
+import RedactableTable from '../shared/RedactableTable.vue'
 import ViewCard from '../shared/ViewCard.vue'
 import { formatDate, formatNumber } from './messenger'
 
@@ -80,7 +67,7 @@ const DEFAULT_MESSAGES = {
 
 export default {
   name: 'MessengerDeletedAccounts',
-  components: { ApexChart: VueApexCharts, KpiTiles, ViewCard },
+  components: { ApexChart: VueApexCharts, KpiTiles, RedactableTable, ViewCard },
   mixins: [mixin],
   computed: {
     locale() {
@@ -110,13 +97,13 @@ export default {
     tableHeaders() {
       return [
         { text: this.msg('conversation'), value: 'title' },
-        { text: this.msg('kind'), value: 'group' },
-        { text: this.msg('folder'), value: 'folder' },
+        { text: this.msg('kind'), value: 'group', format: group => (group ? this.msg('group') : this.msg('oneToOne')) },
+        { text: this.msg('folder'), value: 'folder', format: folder => this.msg(`folder_${folder}`) || folder },
         { text: this.msg('theirMessages'), value: 'theirMessages', align: 'end' },
         { text: this.msg('withText'), value: 'theirMessagesWithText', align: 'end' },
         { text: this.msg('messages'), value: 'messages', align: 'end' },
-        { text: this.msg('first'), value: 'first' },
-        { text: this.msg('last'), value: 'last' }
+        { text: this.msg('first'), value: 'first', format: this.date },
+        { text: this.msg('last'), value: 'last', format: this.date }
       ]
     },
     series() {
