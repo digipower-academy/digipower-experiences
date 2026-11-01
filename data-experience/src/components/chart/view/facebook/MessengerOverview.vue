@@ -21,14 +21,16 @@
             <tr>
               <th>{{ msg('folder') }}</th>
               <th class="text-right">{{ msg('conversations') }}</th>
-              <th class="text-right">{{ msg('messages') }}</th>
+              <th class="text-right">{{ msg('sent') }}</th>
+              <th class="text-right">{{ msg('received') }}</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="row in folders" :key="row.folder">
               <td>{{ folderLabel(row.folder) }}</td>
               <td class="text-right">{{ number(row.conversations) }}</td>
-              <td class="text-right">{{ number(row.messages) }}</td>
+              <td class="text-right">{{ number(row.sent) }}</td>
+              <td class="text-right">{{ number(row.received) }}</td>
             </tr>
           </tbody>
         </VSimpleTable>

@@ -458,6 +458,12 @@ function formats(threads: Thread[]) {
   }
 }
 
+// the account holder's own messages, and everyone else's
+function split(thread: Thread, messages: Message[] = thread.messages) {
+  const yours = messages.filter(m => m.sender === thread.owner).length
+  return { yours, others: messages.length - yours }
+}
+
 function placeholderParticipants(thread: Thread) {
   return thread.participants.filter(isPlaceholderName).length
 }
@@ -473,11 +479,22 @@ export async function messenger_overview({
     t.messages.map(m => ({ ...m, sent: m.sender === t.owner }))
   )
   const sent = messages.filter(m => m.sent).length
-  const folders = new Map<string, { conversations: number; messages: number }>()
+  const folders = new Map<
+    string,
+    { conversations: number; messages: number; sent: number; received: number }
+  >()
   for (const thread of threads) {
-    const row = folders.get(thread.folder) ?? { conversations: 0, messages: 0 }
+    const row = folders.get(thread.folder) ?? {
+      conversations: 0,
+      messages: 0,
+      sent: 0,
+      received: 0
+    }
+    const { yours, others } = split(thread)
     row.conversations += 1
     row.messages += thread.messages.length
+    row.sent += yours
+    row.received += others
     folders.set(thread.folder, row)
   }
   return {
@@ -532,6 +549,7 @@ export async function messenger_deleted_accounts({
         group: thread.isGroup,
         participants: thread.participants.length,
         messages: thread.messages.length,
+        yourMessages: split(thread).yours,
         theirMessages: theirs.length,
         theirMessagesWithText: theirs.filter(m => m.textLength > 0).length,
         ...firstLast(theirs)
@@ -553,6 +571,7 @@ export async function messenger_deleted_accounts({
           affected: affected.length,
           oneToOne: affected.filter(t => !t.isGroup).length,
           groups: affected.filter(t => t.isGroup).length,
+          yourMessages: conversations.reduce((n, c) => n + c.yourMessages, 0),
           theirMessages: theirs.length,
           theirMessagesWithText: theirs.filter(m => m.textLength > 0).length,
           withTheirMessages: conversations.filter(c => c.theirMessages > 0)
@@ -579,24 +598,47 @@ export async function messenger_anomalies({
 }) {
   const threads = await getThreads(fileManager)
   const rows = threads.map(thread => {
-    const empty = thread.messages.filter(m => m.isEmpty).length
+    const count = (filter: (m: Message) => boolean) => {
+      const { yours, others } = split(thread, thread.messages.filter(filter))
+      return { total: yours + others, yours, others }
+    }
+    const messages = count(() => true)
+    const empty = count(m => m.isEmpty)
+    const unsent = count(m => m.isUnsent)
+    const geoblocked = count(m => m.isGeoblocked)
     return {
       title: thread.title,
       folder: thread.folder,
       id: thread.numericId,
       files: thread.files,
       format: thread.format,
-      messages: thread.messages.length,
-      empty,
-      allEmpty: thread.messages.length > 0 && empty === thread.messages.length,
-      unsent: thread.messages.filter(m => m.isUnsent).length,
-      geoblocked: thread.messages.filter(m => m.isGeoblocked).length
+      messages: messages.total,
+      messagesYours: messages.yours,
+      messagesOthers: messages.others,
+      empty: empty.total,
+      emptyYours: empty.yours,
+      emptyOthers: empty.others,
+      allEmpty: messages.total > 0 && empty.total === messages.total,
+      unsent: unsent.total,
+      unsentYours: unsent.yours,
+      unsentOthers: unsent.others,
+      geoblocked: geoblocked.total,
+      geoblockedYours: geoblocked.yours,
+      geoblockedOthers: geoblocked.others
     }
   })
-  const sum = (
-    key: 'messages' | 'empty' | 'unsent' | 'geoblocked',
-    format: Format
-  ) =>
+  type CountKey =
+    | 'messages'
+    | 'empty'
+    | 'emptyYours'
+    | 'emptyOthers'
+    | 'unsent'
+    | 'unsentYours'
+    | 'unsentOthers'
+    | 'geoblocked'
+    | 'geoblockedYours'
+    | 'geoblockedOthers'
+  const sum = (key: CountKey, format: Format) =>
     rows
       .filter(r => r.format === format)
       .reduce((total, r) => total + r[key], 0)
@@ -610,9 +652,15 @@ export async function messenger_anomalies({
           htmlMessages: sum('messages', 'html'),
           emptyJson: sum('empty', 'json'),
           emptyHtml: sum('empty', 'html'),
+          emptyYours: sum('emptyYours', 'json') + sum('emptyYours', 'html'),
+          emptyOthers: sum('emptyOthers', 'json') + sum('emptyOthers', 'html'),
           allEmpty: rows.filter(r => r.allEmpty).length,
           unsent: sum('unsent', 'json'),
-          geoblocked: sum('geoblocked', 'json')
+          unsentYours: sum('unsentYours', 'json'),
+          unsentOthers: sum('unsentOthers', 'json'),
+          geoblocked: sum('geoblocked', 'json'),
+          geoblockedYours: sum('geoblockedYours', 'json'),
+          geoblockedOthers: sum('geoblockedOthers', 'json')
         },
         conversations: rows
           .filter(r => r.empty || r.unsent || r.geoblocked)
@@ -655,6 +703,8 @@ export async function messenger_ids({
         files: thread.files,
         deletedParticipant: placeholderParticipants(thread) > 0,
         messages: thread.messages.length,
+        sent: split(thread).yours,
+        received: split(thread).others,
         ...firstLast(thread.messages)
       }
     })
@@ -670,6 +720,8 @@ export async function messenger_ids({
       'files',
       'deletedParticipant',
       'messages',
+      'sent',
+      'received',
       'first',
       'last'
     ],

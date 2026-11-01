@@ -47,6 +47,8 @@ const DEFAULT_MESSAGES = {
   last: 'Last message',
   deleted: 'deleted or unnamed participant',
   messages: 'Messages',
+  sent: 'sent',
+  received: 'received',
   files: 'File',
   noData: 'No Messenger conversations with a numeric ID were found in this export.'
 }
@@ -115,7 +117,8 @@ export default {
               `ID ${escapeHtml(row.id)}<br>` +
               `${escapeHtml(msg('files'))}: <code>${escapeHtml((row.files || []).join(', '))}</code><br>` +
               `${escapeHtml(formatDate(row.first, locale))} – ${escapeHtml(formatDate(row.last, locale))}` +
-              ` · ${escapeHtml(msg('messages'))}: ${escapeHtml(formatNumber(row.messages, locale))}${deleted}</div>`
+              ` · ${escapeHtml(msg('messages'))}: ${escapeHtml(formatNumber(row.sent, locale))} ${escapeHtml(msg('sent'))}, ` +
+              `${escapeHtml(formatNumber(row.received, locale))} ${escapeHtml(msg('received'))}${deleted}</div>`
           }
         }
       }

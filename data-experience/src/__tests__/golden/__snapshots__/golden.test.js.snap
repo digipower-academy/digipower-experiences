@@ -278,12 +278,18 @@ Object {
         "allEmpty": 0,
         "emptyHtml": 0,
         "emptyJson": 0,
+        "emptyOthers": 0,
+        "emptyYours": 0,
         "geoblocked": 0,
+        "geoblockedOthers": 0,
+        "geoblockedYours": 0,
         "htmlConversations": 0,
         "htmlMessages": 0,
         "jsonConversations": 0,
         "jsonMessages": 0,
         "unsent": 0,
+        "unsentOthers": 0,
+        "unsentYours": 0,
       },
     },
   ],
@@ -291,7 +297,7 @@ Object {
     "summary",
     "conversations",
   ],
-  "sha256": "05bfdc1c973083e3f60cf39849c504d19934577e8029b36738d21064f812101c",
+  "sha256": "fc912a8bfb43c81d4c94f128327e299cee33cb436fea41db85190fba8202470d",
 }
 `;
 
@@ -309,6 +315,7 @@ Object {
         "theirMessages": 0,
         "theirMessagesWithText": 0,
         "withTheirMessages": 0,
+        "yourMessages": 0,
       },
       "years": Array [],
     },
@@ -318,7 +325,7 @@ Object {
     "conversations",
     "years",
   ],
-  "sha256": "5de07531b387de913ed89a2b300a9627e0ecf94d797d3d9c52efa568e3eb0642",
+  "sha256": "e4e25f6b8968c7cbb808a579182c9e6c2b316549632ba49f2669afd1c9c09737",
 }
 `;
 
@@ -335,10 +342,12 @@ Object {
     "files",
     "deletedParticipant",
     "messages",
+    "sent",
+    "received",
     "first",
     "last",
   ],
-  "sha256": "60e0ac7e66c51f83548011cb561476e1e35f784c6f004341481fb278d07e7a2a",
+  "sha256": "27dbf391aafa50d7bd31b89e94be03999ea90a3f387c94e8e413c8a722a4c1b6",
 }
 `;
 
@@ -543,6 +552,8 @@ Object {
         Object {
           "allEmpty": false,
           "empty": 0,
+          "emptyOthers": 0,
+          "emptyYours": 0,
           "files": Array [
             "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_1.js…",
             "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_2.js…",
@@ -550,14 +561,22 @@ Object {
           "folder": "inbox",
           "format": "json",
           "geoblocked": 0,
+          "geoblockedOthers": 0,
+          "geoblockedYours": 0,
           "id": "10102289880000013",
           "messages": 7,
+          "messagesOthers": 4,
+          "messagesYours": 3,
           "title": "Alice Martin",
           "unsent": 1,
+          "unsentOthers": 1,
+          "unsentYours": 0,
         },
         Object {
           "allEmpty": false,
           "empty": 0,
+          "emptyOthers": 0,
+          "emptyYours": 0,
           "files": Array [
             "your_facebook_activity/messages/inbox/emmajones_10102289880000063/message_1.json",
             "your_facebook_activity/messages/inbox/emmajones_10102289880000063/message_2.json",
@@ -565,36 +584,56 @@ Object {
           "folder": "inbox",
           "format": "json",
           "geoblocked": 1,
+          "geoblockedOthers": 1,
+          "geoblockedYours": 0,
           "id": "10102289880000063",
           "messages": 8,
+          "messagesOthers": 4,
+          "messagesYours": 4,
           "title": "Emma Jones",
           "unsent": 0,
+          "unsentOthers": 0,
+          "unsentYours": 0,
         },
         Object {
           "allEmpty": false,
           "empty": 1,
+          "emptyOthers": 1,
+          "emptyYours": 0,
           "files": Array [
             "your_facebook_activity/messages/inbox/randonneedudimanche_1096618500000033/messa…",
           ],
           "folder": "inbox",
           "format": "json",
           "geoblocked": 0,
+          "geoblockedOthers": 0,
+          "geoblockedYours": 0,
           "id": "1096618500000033",
           "messages": 5,
+          "messagesOthers": 4,
+          "messagesYours": 1,
           "title": "Randonnée du dimanche",
           "unsent": 0,
+          "unsentOthers": 0,
+          "unsentYours": 0,
         },
       ],
       "summary": Object {
         "allEmpty": 0,
         "emptyHtml": 0,
         "emptyJson": 1,
+        "emptyOthers": 1,
+        "emptyYours": 0,
         "geoblocked": 1,
+        "geoblockedOthers": 1,
+        "geoblockedYours": 0,
         "htmlConversations": 0,
         "htmlMessages": 0,
         "jsonConversations": 8,
         "jsonMessages": 31,
         "unsent": 1,
+        "unsentOthers": 1,
+        "unsentYours": 0,
       },
     },
   ],
@@ -602,7 +641,7 @@ Object {
     "summary",
     "conversations",
   ],
-  "sha256": "1ccfc711d1c1f4282cf1f2cf63cb20f9c04b7cccb21a2ed5d74ffc0d42e414d4",
+  "sha256": "6e5a2a23918422a094ca800ac2f674b959abf7e7aba26d3fc11aaaa7c39ec38f",
 }
 `;
 
@@ -626,6 +665,7 @@ Object {
           "theirMessages": 3,
           "theirMessagesWithText": 3,
           "title": "Utilisateur(ice) Facebook",
+          "yourMessages": 1,
         },
         Object {
           "files": Array [
@@ -641,6 +681,7 @@ Object {
           "theirMessages": 2,
           "theirMessagesWithText": 2,
           "title": "Randonnée du dimanche",
+          "yourMessages": 1,
         },
       ],
       "summary": Object {
@@ -651,6 +692,7 @@ Object {
         "theirMessages": 5,
         "theirMessagesWithText": 5,
         "withTheirMessages": 2,
+        "yourMessages": 2,
       },
       "years": Array [
         Object {
@@ -681,7 +723,7 @@ Object {
     "conversations",
     "years",
   ],
-  "sha256": "c9ad960cd9d46dd7b1f86536a5397f8c3241b82a95f5746fad98125eeb13bc06",
+  "sha256": "e756ecf72af66d0bfc92833ccec2f69136aa7132cbe2c26ded6827faefb6fb71",
 }
 `;
 
@@ -701,6 +743,8 @@ Object {
       "idNumber": 5581460000,
       "last": "2007-10-10T08:03:00.000Z",
       "messages": 2,
+      "received": 1,
+      "sent": 1,
       "title": "David",
     },
     Object {
@@ -715,6 +759,8 @@ Object {
       "idNumber": 1096618500000033,
       "last": "2015-12-20T10:00:00.000Z",
       "messages": 5,
+      "received": 4,
+      "sent": 1,
       "title": "Randonnée du dimanche",
     },
     Object {
@@ -729,6 +775,8 @@ Object {
       "idNumber": 10101989430000024,
       "last": "2010-08-30T19:30:00.000Z",
       "messages": 4,
+      "received": 3,
+      "sent": 1,
       "title": "Utilisateur(ice) Facebook",
     },
   ],
@@ -741,10 +789,12 @@ Object {
     "files",
     "deletedParticipant",
     "messages",
+    "sent",
+    "received",
     "first",
     "last",
   ],
-  "sha256": "97e13fd91598f361fd2f8d8960f437ea4977f6ebc9b889d52ff7f2cf995f0f58",
+  "sha256": "49fc217811c9f4e6b146d69a2ff36df7f2537e7ec640d968c89190f9629a20dc",
 }
 `;
 
@@ -758,26 +808,36 @@ Object {
           "conversations": 4,
           "folder": "inbox",
           "messages": 24,
+          "received": 15,
+          "sent": 9,
         },
         Object {
           "conversations": 1,
           "folder": "archived_threads",
           "messages": 2,
+          "received": 1,
+          "sent": 1,
         },
         Object {
           "conversations": 1,
           "folder": "e2ee_cutover",
           "messages": 2,
+          "received": 1,
+          "sent": 1,
         },
         Object {
           "conversations": 1,
           "folder": "filtered_threads",
           "messages": 2,
+          "received": 2,
+          "sent": 0,
         },
         Object {
           "conversations": 1,
           "folder": "message_requests",
           "messages": 1,
+          "received": 1,
+          "sent": 0,
         },
       ],
       "summary": Object {
@@ -826,7 +886,7 @@ Object {
     "folders",
     "years",
   ],
-  "sha256": "f37ae7d4d7993cecdb6f9ebf06013c40b58ba02bf19e9223bca1ad69ee09d130",
+  "sha256": "a1bda866576fedaf12657f56a4b361ffec66eb5058374d0fcbed6a693523ac8e",
 }
 `;
 
@@ -921,42 +981,64 @@ Object {
         Object {
           "allEmpty": false,
           "empty": 1,
+          "emptyOthers": 1,
+          "emptyYours": 0,
           "files": Array [
             "your_facebook_activity/messages/inbox/alicemartin_10102289880000013/message_1.ht…",
           ],
           "folder": "inbox",
           "format": "html",
           "geoblocked": 0,
+          "geoblockedOthers": 0,
+          "geoblockedYours": 0,
           "id": "10102289880000013",
           "messages": 7,
+          "messagesOthers": 4,
+          "messagesYours": 3,
           "title": "Alice Martin",
           "unsent": 0,
+          "unsentOthers": 0,
+          "unsentYours": 0,
         },
         Object {
           "allEmpty": false,
           "empty": 1,
+          "emptyOthers": 1,
+          "emptyYours": 0,
           "files": Array [
             "your_facebook_activity/messages/inbox/randonneedudimanche_1096618500000033/messa…",
           ],
           "folder": "inbox",
           "format": "html",
           "geoblocked": 0,
+          "geoblockedOthers": 0,
+          "geoblockedYours": 0,
           "id": "1096618500000033",
           "messages": 5,
+          "messagesOthers": 4,
+          "messagesYours": 1,
           "title": "Randonnée du dimanche",
           "unsent": 0,
+          "unsentOthers": 0,
+          "unsentYours": 0,
         },
       ],
       "summary": Object {
         "allEmpty": 0,
         "emptyHtml": 2,
         "emptyJson": 0,
+        "emptyOthers": 2,
+        "emptyYours": 0,
         "geoblocked": 0,
+        "geoblockedOthers": 0,
+        "geoblockedYours": 0,
         "htmlConversations": 8,
         "htmlMessages": 31,
         "jsonConversations": 0,
         "jsonMessages": 0,
         "unsent": 0,
+        "unsentOthers": 0,
+        "unsentYours": 0,
       },
     },
   ],
@@ -964,7 +1046,7 @@ Object {
     "summary",
     "conversations",
   ],
-  "sha256": "6138ac0e7bbaeb4091dfc806111eab063fda12f4695320723041f84be472c00c",
+  "sha256": "2b7b97002643ec48b4b8adc90de63f8f09e6219b3d14f93067effc13b2e3b356",
 }
 `;
 
@@ -988,6 +1070,7 @@ Object {
           "theirMessages": 3,
           "theirMessagesWithText": 3,
           "title": "Utilisateur(ice) Facebook",
+          "yourMessages": 1,
         },
         Object {
           "files": Array [
@@ -1003,6 +1086,7 @@ Object {
           "theirMessages": 2,
           "theirMessagesWithText": 2,
           "title": "Randonnée du dimanche",
+          "yourMessages": 1,
         },
       ],
       "summary": Object {
@@ -1013,6 +1097,7 @@ Object {
         "theirMessages": 5,
         "theirMessagesWithText": 5,
         "withTheirMessages": 2,
+        "yourMessages": 2,
       },
       "years": Array [
         Object {
@@ -1043,7 +1128,7 @@ Object {
     "conversations",
     "years",
   ],
-  "sha256": "612266be0c0dd28399d183a69a069f4c6944f0224bb4cb8671cd008a0c5003ba",
+  "sha256": "59d76af6dc66c01c24ca0ca67340a3263f83f10c686f2879f3fb780f6a318f83",
 }
 `;
 
@@ -1063,6 +1148,8 @@ Object {
       "idNumber": 5581460000,
       "last": "2007-10-10T08:03:00.000Z",
       "messages": 2,
+      "received": 1,
+      "sent": 1,
       "title": "David",
     },
     Object {
@@ -1077,6 +1164,8 @@ Object {
       "idNumber": 1096618500000033,
       "last": "2015-12-20T10:00:00.000Z",
       "messages": 5,
+      "received": 4,
+      "sent": 1,
       "title": "Randonnée du dimanche",
     },
     Object {
@@ -1091,6 +1180,8 @@ Object {
       "idNumber": 10101989430000024,
       "last": "2010-08-30T19:30:00.000Z",
       "messages": 4,
+      "received": 3,
+      "sent": 1,
       "title": "Utilisateur(ice) Facebook",
     },
   ],
@@ -1103,10 +1194,12 @@ Object {
     "files",
     "deletedParticipant",
     "messages",
+    "sent",
+    "received",
     "first",
     "last",
   ],
-  "sha256": "dda767777ff8f8bc2b82ff105899e097c1412e52f3d91f4244cbb983d44ad53c",
+  "sha256": "676c6a4de39ede4698d678ba6356396c868f49c383525bc6d6f0aa74a68f27b1",
 }
 `;
 
@@ -1120,26 +1213,36 @@ Object {
           "conversations": 4,
           "folder": "inbox",
           "messages": 24,
+          "received": 15,
+          "sent": 9,
         },
         Object {
           "conversations": 1,
           "folder": "archived_threads",
           "messages": 2,
+          "received": 1,
+          "sent": 1,
         },
         Object {
           "conversations": 1,
           "folder": "e2ee_cutover",
           "messages": 2,
+          "received": 1,
+          "sent": 1,
         },
         Object {
           "conversations": 1,
           "folder": "filtered_threads",
           "messages": 2,
+          "received": 2,
+          "sent": 0,
         },
         Object {
           "conversations": 1,
           "folder": "message_requests",
           "messages": 1,
+          "received": 1,
+          "sent": 0,
         },
       ],
       "summary": Object {
@@ -1188,7 +1291,7 @@ Object {
     "folders",
     "years",
   ],
-  "sha256": "c3c751972b4be34512694a04c7d401f9b7f54469c92b236edfbe83df52620fa1",
+  "sha256": "bc03a4304974fe88ff5ef682cbc6b38abed3b1645e69cdc983c39a4112c837bc",
 }
 `;
 
