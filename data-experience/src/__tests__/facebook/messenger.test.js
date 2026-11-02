@@ -10,16 +10,20 @@ import { getCustomPipelineFromBlock } from '~/utils/test-utils'
 const { preprocessors, files, keepOnlyFiles } = experience.options
 const samplesDir = resolve(__dirname, '../../../../packages/lib/data-samples')
 
-const BLOCKS = ['messenger-overview', 'messenger-deleted-accounts', 'messenger-anomalies', 'messenger-ids']
+// the Messenger tab's sections, under the names of the tabs they used to be
+const SECTIONS = {
+  'messenger-overview': 'overview',
+  'messenger-deleted-accounts': 'deletedAccounts',
+  'messenger-anomalies': 'anomalies',
+  'messenger-ids': 'ids'
+}
 
 async function run(inputFiles) {
   const fileManager = new FileManager(preprocessors, null, files, keepOnlyFiles)
   await fileManager.init(inputFiles)
-  const outputs = {}
-  for (const id of BLOCKS) {
-    outputs[id] = await getCustomPipelineFromBlock(experience, id)({ fileManager })
-  }
-  return outputs
+  const { headers, items } = await getCustomPipelineFromBlock(experience, 'messenger')({ fileManager })
+  expect(headers).toEqual(Object.values(SECTIONS))
+  return Object.fromEntries(Object.entries(SECTIONS).map(([name, key]) => [name, items[0][key]]))
 }
 
 // pipeline output without the file paths of its rows
@@ -42,7 +46,12 @@ function htmlPage(title, sections, owner = 'Sam Owner', generated = 'Generated b
 const htmlMessage = (sender, content, date) =>
   `<section class="_a6-g"><h2>${sender}</h2><div>${content}</div><footer><div>${date}</div></footer></section>`
 
-describe('facebook – Messenger tabs', () => {
+describe('facebook – Messenger tab', () => {
+  test('is the first tab of the experience', () => {
+    expect(experience.options.viewBlocks.map(block => block.id)[0]).toBe('messenger')
+    expect(experience.options.viewBlocks.filter(block => block.id.startsWith('messenger'))).toHaveLength(1)
+  })
+
   test('the JSON and HTML samples give the same results, except for flags only JSON has', async() => {
     const json = await run([sample('facebook-messenger.zip')])
     const html = await run([sample('facebook-messenger-html.zip')])
