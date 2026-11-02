@@ -728,3 +728,17 @@ export async function messenger_ids({
     items
   }
 }
+
+/** The Messenger tab: its four sections, computed from the same parsed conversations. */
+export async function messenger(params: { fileManager: FileManager }) {
+  const [overview, deletedAccounts, anomalies, ids] = await Promise.all([
+    messenger_overview(params),
+    messenger_deleted_accounts(params),
+    messenger_anomalies(params),
+    messenger_ids(params)
+  ])
+  return {
+    headers: ['overview', 'deletedAccounts', 'anomalies', 'ids'],
+    items: [{ overview, deletedAccounts, anomalies, ids }]
+  }
+}
