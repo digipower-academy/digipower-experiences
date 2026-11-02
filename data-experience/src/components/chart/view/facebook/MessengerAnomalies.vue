@@ -5,6 +5,9 @@
     </p>
     <template v-else>
       <KpiTiles class="mt-3" :items="kpis" />
+      <p class="text-caption text--secondary mt-1 mb-0">
+        {{ msg('splitNote') }}
+      </p>
 
       <VAlert
         v-if="summary.htmlConversations"
@@ -16,7 +19,7 @@
         {{ htmlNote }}
       </VAlert>
 
-      <ViewCard class="mt-3" :title="msg('conversationsTitle')">
+      <ViewCard class="mt-3" :title="msg('conversationsTitle')" :subtitle="msg('splitNote')">
         <RedactableTable
           v-if="conversations.length"
           :headers="tableHeaders"
@@ -43,6 +46,7 @@ const DEFAULT_MESSAGES = {
   allEmpty: 'Conversations with only empty messages',
   unsent: 'Unsent messages',
   geoblocked: 'Geo-blocked messages',
+  splitNote: 'Each count reads: your messages / other people\'s.',
   htmlNote: 'Of these conversations, {html} come from an HTML export. HTML exports do not record unsent or geo-blocked messages, and cannot tell an empty message from a missing one: for them, "empty" counts the {emptyHtml} messages with neither text nor attachment.',
   conversationsTitle: 'Conversations with empty, unsent or geo-blocked messages',
   conversation: 'Conversation',
@@ -83,12 +87,12 @@ export default {
     kpis() {
       const s = this.summary
       // JSON-only flags: not available when the whole export is HTML
-      const jsonOnly = value => (s.jsonConversations ? this.number(value) : '–')
+      const jsonOnly = value => (s.jsonConversations ? value : '–')
       return [
-        { label: this.msg('empty'), value: this.number(s.emptyJson + s.emptyHtml) },
+        { label: this.msg('empty'), value: this.pair(s.emptyYours, s.emptyOthers) },
         { label: this.msg('allEmpty'), value: this.number(s.allEmpty) },
-        { label: this.msg('unsent'), value: jsonOnly(s.unsent) },
-        { label: this.msg('geoblocked'), value: jsonOnly(s.geoblocked) }
+        { label: this.msg('unsent'), value: jsonOnly(this.pair(s.unsentYours, s.unsentOthers)) },
+        { label: this.msg('geoblocked'), value: jsonOnly(this.pair(s.geoblockedYours, s.geoblockedOthers)) }
       ]
     },
     htmlNote() {
@@ -102,10 +106,13 @@ export default {
         { text: this.msg('conversation'), value: 'title' },
         { text: this.msg('folder'), value: 'folder', format: folder => this.msg(`folder_${folder}`) || folder },
         { text: this.msg('format'), value: 'format', format: format => format.toUpperCase() },
-        { text: this.msg('messages'), value: 'messages', align: 'end' },
-        { text: this.msg('empty'), value: 'empty', align: 'end' },
-        { text: this.msg('unsent'), value: 'unsent', align: 'end' },
-        { text: this.msg('geoblocked'), value: 'geoblocked', align: 'end' }
+        // each count: yours / others' (sorted by the total)
+        ...['messages', 'empty', 'unsent', 'geoblocked'].map(key => ({
+          text: this.msg(key),
+          value: key,
+          align: 'end',
+          format: (total, item) => this.pair(item[`${key}Yours`], item[`${key}Others`])
+        }))
       ]
     }
   },
@@ -115,6 +122,10 @@ export default {
     },
     number(value) {
       return formatNumber(value, this.locale)
+    },
+    // "2 / 5": the account holder's messages, then everyone else's
+    pair(yours, others) {
+      return `${this.number(yours)} / ${this.number(others)}`
     }
   }
 }

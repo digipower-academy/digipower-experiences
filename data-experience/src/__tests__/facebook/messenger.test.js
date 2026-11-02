@@ -10,16 +10,20 @@ import { getCustomPipelineFromBlock } from '~/utils/test-utils'
 const { preprocessors, files, keepOnlyFiles } = experience.options
 const samplesDir = resolve(__dirname, '../../../../packages/lib/data-samples')
 
-const BLOCKS = ['messenger-overview', 'messenger-deleted-accounts', 'messenger-anomalies', 'messenger-ids']
+// the Messenger tab's sections, under the names of the tabs they used to be
+const SECTIONS = {
+  'messenger-overview': 'overview',
+  'messenger-deleted-accounts': 'deletedAccounts',
+  'messenger-anomalies': 'anomalies',
+  'messenger-ids': 'ids'
+}
 
 async function run(inputFiles) {
   const fileManager = new FileManager(preprocessors, null, files, keepOnlyFiles)
   await fileManager.init(inputFiles)
-  const outputs = {}
-  for (const id of BLOCKS) {
-    outputs[id] = await getCustomPipelineFromBlock(experience, id)({ fileManager })
-  }
-  return outputs
+  const { headers, items } = await getCustomPipelineFromBlock(experience, 'messenger')({ fileManager })
+  expect(headers).toEqual(Object.values(SECTIONS))
+  return Object.fromEntries(Object.entries(SECTIONS).map(([name, key]) => [name, items[0][key]]))
 }
 
 // pipeline output without the file paths of its rows
@@ -42,7 +46,12 @@ function htmlPage(title, sections, owner = 'Sam Owner', generated = 'Generated b
 const htmlMessage = (sender, content, date) =>
   `<section class="_a6-g"><h2>${sender}</h2><div>${content}</div><footer><div>${date}</div></footer></section>`
 
-describe('facebook – Messenger tabs', () => {
+describe('facebook – Messenger tab', () => {
+  test('is the first tab of the experience', () => {
+    expect(experience.options.viewBlocks.map(block => block.id)[0]).toBe('messenger')
+    expect(experience.options.viewBlocks.filter(block => block.id.startsWith('messenger'))).toHaveLength(1)
+  })
+
   test('the JSON and HTML samples give the same results, except for flags only JSON has', async() => {
     const json = await run([sample('facebook-messenger.zip')])
     const html = await run([sample('facebook-messenger-html.zip')])
@@ -67,7 +76,9 @@ describe('facebook – Messenger tabs', () => {
 
     expect(json['messenger-anomalies'].items[0].summary).toMatchObject({ emptyJson: 1, unsent: 1, geoblocked: 1 })
     // HTML: the unsent message has no text, so it counts as empty; no unsent or geoblocked flags
-    expect(html['messenger-anomalies'].items[0].summary).toMatchObject({ emptyHtml: 2, unsent: 0, geoblocked: 0 })
+    expect(html['messenger-anomalies'].items[0].summary).toMatchObject({
+      emptyHtml: 2, emptyYours: 0, emptyOthers: 2, unsent: 0, geoblocked: 0
+    })
   })
 
   test('the sample covers the cases the tabs are about', async() => {
@@ -85,10 +96,24 @@ describe('facebook – Messenger tabs', () => {
       affected: 2,
       oneToOne: 1,
       groups: 1,
+      yourMessages: 2,
       theirMessages: 5,
       theirMessagesWithText: 5,
       withTheirMessages: 2
     })
+    // the account holder's messages and everyone else's, counted apart
+    const folders = json['messenger-overview'].items[0].folders
+    expect(folders.find(row => row.folder === 'inbox')).toEqual({
+      folder: 'inbox', conversations: 4, messages: 24, sent: 9, received: 15
+    })
+    expect(folders.reduce((n, row) => n + row.sent, 0)).toBe(11)
+    expect(json['messenger-anomalies'].items[0].summary).toMatchObject({
+      emptyYours: 0, emptyOthers: 1, unsentYours: 0, unsentOthers: 1, geoblockedYours: 0, geoblockedOthers: 1
+    })
+    expect(json['messenger-anomalies'].items[0].conversations.find(row => row.title === 'Alice Martin')).toMatchObject({
+      messagesYours: 3, messagesOthers: 4, unsentYours: 0, unsentOthers: 1
+    })
+    expect(json['messenger-ids'].items.find(row => row.title === 'Emma Jones')).toMatchObject({ sent: 4, received: 4 })
     expect(json['messenger-ids'].items.map(row => [row.id, row.category])).toEqual([
       ['5581460000', 'shortId'],
       ['1096618500000033', 'group'],
