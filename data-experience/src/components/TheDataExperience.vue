@@ -143,6 +143,9 @@
               </VContainer>
             </template>
           </VWindowItem>
+          <VWindowItem v-else-if="id === 'export-data' && fileManager" :value="id" disabled>
+            <UnitExporter />
+          </VWindowItem>
           <VWindowItem v-else-if="id === 'share-data'" :value="id" disabled>
             <UnitConsentForm />
           </VWindowItem>
@@ -203,6 +206,7 @@ import UnitPipeline from '@/components/unit/UnitPipeline.vue'
 import UnitSummary from '@/components/unit/UnitSummary.vue'
 import SettingsSpeedDial from '@/components/misc/SettingsSpeedDial.vue'
 import UnitConsentForm from '@/components/unit/consent-form/UnitConsentForm.vue'
+import UnitExporter from '@/components/unit/exporter/UnitExporter.vue'
 
 import vuetifyEn from 'vuetify/lib/locale/en'
 import vuetifyFr from 'vuetify/lib/locale/fr'
@@ -255,7 +259,8 @@ export default {
     UnitIntroduction,
     UnitPipeline,
     UnitSummary,
-    UnitConsentForm
+    UnitConsentForm,
+    UnitExporter
   },
   props: {
     experienceModule: {
@@ -334,6 +339,12 @@ export default {
         id: 'understand-data',
         mdiIcon: 'mdiChartBar'
       })
+      if (!this.experienceConfig.hideExporter) {
+        windows.push({
+          id: 'export-data',
+          mdiIcon: 'mdiExport'
+        })
+      }
       if (this.consentForm) {
         windows.push({
           id: 'share-data',

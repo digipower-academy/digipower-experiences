@@ -40,6 +40,7 @@
     },
     "hideEmptyTabs": { "type": "boolean" },
     "hideFileExplorer": { "type": "boolean" },
+    "hideExporter": { "type": "boolean" },
     "hideSummary": { "type": "boolean" },
     "dataSamples": {
       "description": "Sample exports people can try the experience with.",
