@@ -20,20 +20,15 @@
       </VAlert>
 
       <ViewCard class="mt-3" :title="msg('conversationsTitle')" :subtitle="msg('tableNote')">
-        <template #actions>
-          <VSwitch
-            v-model="showOthersAllEmpty"
-            :label="msg('othersAllEmpty')"
-            class="mt-0 pt-0"
-            dense
-            hide-details
-          />
-        </template>
+        <!-- empty conversations first; the column's arrow puts them last -->
         <RedactableTable
           v-if="conversations.length"
           :headers="tableHeaders"
           :items="conversations"
           :messages="messages"
+          sort-by="othersAllEmpty"
+          sort-desc
+          must-sort
         />
         <p v-else class="text--secondary mb-0">
           {{ msg('none') }}
@@ -87,9 +82,6 @@ export default {
   name: 'MessengerAnomalies',
   components: { KpiTiles, RedactableTable, ViewCard },
   mixins: [mixin],
-  data() {
-    return { showOthersAllEmpty: true }
-  },
   computed: {
     locale() {
       return this.$i18n?.locale || 'en'
@@ -129,14 +121,12 @@ export default {
         { text: this.msg('conversation'), value: 'title' },
         { text: this.msg('folder'), value: 'folder', format: folder => this.msg(`folder_${folder}`) || folder },
         { text: this.msg('format'), value: 'format', format: format => format.toUpperCase() },
-        ...(this.showOthersAllEmpty
-          ? [{
-              text: this.msg('othersAllEmpty'),
-              title: this.msg('othersAllEmptyHelp'),
-              value: 'othersAllEmpty',
-              format: empty => (empty ? this.msg('yes') : this.msg('no'))
-            }]
-          : []),
+        {
+          text: this.msg('othersAllEmpty'),
+          title: this.msg('othersAllEmptyHelp'),
+          value: 'othersAllEmpty',
+          format: empty => (empty ? this.msg('yes') : this.msg('no'))
+        },
         // each kind of message: two sortable columns, yours and other people's, under one title
         ...['messages', 'empty', 'unsent', 'geoblocked'].flatMap(key => [
           { text: this.msg('yours'), value: `${key}Yours`, align: 'end', class: 'count', cellClass: 'count', group: this.msg(`group_${key}`) },

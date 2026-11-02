@@ -24,7 +24,7 @@ function read(blob) {
   })
 }
 
-function setup({ results = {} } = {}) {
+function setup({ results = {}, exportOptions = {} } = {}) {
   const pipelines = {
     first: jest.fn(async() => ({ headers: ['a'], items: [{ a: 1 }, { a: 2 }] })),
     nested: jest.fn(async() => ({ headers: ['x', 'y'], items: [{ x: { n: 1 }, y: [{ b: 2 }] }] })),
@@ -37,7 +37,7 @@ function setup({ results = {} } = {}) {
         state: () => ({
           experienceConfig: {
             slug: 'demo',
-            viewBlocks: Object.keys(pipelines).map(id => ({ id, title: `Tab ${id}`, customPipeline: pipelines[id] }))
+            viewBlocks: Object.keys(pipelines).map(id => ({ id, title: `Tab ${id}`, customPipeline: pipelines[id], ...exportOptions[id] }))
           },
           fileManager: {},
           currentDB: null,
@@ -101,6 +101,23 @@ describe('UnitExporter', () => {
     await checkbox(wrapper, 'Tab nested').trigger('click')
     await flush()
     expect(pipelines.nested).toHaveBeenCalledTimes(1)
+  })
+
+  test('leaves out the tables a tab excludes from the export, in the view and in the ZIP', async() => {
+    const { wrapper } = setup({ exportOptions: { nested: { exportExclude: ['y'] } } })
+    await checkbox(wrapper, 'Tab nested').trigger('click')
+    await flush()
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findAll('.v-card table')).toHaveLength(1)
+    expect(wrapper.vm.outputs.nested.tables.map(t => t.path.join('/'))).toEqual(['x'])
+
+    await wrapper.find('button').trigger('click')
+    await new Promise(resolve => setTimeout(resolve, 50))
+    const zip = await JSZip.loadAsync(await read(downloads[0].blob))
+    expect(Object.keys(zip.files).filter(name => !name.endsWith('/'))).toEqual([
+      'export.json', '02-nested/result.json', '02-nested/01-x.csv'
+    ])
+    expect(JSON.parse(await zip.file('02-nested/result.json').async('string')).items[0]).toEqual({ x: { n: 1 } })
   })
 
   test('uses the result of a tab that was already opened', async() => {
