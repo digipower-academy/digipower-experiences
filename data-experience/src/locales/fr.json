@@ -117,6 +117,15 @@
   "understand-data": {
     "name": "Comprendre vos données"
   },
+  "export-data": {
+    "name": "Exporter vos données",
+    "title": "Exporter vos résultats",
+    "intro": "Choisissez les onglets dont vous voulez garder les résultats. Ils s'affichent ci-dessous sous forme de tableaux, et se téléchargent dans un fichier ZIP avec, pour chaque onglet, ses résultats (JSON) et ses tableaux (CSV). Le fichier est créé dans votre navigateur : rien n'est envoyé.",
+    "download": "Télécharger les onglets choisis (ZIP)",
+    "noneSelected": "Aucun onglet choisi.",
+    "error": "Cet onglet n'a pas pu être calculé :",
+    "empty": "Cet onglet n'a pas de résultats pour vos données."
+  },
   "share-data": {
     "name": "Partager vos données"
   },

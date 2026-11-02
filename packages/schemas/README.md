@@ -38,3 +38,4 @@ The viewer format has one integer version: `"version"` in each file, and `loader
 - **v1** (2026-10): first published schema, describing the format all 32 experiences already used.
 - **v1**, non-breaking (2026-10): optional `credits` (and `messages.<lang>.intro.credits`).
 - **v1**, non-breaking (2026-10): `$id` follows the repository rename (`hestialabs-experiences` → `digipower-experiences`); the old URL redirects.
+- **v1**, non-breaking (2026-11): optional `hideExporter`, to hide the Export step.
