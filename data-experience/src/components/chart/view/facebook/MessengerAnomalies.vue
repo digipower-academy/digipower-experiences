@@ -19,7 +19,16 @@
         {{ htmlNote }}
       </VAlert>
 
-      <ViewCard class="mt-3" :title="msg('conversationsTitle')" :subtitle="msg('splitNote')">
+      <ViewCard class="mt-3" :title="msg('conversationsTitle')" :subtitle="msg('tableNote')">
+        <template #actions>
+          <VSwitch
+            v-model="showOthersAllEmpty"
+            :label="msg('othersAllEmpty')"
+            class="mt-0 pt-0"
+            dense
+            hide-details
+          />
+        </template>
         <RedactableTable
           v-if="conversations.length"
           :headers="tableHeaders"
@@ -47,6 +56,17 @@ const DEFAULT_MESSAGES = {
   unsent: 'Unsent messages',
   geoblocked: 'Geo-blocked messages',
   splitNote: 'Each count reads: your messages / other people\'s.',
+  tableNote: 'For each kind of message, yours and other people\'s are counted in two columns.',
+  yours: 'You',
+  others: 'Others',
+  group_messages: 'Messages',
+  group_empty: 'Empty',
+  group_unsent: 'Unsent',
+  group_geoblocked: 'Geo-blocked',
+  othersAllEmpty: 'Empty conversation?',
+  othersAllEmptyHelp: 'Yes when every message from other people in this conversation is empty, whatever yours contain.',
+  yes: 'Yes',
+  no: 'No',
   htmlNote: 'Of these conversations, {html} come from an HTML export. HTML exports do not record unsent or geo-blocked messages, and cannot tell an empty message from a missing one: for them, "empty" counts the {emptyHtml} messages with neither text nor attachment.',
   conversationsTitle: 'Conversations with empty, unsent or geo-blocked messages',
   conversation: 'Conversation',
@@ -67,6 +87,9 @@ export default {
   name: 'MessengerAnomalies',
   components: { KpiTiles, RedactableTable, ViewCard },
   mixins: [mixin],
+  data() {
+    return { showOthersAllEmpty: true }
+  },
   computed: {
     locale() {
       return this.$i18n?.locale || 'en'
@@ -106,13 +129,19 @@ export default {
         { text: this.msg('conversation'), value: 'title' },
         { text: this.msg('folder'), value: 'folder', format: folder => this.msg(`folder_${folder}`) || folder },
         { text: this.msg('format'), value: 'format', format: format => format.toUpperCase() },
-        // each count: yours / others' (sorted by the total)
-        ...['messages', 'empty', 'unsent', 'geoblocked'].map(key => ({
-          text: this.msg(key),
-          value: key,
-          align: 'end',
-          format: (total, item) => this.pair(item[`${key}Yours`], item[`${key}Others`])
-        }))
+        ...(this.showOthersAllEmpty
+          ? [{
+              text: this.msg('othersAllEmpty'),
+              title: this.msg('othersAllEmptyHelp'),
+              value: 'othersAllEmpty',
+              format: empty => (empty ? this.msg('yes') : this.msg('no'))
+            }]
+          : []),
+        // each kind of message: two sortable columns, yours and other people's, under one title
+        ...['messages', 'empty', 'unsent', 'geoblocked'].flatMap(key => [
+          { text: this.msg('yours'), value: `${key}Yours`, align: 'end', class: 'count', cellClass: 'count', group: this.msg(`group_${key}`) },
+          { text: this.msg('others'), value: `${key}Others`, align: 'end', class: 'count', cellClass: 'count', group: this.msg(`group_${key}`) }
+        ])
       ]
     }
   },
@@ -130,3 +159,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* eight count columns: less padding so that they fit next to each other */
+.messenger-anomalies >>> .count {
+  padding: 0 8px !important;
+}
+</style>

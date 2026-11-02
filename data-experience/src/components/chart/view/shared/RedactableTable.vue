@@ -32,6 +32,29 @@
       dense
       @mouseleave.native="hovered = null"
     >
+      <!-- a row above the column titles, for columns that share a group -->
+      <template v-if="groups" #header="{ isMobile }">
+        <thead v-if="!isMobile" class="group-header">
+          <tr>
+            <th
+              v-for="(group, i) in groups"
+              :key="`group-${i}`"
+              :colspan="group.columns.length"
+              :class="{ 'group-start': group.text }"
+              class="text-center"
+            >
+              <span
+                v-if="group.text"
+                :class="{ 'redact-target': redacting }"
+                @click="redacting && toggleGroup(group)"
+              >
+                {{ group.text }}
+              </span>
+            </th>
+          </tr>
+        </thead>
+      </template>
+
       <template
         v-for="header in headers"
         #[`header.${header.value}`]="{}"
@@ -39,7 +62,8 @@
         <span
           :key="`header-${header.value}`"
           :class="{ 'redact-target': redacting }"
-          @click.stop="redacting && toggle(columns, header.value)"
+          :title="header.title"
+          @click="onHeaderClick($event, header.value)"
         >
           {{ header.text }}
           <VIcon v-if="redacting" x-small class="redact-control">
@@ -132,7 +156,9 @@ const DEFAULT_MESSAGES = {
 export default {
   name: 'RedactableTable',
   props: {
-    // Vuetify headers; a header can have format(value, item) for its cells
+    // Vuetify headers; a header can have format(value, item) for its cells,
+    // title (a tooltip) and group: consecutive columns of the same group share
+    // a title in a row above theirs
     headers: {
       type: Array,
       required: true
@@ -180,7 +206,36 @@ export default {
     tableHeaders() {
       const control = { text: '', value: '_row', sortable: false, width: 1 }
       const files = { text: '', value: '_files', sortable: false, width: 1 }
-      return [...(this.redacting ? [control] : []), ...this.headers, files]
+      // on phones Vuetify shows each row as a card labelled with the column titles,
+      // without the group row: there, a title also names its group
+      const mobile = (this.$vuetify?.breakpoint?.width ?? Infinity) < 600
+      const headers = this.headers.map((header, i) => {
+        if (mobile && header.group) {
+          header = { ...header, text: `${header.group} · ${header.text}` }
+        }
+        const starts = header.group && header.group !== this.headers[i - 1]?.group
+        const add = (classes, name) => [classes, name].filter(Boolean).join(' ')
+        return starts
+          ? { ...header, class: add(header.class, 'group-start'), cellClass: add(header.cellClass, 'group-start') }
+          : header
+      })
+      return [...(this.redacting ? [control] : []), ...headers, files]
+    },
+    // [{ text, columns }] over all the table's columns, or null without groups
+    groups() {
+      if (!this.headers.some(header => header.group)) {
+        return null
+      }
+      const groups = []
+      for (const header of this.tableHeaders) {
+        const last = groups[groups.length - 1]
+        if (header.group && last && last.text === header.group) {
+          last.columns.push(header.value)
+        } else {
+          groups.push({ text: header.group || '', columns: [header.value] })
+        }
+      }
+      return groups
     },
     hasRedactions() {
       return [this.rows, this.columns, this.cells].some(set => Object.keys(set).length)
@@ -199,6 +254,24 @@ export default {
       } else {
         this.$set(set, key, true)
       }
+    },
+    // in black-out mode, a click on a column title blacks it out instead of sorting
+    onHeaderClick(event, column) {
+      if (this.redacting) {
+        event.stopPropagation()
+        this.toggle(this.columns, column)
+      }
+    },
+    // black out a group's columns, or show them again if they all are
+    toggleGroup(group) {
+      const all = group.columns.every(column => this.columns[column])
+      group.columns.forEach((column) => {
+        if (all) {
+          this.$delete(this.columns, column)
+        } else {
+          this.$set(this.columns, column, true)
+        }
+      })
     },
     clearRedactions() {
       this.rows = {}
@@ -274,6 +347,14 @@ export default {
 .redactable-table >>> tr.redacted-row > td {
   background: #000 !important;
   color: #000 !important;
+}
+
+.redactable-table >>> .group-start {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.group-header th {
+  border-bottom: none !important;
 }
 
 .path code {
