@@ -1,0 +1,34 @@
+
+.redact-target[data-v-759fe092] {
+  cursor: pointer;
+}
+.cell[data-v-759fe092] {
+  display: inline-block;
+  min-width: 1.5em;
+}
+
+/* blacked out: the content stays in the page, but nothing of it shows */
+.redacted[data-v-759fe092] {
+  background: #000;
+  color: #000 !important;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.redacted[data-v-759fe092] * {
+  visibility: hidden;
+}
+.redactable-table[data-v-759fe092] tr.redacted-row > td {
+  background: #000 !important;
+  color: #000 !important;
+}
+.redactable-table[data-v-759fe092] .group-start {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+.group-header th[data-v-759fe092] {
+  border-bottom: none !important;
+}
+.path code[data-v-759fe092] {
+  word-break: break-all;
+}
+
