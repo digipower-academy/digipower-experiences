@@ -63,6 +63,8 @@ export type ViewerOptions = {
   /** Display options */
   hideEmptyTabs?: boolean
   hideFileExplorer?: boolean
+  /** Hide the Export step (shown by default), where visitors download the results of the tabs they choose */
+  hideExporter?: boolean
   hideSummary?: boolean
 
   /** Link to an icon, typically a company logo */

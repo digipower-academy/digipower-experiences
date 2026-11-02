@@ -134,3 +134,23 @@ test('process simple text file', async() => {
   expect(wrapper.vm.$data.error).toBeFalsy()
   expect(wrapper.vm.$data.success).toBeTruthy()
 })
+
+test('shows the Export step by default, and hides it with hideExporter', async() => {
+  const windowIds = wrapper => wrapper.vm.windows.map(({ id }) => id)
+  const shown = mount(TheDataExperience, { propsData, store, localVue, mocks })
+  await shown.vm.$nextTick()
+  expect(windowIds(shown)).toContain('export-data')
+
+  const config = { ...propsData.experienceModule.config, hideExporter: true }
+  const hidden = mount(TheDataExperience, {
+    propsData: { ...propsData, experienceModule: { ...propsData.experienceModule, config } },
+    // its own store: the experience config is kept in the store
+    store: new Vuex.Store({ modules: { xp: xpStore } }),
+    localVue,
+    mocks
+  })
+  await hidden.vm.$nextTick()
+  await hidden.vm.$nextTick()
+  expect(windowIds(hidden)).not.toContain('export-data')
+  expect(windowIds(hidden)).toContain('understand-data')
+})

@@ -117,6 +117,15 @@
   "understand-data": {
     "name": "Understand Your Data"
   },
+  "export-data": {
+    "name": "Export Your Data",
+    "title": "Export your results",
+    "intro": "Choose the tabs whose results you want to keep. Their results are shown below as tables, and downloaded as a ZIP file with each tab's results (JSON) and tables (CSV). The file is made in your browser: nothing is sent anywhere.",
+    "download": "Download the selected tabs (ZIP)",
+    "noneSelected": "No tab selected.",
+    "error": "This tab could not be computed:",
+    "empty": "This tab has no results for your data."
+  },
   "share-data": {
     "name": "Share Your Data"
   },

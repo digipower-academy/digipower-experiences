@@ -140,8 +140,12 @@ exports[`data experience html corresponds to snapshot 1`] = `
     <div data-id=\\"window-understand-data\\">
       <!---->
     </div>
+    <div data-id=\\"window-export-data\\">
+      <!---->
+    </div>
   </vwindow>
   <vbottomnavigation color=\\"secondary\\" app=\\"\\">
+    <vtooltip disabled=\\"disabled\\" top=\\"true\\"> <span></span></vtooltip>
     <vtooltip disabled=\\"disabled\\" top=\\"true\\"> <span></span></vtooltip>
     <vtooltip disabled=\\"disabled\\" top=\\"true\\"> <span></span></vtooltip>
     <vtooltip disabled=\\"disabled\\" top=\\"true\\"> <span></span></vtooltip>
