@@ -36,10 +36,11 @@ export type ViewBlock = {
    */
   vizProps?: object
   /**
-   * Tables of this tab's result to leave out of the Export step,
-   * by path ("ids", "deletedAccounts/summary").
+   * Tables of this tab's result that the Export step leaves unticked
+   * (and greyed out) until the visitor ticks them,
+   * by path ("ids", "deletedAccounts/conversations").
    */
-  exportExclude?: string[]
+  exportDefaultOff?: string[]
 }
 
 export type ViewBlocks = ViewBlock[]

@@ -124,7 +124,9 @@
     "download": "Download the selected tabs (ZIP)",
     "noneSelected": "No tab selected.",
     "error": "This tab could not be computed:",
-    "empty": "This tab has no results for your data."
+    "empty": "This tab has no results for your data.",
+    "tables": "Tables in the export:",
+    "tableOff": "not in the export"
   },
   "share-data": {
     "name": "Share Your Data"

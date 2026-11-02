@@ -39,4 +39,4 @@ The viewer format has one integer version: `"version"` in each file, and `loader
 - **v1**, non-breaking (2026-10): optional `credits` (and `messages.<lang>.intro.credits`).
 - **v1**, non-breaking (2026-10): `$id` follows the repository rename (`hestialabs-experiences` → `digipower-experiences`); the old URL redirects.
 - **v1**, non-breaking (2026-11): optional `hideExporter`, to hide the Export step.
-- **v1**, non-breaking (2026-11): optional `exportExclude` on a view block, to leave some of its tables out of the Export step.
+- **v1**, non-breaking (2026-11): optional `exportDefaultOff` on a view block: tables the Export step leaves unticked until the visitor ticks them. It replaces `exportExclude`, which only the Facebook viewer used, for a few hours.
