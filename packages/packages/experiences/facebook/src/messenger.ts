@@ -619,6 +619,8 @@ export async function messenger_anomalies({
       emptyYours: empty.yours,
       emptyOthers: empty.others,
       allEmpty: messages.total > 0 && empty.total === messages.total,
+      // every message from other people is empty, whatever the account holder's contain
+      othersAllEmpty: messages.others > 0 && empty.others === messages.others,
       unsent: unsent.total,
       unsentYours: unsent.yours,
       unsentOthers: unsent.others,
@@ -655,6 +657,7 @@ export async function messenger_anomalies({
           emptyYours: sum('emptyYours', 'json') + sum('emptyYours', 'html'),
           emptyOthers: sum('emptyOthers', 'json') + sum('emptyOthers', 'html'),
           allEmpty: rows.filter(r => r.allEmpty).length,
+          othersAllEmpty: rows.filter(r => r.othersAllEmpty).length,
           unsent: sum('unsent', 'json'),
           unsentYours: sum('unsentYours', 'json'),
           unsentOthers: sum('unsentOthers', 'json'),

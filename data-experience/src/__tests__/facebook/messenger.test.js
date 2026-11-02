@@ -207,3 +207,37 @@ describe('facebook – Messenger tab', () => {
     expect(outputs['messenger-ids'].items).toEqual([])
   })
 })
+
+test('a conversation is "empty" when every message from other people is', async() => {
+  const conversation = (name, messages) => new NodeFile(`${thread('inbox', name)}/message_1.json`, JSON.stringify({
+    participants: [{ name: 'Other' }, { name: 'Sam Owner' }],
+    messages,
+    title: 'Other'
+  }))
+  const outputs = await run([
+    // the other side blank, the account holder's text kept: empty
+    conversation('blanked_1', [
+      { sender_name: 'Other', timestamp_ms: 1, content: '' },
+      { sender_name: 'Sam Owner', timestamp_ms: 2, content: 'hello?' },
+      { sender_name: 'Other', timestamp_ms: 3, content: '' }
+    ]),
+    // one of the other side's messages still has text: not empty
+    conversation('partly_2', [
+      { sender_name: 'Other', timestamp_ms: 1, content: '' },
+      { sender_name: 'Other', timestamp_ms: 2, content: 'still here' }
+    ]),
+    // only the account holder's message is empty: not empty
+    conversation('mine_3', [
+      { sender_name: 'Sam Owner', timestamp_ms: 1, content: '' },
+      { sender_name: 'Other', timestamp_ms: 2, content: 'hi' }
+    ]),
+    // the owner is the person in the most conversations
+    new NodeFile(`${thread('inbox', 'x_4')}/message_1.json`, JSON.stringify({
+      participants: [{ name: 'X' }, { name: 'Sam Owner' }], messages: [], title: 'X'
+    }))
+  ])
+  const { summary, conversations } = outputs['messenger-anomalies'].items[0]
+  expect(Object.fromEntries(conversations.map(row => [row.id, row.othersAllEmpty]))).toEqual({ 1: true, 2: false, 3: false })
+  expect(summary.othersAllEmpty).toBe(1)
+  expect(conversations.find(row => row.id === '1')).toMatchObject({ emptyYours: 0, emptyOthers: 2, allEmpty: false })
+})

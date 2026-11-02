@@ -294,6 +294,7 @@ Object {
               "htmlMessages": 0,
               "jsonConversations": 0,
               "jsonMessages": 0,
+              "othersAllEmpty": 0,
               "unsent": 0,
               "unsentOthers": 0,
               "unsentYours": 0,
@@ -367,7 +368,7 @@ Object {
     "anomalies",
     "ids",
   ],
-  "sha256": "da9734970b2a7f8ab002fe46cce1ecf26e70579592b6f34607fb30168eee5b70",
+  "sha256": "b2309d17ab6d5a7b4b3c2101f0c91aa4a27fcd8aa4573ebcd621e173cb056d60",
 }
 `;
 
@@ -564,6 +565,7 @@ Object {
                 "messages": 7,
                 "messagesOthers": 4,
                 "messagesYours": 3,
+                "othersAllEmpty": false,
                 "title": "Alice Martin",
                 "unsent": 1,
                 "unsentOthers": 1,
@@ -587,6 +589,7 @@ Object {
                 "messages": 8,
                 "messagesOthers": 4,
                 "messagesYours": 4,
+                "othersAllEmpty": false,
                 "title": "Emma Jones",
                 "unsent": 0,
                 "unsentOthers": 0,
@@ -609,6 +612,7 @@ Object {
                 "messages": 5,
                 "messagesOthers": 4,
                 "messagesYours": 1,
+                "othersAllEmpty": false,
                 "title": "Randonnée du dimanche",
                 "unsent": 0,
                 "unsentOthers": 0,
@@ -628,6 +632,7 @@ Object {
               "htmlMessages": 0,
               "jsonConversations": 8,
               "jsonMessages": 31,
+              "othersAllEmpty": 0,
               "unsent": 1,
               "unsentOthers": 1,
               "unsentYours": 0,
@@ -900,7 +905,7 @@ Object {
     "anomalies",
     "ids",
   ],
-  "sha256": "f7def3de89d7b9bc88955e9c12c70b5ccf05713f1a33a87963cae47e790fa48b",
+  "sha256": "def2d47e0d0804efcf1e512c257939a95f8b14e45802f3371fb1cd4e77eacd20",
 }
 `;
 
@@ -1016,6 +1021,7 @@ Object {
                 "messages": 7,
                 "messagesOthers": 4,
                 "messagesYours": 3,
+                "othersAllEmpty": false,
                 "title": "Alice Martin",
                 "unsent": 0,
                 "unsentOthers": 0,
@@ -1038,6 +1044,7 @@ Object {
                 "messages": 5,
                 "messagesOthers": 4,
                 "messagesYours": 1,
+                "othersAllEmpty": false,
                 "title": "Randonnée du dimanche",
                 "unsent": 0,
                 "unsentOthers": 0,
@@ -1057,6 +1064,7 @@ Object {
               "htmlMessages": 31,
               "jsonConversations": 0,
               "jsonMessages": 0,
+              "othersAllEmpty": 0,
               "unsent": 0,
               "unsentOthers": 0,
               "unsentYours": 0,
@@ -1327,7 +1335,7 @@ Object {
     "anomalies",
     "ids",
   ],
-  "sha256": "bb701d653f7b5dfdc4fd35cf5ec91505d5a5154d3607fcd413adbb51241c69e6",
+  "sha256": "9a98329bbe19c0dfc2965b7b2c37dbdf837c3801325dbfa5c5e4367c7c922ddf",
 }
 `;
 
