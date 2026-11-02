@@ -164,4 +164,27 @@ describe('RedactableTable', () => {
     await wrapper.vm.$nextTick()
     expect(titles()).toEqual(['Conversation', 'Messages · You', ''])
   })
+
+  test('a yes/no column sorted descending lists yes first, and its arrow sorts it the other way', async() => {
+    const wrapper = setup({
+      headers: [
+        { text: 'Conversation', value: 'title' },
+        { text: 'Empty?', value: 'empty', format: empty => (empty ? 'Yes' : 'No') }
+      ],
+      items: [
+        { title: 'Alice', empty: false, files: [alice] },
+        { title: 'Bo', empty: true, files: [bo1] },
+        { title: 'Cy', empty: false, files: [] }
+      ],
+      sortBy: 'empty',
+      sortDesc: true,
+      mustSort: true
+    })
+    const column = () => cells(wrapper).wrappers.filter((c, i) => i % 2 === 1).map(c => c.text())
+    expect(column()).toEqual(['Yes', 'No', 'No'])
+    await wrapper.findAll('th').filter(th => th.text().includes('Empty?')).at(0).trigger('click')
+    expect(column()).toEqual(['No', 'No', 'Yes'])
+    await wrapper.findAll('th').filter(th => th.text().includes('Empty?')).at(0).trigger('click')
+    expect(column()).toEqual(['Yes', 'No', 'No'])
+  })
 })
