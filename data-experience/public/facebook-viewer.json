@@ -229,7 +229,9 @@
               "showAll": "Tout afficher",
               "files": "Fichier",
               "download": "Télécharger le fichier d'origine",
-              "hoverHelp": "Pointez une ligne pour voir où se trouve son fichier dans votre export."
+              "hoverHelp": "Pointez une ligne pour voir où se trouve son fichier dans votre export.",
+              "yourMessages": "Vos messages dans ces conversations",
+              "yourMessagesColumn": "Vos messages"
             }
           }
         },
@@ -262,7 +264,8 @@
               "showAll": "Tout afficher",
               "files": "Fichier",
               "download": "Télécharger le fichier d'origine",
-              "hoverHelp": "Pointez une ligne pour voir où se trouve son fichier dans votre export."
+              "hoverHelp": "Pointez une ligne pour voir où se trouve son fichier dans votre export.",
+              "splitNote": "Chaque nombre se lit : vos messages / ceux des autres."
             }
           }
         },
@@ -281,7 +284,9 @@
               "deleted": "participant supprimé ou sans nom",
               "messages": "Messages",
               "noData": "Aucune conversation Messenger avec un identifiant numérique n'a été trouvée dans cet export.",
-              "files": "Fichier"
+              "files": "Fichier",
+              "sent": "envoyés",
+              "received": "reçus"
             }
           }
         }

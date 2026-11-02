@@ -44,6 +44,8 @@ const DEFAULT_MESSAGES = {
   affected: 'Conversations with a deleted or unnamed account',
   theirMessages: 'Their messages still in the export',
   withText: 'Of which with text',
+  yourMessages: 'Your messages in these conversations',
+  yourMessagesColumn: 'Your messages',
   perYear: 'Messages from deleted or unnamed accounts, per year',
   conversationsTitle: 'Conversations',
   labelNote: 'Facebook names accounts that were deleted or are unavailable "Facebook user" (in French, "Utilisateur(ice) Facebook"). The label alone does not prove that an account was deleted.',
@@ -91,7 +93,8 @@ export default {
       return [
         { label: this.msg('affected'), value: `${this.number(s.affected)} / ${this.number(s.conversations)}` },
         { label: this.msg('theirMessages'), value: this.number(s.theirMessages) },
-        { label: this.msg('withText'), value: this.number(s.theirMessagesWithText) }
+        { label: this.msg('withText'), value: this.number(s.theirMessagesWithText) },
+        { label: this.msg('yourMessages'), value: this.number(s.yourMessages) }
       ]
     },
     tableHeaders() {
@@ -101,6 +104,7 @@ export default {
         { text: this.msg('folder'), value: 'folder', format: folder => this.msg(`folder_${folder}`) || folder },
         { text: this.msg('theirMessages'), value: 'theirMessages', align: 'end' },
         { text: this.msg('withText'), value: 'theirMessagesWithText', align: 'end' },
+        { text: this.msg('yourMessagesColumn'), value: 'yourMessages', align: 'end' },
         { text: this.msg('messages'), value: 'messages', align: 'end' },
         { text: this.msg('first'), value: 'first', format: this.date },
         { text: this.msg('last'), value: 'last', format: this.date }

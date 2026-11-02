@@ -67,7 +67,9 @@ describe('facebook – Messenger tabs', () => {
 
     expect(json['messenger-anomalies'].items[0].summary).toMatchObject({ emptyJson: 1, unsent: 1, geoblocked: 1 })
     // HTML: the unsent message has no text, so it counts as empty; no unsent or geoblocked flags
-    expect(html['messenger-anomalies'].items[0].summary).toMatchObject({ emptyHtml: 2, unsent: 0, geoblocked: 0 })
+    expect(html['messenger-anomalies'].items[0].summary).toMatchObject({
+      emptyHtml: 2, emptyYours: 0, emptyOthers: 2, unsent: 0, geoblocked: 0
+    })
   })
 
   test('the sample covers the cases the tabs are about', async() => {
@@ -85,10 +87,24 @@ describe('facebook – Messenger tabs', () => {
       affected: 2,
       oneToOne: 1,
       groups: 1,
+      yourMessages: 2,
       theirMessages: 5,
       theirMessagesWithText: 5,
       withTheirMessages: 2
     })
+    // the account holder's messages and everyone else's, counted apart
+    const folders = json['messenger-overview'].items[0].folders
+    expect(folders.find(row => row.folder === 'inbox')).toEqual({
+      folder: 'inbox', conversations: 4, messages: 24, sent: 9, received: 15
+    })
+    expect(folders.reduce((n, row) => n + row.sent, 0)).toBe(11)
+    expect(json['messenger-anomalies'].items[0].summary).toMatchObject({
+      emptyYours: 0, emptyOthers: 1, unsentYours: 0, unsentOthers: 1, geoblockedYours: 0, geoblockedOthers: 1
+    })
+    expect(json['messenger-anomalies'].items[0].conversations.find(row => row.title === 'Alice Martin')).toMatchObject({
+      messagesYours: 3, messagesOthers: 4, unsentYours: 0, unsentOthers: 1
+    })
+    expect(json['messenger-ids'].items.find(row => row.title === 'Emma Jones')).toMatchObject({ sent: 4, received: 4 })
     expect(json['messenger-ids'].items.map(row => [row.id, row.category])).toEqual([
       ['5581460000', 'shortId'],
       ['1096618500000033', 'group'],
