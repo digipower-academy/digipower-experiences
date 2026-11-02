@@ -54,15 +54,31 @@
           {{ $t('export-data.empty') }}
         </p>
         <template v-else>
+          <p v-if="outputs[tab.id].tables.length > 1" class="text-body-2 mb-1">
+            {{ $t('export-data.tables') }}
+          </p>
           <div
             v-for="(table, i) in outputs[tab.id].tables"
             :key="`export-table-${tab.id}-${i}`"
             class="mb-4"
           >
-            <div v-if="table.path.length" class="text-body-2 font-weight-medium mb-1">
-              {{ table.path.join(' › ') }}
-            </div>
+            <!-- several tables: each has its own box, some unticked by default (exportDefaultOff) -->
+            <VCheckbox
+              v-if="outputs[tab.id].tables.length > 1"
+              v-model="outputs[tab.id].included[tableKey(table)]"
+              class="export-table-toggle mt-0 pt-0 mb-1"
+              dense
+              hide-details
+            >
+              <template #label>
+                <span class="text-body-2 font-weight-medium">{{ table.path.join(' › ') }}</span>
+                <span v-if="!outputs[tab.id].included[tableKey(table)]" class="text-caption ml-2">
+                  ({{ $t('export-data.tableOff') }})
+                </span>
+              </template>
+            </VCheckbox>
             <VDataTable
+              :class="{ 'export-table-off': !outputs[tab.id].included[tableKey(table)] }"
               :headers="table.columns.map(column => ({ text: column, value: column }))"
               :items="table.rows"
               :items-per-page="5"
@@ -82,9 +98,12 @@ import { kViewBlockPrefix } from '@/utils/i18n-utils'
 import { exportFilename, exportZip, resultTables, runViewBlock, withoutTables } from '@/utils/export'
 import BaseAlert from '@/components/base/BaseAlert.vue'
 
+const tableKey = table => table.path.join('/')
+
 // The Export step: one checkbox per tab, none ticked. Ticking a tab computes its
 // results if the tab hasn't been opened yet, and shows them as tables below.
-// A tab can leave some of its tables out (exportExclude in the viewer JSON).
+// When a tab has several tables, each can be left out of the export; those
+// listed in its view block's exportDefaultOff start unticked and greyed out.
 // The download is a ZIP made in the browser: nothing is sent anywhere.
 export default {
   name: 'UnitExporter',
@@ -92,7 +111,7 @@ export default {
   data() {
     return {
       selected: [],
-      // tab id → { loading, error, result, tables }
+      // tab id → { loading, error, result, tables, included: { table path → ticked } }
       outputs: {},
       zipping: false
     }
@@ -129,15 +148,17 @@ export default {
     }
   },
   methods: {
+    tableKey,
     async compute(tab) {
       this.$set(this.outputs, tab.id, { loading: true })
       try {
         // a tab that was opened already has its result
-        const full = this.results[tab.id] ??
+        const result = this.results[tab.id] ??
           await runViewBlock(tab.viewBlock, { fileManager: this.fileManager, db: this.currentDB })
-        // tables the tab leaves out of the export are neither shown nor in the ZIP
-        const result = withoutTables(full, tab.viewBlock.exportExclude)
-        this.$set(this.outputs, tab.id, { result, tables: resultTables(result) })
+        const tables = resultTables(result)
+        const off = tab.viewBlock.exportDefaultOff || []
+        const included = Object.fromEntries(tables.map(table => [tableKey(table), !off.includes(tableKey(table))]))
+        this.$set(this.outputs, tab.id, { result, tables, included })
       } catch (error) {
         console.error(error)
         this.$set(this.outputs, tab.id, { error: error instanceof Error ? error.message : String(error) })
@@ -148,7 +169,12 @@ export default {
       try {
         const tabs = this.selectedTabs
           .filter(tab => !this.outputs[tab.id].error)
-          .map(({ index, id, title }) => ({ index, id, title, result: this.outputs[id].result }))
+          .map(({ index, id, title }) => {
+            const { result, included } = this.outputs[id]
+            // unticked tables are left out of the CSVs and of result.json
+            const leftOut = Object.keys(included).filter(key => !included[key])
+            return { index, id, title, result: withoutTables(result, leftOut) }
+          })
         const experience = this.experienceConfig.slug
         const blob = await exportZip({ experience, tabs }).generateAsync({ type: 'blob' })
         const link = document.createElement('a')
@@ -163,3 +189,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.export-table-off {
+  opacity: 0.4;
+}
+</style>

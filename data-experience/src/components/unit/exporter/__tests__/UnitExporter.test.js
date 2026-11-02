@@ -103,21 +103,49 @@ describe('UnitExporter', () => {
     expect(pipelines.nested).toHaveBeenCalledTimes(1)
   })
 
-  test('leaves out the tables a tab excludes from the export, in the view and in the ZIP', async() => {
-    const { wrapper } = setup({ exportOptions: { nested: { exportExclude: ['y'] } } })
+  test('each table of a tab has a box; those the tab lists as off by default start unticked and greyed out', async() => {
+    const { wrapper } = setup({ exportOptions: { nested: { exportDefaultOff: ['y'] } } })
     await checkbox(wrapper, 'Tab nested').trigger('click')
     await flush()
     await wrapper.vm.$nextTick()
-    expect(wrapper.findAll('.v-card table')).toHaveLength(1)
-    expect(wrapper.vm.outputs.nested.tables.map(t => t.path.join('/'))).toEqual(['x'])
+    const toggles = () => wrapper.findAll('.export-table-toggle')
+    expect(toggles().wrappers.map(t => t.text().replace(/\s+/g, ' '))).toEqual(['x', 'y (export-data.tableOff)'])
+    expect(toggles().wrappers.map(t => t.find('input').element.checked)).toEqual([true, false])
+    expect(wrapper.findAll('.export-table-off')).toHaveLength(1)
 
-    await wrapper.find('button').trigger('click')
-    await new Promise(resolve => setTimeout(resolve, 50))
-    const zip = await JSZip.loadAsync(await read(downloads[0].blob))
-    expect(Object.keys(zip.files).filter(name => !name.endsWith('/'))).toEqual([
-      'export.json', '02-nested/result.json', '02-nested/01-x.csv'
-    ])
-    expect(JSON.parse(await zip.file('02-nested/result.json').async('string')).items[0]).toEqual({ x: { n: 1 } })
+    const zipFiles = async() => {
+      await wrapper.findAll('button').filter(b => b.text().includes('export-data.download')).at(0).trigger('click')
+      await new Promise(resolve => setTimeout(resolve, 50))
+      const zip = await JSZip.loadAsync(await read(downloads[downloads.length - 1].blob))
+      return {
+        files: Object.keys(zip.files).filter(name => !name.endsWith('/')),
+        result: JSON.parse(await zip.file('02-nested/result.json').async('string'))
+      }
+    }
+    // the unticked table is neither a CSV nor in result.json
+    let { files, result } = await zipFiles()
+    expect(files).toEqual(['export.json', '02-nested/result.json', '02-nested/01-x.csv'])
+    expect(result.items[0]).toEqual({ x: { n: 1 } })
+
+    // ticking it puts it back, and it is no longer greyed out
+    await toggles().at(1).find('input').trigger('click')
+    expect(wrapper.findAll('.export-table-off')).toHaveLength(0);
+    ({ files, result } = await zipFiles())
+    expect(files).toEqual(['export.json', '02-nested/result.json', '02-nested/01-x.csv', '02-nested/02-y.csv'])
+    expect(result.items[0]).toEqual({ x: { n: 1 }, y: [{ b: 2 }] })
+
+    // and unticking a table that was on leaves it out
+    await toggles().at(0).find('input').trigger('click');
+    ({ files } = await zipFiles())
+    expect(files).toEqual(['export.json', '02-nested/result.json', '02-nested/01-y.csv'])
+  })
+
+  test('a tab with a single table has no box for it', async() => {
+    const { wrapper } = setup()
+    await checkbox(wrapper, 'Tab first').trigger('click')
+    await flush()
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findAll('.export-table-toggle')).toHaveLength(0)
   })
 
   test('uses the result of a tab that was already opened', async() => {

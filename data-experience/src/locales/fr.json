@@ -124,7 +124,9 @@
     "download": "Télécharger les onglets choisis (ZIP)",
     "noneSelected": "Aucun onglet choisi.",
     "error": "Cet onglet n'a pas pu être calculé :",
-    "empty": "Cet onglet n'a pas de résultats pour vos données."
+    "empty": "Cet onglet n'a pas de résultats pour vos données.",
+    "tables": "Tableaux dans l'export :",
+    "tableOff": "pas dans l'export"
   },
   "share-data": {
     "name": "Partager vos données"

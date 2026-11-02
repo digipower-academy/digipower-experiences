@@ -4,7 +4,7 @@ import experience from '@hestia.ai/facebook'
 import FileManager from '~/utils/file-manager'
 import NodeFile from '~/utils/node-file'
 import { getCustomPipelineFromBlock } from '~/utils/test-utils'
-import { resultTables, withoutTables } from '~/utils/export'
+import { resultTables } from '~/utils/export'
 
 // Tests run in UTC (jest.global-setup.cjs): dates of HTML exports are read in UTC here
 
@@ -53,16 +53,19 @@ describe('facebook – Messenger tab', () => {
     expect(experience.options.viewBlocks.filter(block => block.id.startsWith('messenger'))).toHaveLength(1)
   })
 
-  test('its export leaves out the IDs and the deleted accounts summary', async() => {
+  test('its export starts with the per-conversation tables of deleted accounts and IDs unticked', async() => {
     const fileManager = new FileManager(preprocessors, null, files, keepOnlyFiles)
     await fileManager.init([sample('facebook-messenger.zip')])
     const block = experience.options.viewBlocks.find(viewBlock => viewBlock.id === 'messenger')
     const result = await getCustomPipelineFromBlock(experience, 'messenger')({ fileManager })
-    expect(resultTables(withoutTables(result, block.exportExclude)).map(table => table.path.join('/'))).toEqual([
+    const paths = resultTables(result).map(table => table.path.join('/'))
+    expect(paths).toEqual([
       'overview/summary', 'overview/folders', 'overview/years',
-      'deletedAccounts/conversations', 'deletedAccounts/years',
-      'anomalies/summary', 'anomalies/conversations'
+      'deletedAccounts/summary', 'deletedAccounts/conversations', 'deletedAccounts/years',
+      'anomalies/summary', 'anomalies/conversations', 'ids'
     ])
+    expect(block.exportDefaultOff).toEqual(['deletedAccounts/conversations', 'ids'])
+    expect(block.exportDefaultOff.every(path => paths.includes(path))).toBe(true)
   })
 
   test('the JSON and HTML samples give the same results, except for flags only JSON has', async() => {

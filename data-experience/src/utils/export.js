@@ -101,7 +101,7 @@ export function resultTables(result) {
 
 /**
  * A tab's result without the tables its view block leaves out of the export
- * (exportExclude): paths as resultTables names them, joined by "/".
+ * (unticked in the Export step): paths as resultTables names them, joined by "/".
  * The result itself is not changed.
  */
 export function withoutTables(result, exclude = []) {

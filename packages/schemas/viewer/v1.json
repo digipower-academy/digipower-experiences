@@ -105,8 +105,8 @@
           "type": "string"
         },
         "customPipelineOptions": { "type": ["object", "array"] },
-        "exportExclude": {
-          "description": "Tables of this tab's result to leave out of the Export step, by path: \"ids\", or \"deletedAccounts/summary\" for a table nested in a result.",
+        "exportDefaultOff": {
+          "description": "Tables of this tab's result that the Export step leaves unticked and greyed out until the visitor ticks them, by path: \"ids\", or \"deletedAccounts/conversations\" for a table nested in a result.",
           "type": "array",
           "items": { "type": "string" }
         },
