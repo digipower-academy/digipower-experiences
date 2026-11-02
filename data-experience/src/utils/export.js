@@ -99,6 +99,43 @@ export function resultTables(result) {
   return tables
 }
 
+/**
+ * A tab's result without the tables its view block leaves out of the export
+ * (exportExclude): paths as resultTables names them, joined by "/".
+ * The result itself is not changed.
+ */
+export function withoutTables(result, exclude = []) {
+  if (!exclude.length) {
+    return result
+  }
+  const excluded = path => exclude.includes(path.join('/'))
+
+  function prune(value, path) {
+    if (isTable(value)) {
+      const [first] = value.items
+      const nested = value.items.length === 1 && isPlainObject(first) &&
+        Object.keys(first).length > 0 && Object.values(first).every(isObject)
+      if (!nested) {
+        return value
+      }
+      const kept = Object.keys(first).filter(key => !excluded([...path, key]))
+      return {
+        ...value,
+        headers: value.headers.filter(header => kept.includes(header)),
+        items: [Object.fromEntries(kept.map(key => [key, prune(first[key], [...path, key])]))]
+      }
+    }
+    if (isPlainObject(value)) {
+      return Object.fromEntries(Object.entries(value)
+        .filter(([key, child]) => !(isObject(child) && excluded([...path, key])))
+        .map(([key, child]) => [key, isObject(child) ? prune(child, [...path, key]) : child]))
+    }
+    return value
+  }
+
+  return prune(result, [])
+}
+
 export function tableToCsv({ columns, rows }) {
   return Papa.unparse({ fields: columns, data: rows.map(row => columns.map(column => row[column])) })
 }

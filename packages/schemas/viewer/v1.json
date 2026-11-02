@@ -105,6 +105,11 @@
           "type": "string"
         },
         "customPipelineOptions": { "type": ["object", "array"] },
+        "exportExclude": {
+          "description": "Tables of this tab's result to leave out of the Export step, by path: \"ids\", or \"deletedAccounts/summary\" for a table nested in a result.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
         "postprocessor": {
           "description": "Name of a postprocessor exported by the experience's viewer-functions.ts.",
           "type": "string"

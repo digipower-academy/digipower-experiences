@@ -4,6 +4,7 @@ import experience from '@hestia.ai/facebook'
 import FileManager from '~/utils/file-manager'
 import NodeFile from '~/utils/node-file'
 import { getCustomPipelineFromBlock } from '~/utils/test-utils'
+import { resultTables, withoutTables } from '~/utils/export'
 
 // Tests run in UTC (jest.global-setup.cjs): dates of HTML exports are read in UTC here
 
@@ -50,6 +51,18 @@ describe('facebook – Messenger tab', () => {
   test('is the first tab of the experience', () => {
     expect(experience.options.viewBlocks.map(block => block.id)[0]).toBe('messenger')
     expect(experience.options.viewBlocks.filter(block => block.id.startsWith('messenger'))).toHaveLength(1)
+  })
+
+  test('its export leaves out the IDs and the deleted accounts summary', async() => {
+    const fileManager = new FileManager(preprocessors, null, files, keepOnlyFiles)
+    await fileManager.init([sample('facebook-messenger.zip')])
+    const block = experience.options.viewBlocks.find(viewBlock => viewBlock.id === 'messenger')
+    const result = await getCustomPipelineFromBlock(experience, 'messenger')({ fileManager })
+    expect(resultTables(withoutTables(result, block.exportExclude)).map(table => table.path.join('/'))).toEqual([
+      'overview/summary', 'overview/folders', 'overview/years',
+      'deletedAccounts/conversations', 'deletedAccounts/years',
+      'anomalies/summary', 'anomalies/conversations'
+    ])
   })
 
   test('the JSON and HTML samples give the same results, except for flags only JSON has', async() => {

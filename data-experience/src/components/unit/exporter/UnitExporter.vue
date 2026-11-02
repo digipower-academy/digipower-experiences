@@ -79,11 +79,12 @@
 <script>
 import { mapState, mapGetters } from '@/utils/store-helper'
 import { kViewBlockPrefix } from '@/utils/i18n-utils'
-import { exportFilename, exportZip, resultTables, runViewBlock } from '@/utils/export'
+import { exportFilename, exportZip, resultTables, runViewBlock, withoutTables } from '@/utils/export'
 import BaseAlert from '@/components/base/BaseAlert.vue'
 
 // The Export step: one checkbox per tab, none ticked. Ticking a tab computes its
 // results if the tab hasn't been opened yet, and shows them as tables below.
+// A tab can leave some of its tables out (exportExclude in the viewer JSON).
 // The download is a ZIP made in the browser: nothing is sent anywhere.
 export default {
   name: 'UnitExporter',
@@ -132,8 +133,10 @@ export default {
       this.$set(this.outputs, tab.id, { loading: true })
       try {
         // a tab that was opened already has its result
-        const result = this.results[tab.id] ??
+        const full = this.results[tab.id] ??
           await runViewBlock(tab.viewBlock, { fileManager: this.fileManager, db: this.currentDB })
+        // tables the tab leaves out of the export are neither shown nor in the ZIP
+        const result = withoutTables(full, tab.viewBlock.exportExclude)
         this.$set(this.outputs, tab.id, { result, tables: resultTables(result) })
       } catch (error) {
         console.error(error)

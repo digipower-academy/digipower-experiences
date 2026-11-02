@@ -35,6 +35,11 @@ export type ViewBlock = {
    * a whole kepler configuration.
    */
   vizProps?: object
+  /**
+   * Tables of this tab's result to leave out of the Export step,
+   * by path ("ids", "deletedAccounts/summary").
+   */
+  exportExclude?: string[]
 }
 
 export type ViewBlocks = ViewBlock[]

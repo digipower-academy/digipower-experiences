@@ -1,5 +1,5 @@
 import JSZip from 'jszip'
-import { exportFilename, exportZip, resultTables, runViewBlock, tableToCsv } from './export'
+import { exportFilename, exportZip, resultTables, runViewBlock, tableToCsv, withoutTables } from './export'
 
 describe('resultTables', () => {
   test('a flat result is one table, nested values in a cell as JSON', () => {
@@ -43,6 +43,36 @@ describe('resultTables', () => {
     expect(resultTables([1, 2])).toEqual([{ path: [], columns: ['value'], rows: [{ value: 1 }, { value: 2 }] }])
     expect(resultTables('text')).toEqual([{ path: [], columns: ['value'], rows: [{ value: 'text' }] }])
     expect(resultTables({ headers: [], items: [] })).toEqual([{ path: [], columns: [], rows: [] }])
+  })
+})
+
+describe('withoutTables', () => {
+  const result = {
+    headers: ['overview', 'deletedAccounts', 'ids'],
+    items: [{
+      overview: { headers: ['summary'], items: [{ summary: { n: 2 } }] },
+      deletedAccounts: { headers: ['summary', 'conversations'], items: [{ summary: { affected: 1 }, conversations: [{ id: '1' }] }] },
+      ids: { headers: ['id'], items: [{ id: '1' }] }
+    }]
+  }
+
+  test('leaves out the tables named by their path, nested or not', () => {
+    const kept = withoutTables(result, ['ids', 'deletedAccounts/summary'])
+    expect(kept.headers).toEqual(['overview', 'deletedAccounts'])
+    expect(resultTables(kept).map(t => t.path.join('/'))).toEqual(['overview/summary', 'deletedAccounts/conversations'])
+    expect(kept.items[0].deletedAccounts.headers).toEqual(['conversations'])
+    // the tab's own result is unchanged
+    expect(result.items[0].ids).toBeDefined()
+    expect(result.items[0].deletedAccounts.items[0].summary).toBeDefined()
+  })
+
+  test('without anything to leave out, is the result itself', () => {
+    expect(withoutTables(result)).toBe(result)
+    expect(withoutTables(result, [])).toBe(result)
+  })
+
+  test('a plain object of tables', () => {
+    expect(withoutTables({ a: [{ x: 1 }], b: { c: [1], d: 2 } }, ['b/c'])).toEqual({ a: [{ x: 1 }], b: { d: 2 } })
   })
 })
 

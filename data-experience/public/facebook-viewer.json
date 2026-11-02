@@ -316,6 +316,7 @@
       "files": ["messenger"],
       "visualization": "facebook/MessengerTab.vue",
       "showTable": false,
+      "exportExclude": ["ids", "deletedAccounts/summary"],
       "title": "Messenger",
       "text": "Your Messenger conversations in this export, in four sections: your conversations, deleted accounts, empty, unsent and geo-blocked messages, and conversation IDs over time. Message text is not read into the tables, only counts and dates. Works with exports in JSON or HTML."
     },

@@ -29,6 +29,7 @@
       :items-per-page="itemsPerPage"
       :sort-by="sortBy"
       :sort-desc="sortDesc"
+      :must-sort="mustSort"
       dense
       @mouseleave.native="hovered = null"
     >
@@ -177,6 +178,12 @@ export default {
       default: undefined
     },
     sortDesc: {
+      type: Boolean,
+      default: false
+    },
+    // a click on a column's arrow switches between ascending and descending,
+    // never back to unsorted
+    mustSort: {
       type: Boolean,
       default: false
     },
