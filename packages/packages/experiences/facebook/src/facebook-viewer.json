@@ -202,7 +202,18 @@
                 "files": "Fichier",
                 "download": "Télécharger le fichier d'origine",
                 "hoverHelp": "Pointez une ligne pour voir où se trouve son fichier dans votre export.",
-                "splitNote": "Chaque nombre se lit : vos messages / ceux des autres."
+                "splitNote": "Chaque nombre se lit : vos messages / ceux des autres.",
+                "tableNote": "Pour chaque type de message, les vôtres et ceux des autres sont comptés dans deux colonnes.",
+                "yours": "Vous",
+                "others": "Autres",
+                "othersAllEmpty": "Conversation vide ?",
+                "othersAllEmptyHelp": "Oui quand tous les messages des autres dans cette conversation sont vides, quel que soit le contenu des vôtres.",
+                "yes": "Oui",
+                "no": "Non",
+                "group_messages": "Messages",
+                "group_empty": "Vides",
+                "group_unsent": "Retirés",
+                "group_geoblocked": "Géobloqués"
               },
               "ids": {
                 "shortId": "À deux, identifiant court",
