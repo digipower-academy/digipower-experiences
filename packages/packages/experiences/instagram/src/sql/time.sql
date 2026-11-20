@@ -49,5 +49,26 @@ FROM (
   FROM
     InstagramMessage
   WHERE InstagramMessage.senderName IN (SELECT name as username FROM InstagramInfo)
+  UNION
+  SELECT
+    accountName,
+    datetime AS _date,
+    'Thread Viewed' AS actionType
+  FROM
+    InstagramThreadViewed
+  UNION
+  SELECT
+    accountName,
+    datetime AS _date,
+    'Story Viewed' AS actionType
+  FROM
+    InstagramStoryViewed
+  UNION
+  SELECT
+    accountName,
+    datetime AS _date,
+    'Repost' AS actionType
+  FROM
+    InstagramRepost
 )
 ORDER BY _date ASC;

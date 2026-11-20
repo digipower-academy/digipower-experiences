@@ -5,13 +5,12 @@ import sqlInteractions from './sql/interactions.sql'
 import sqlAdvertisers from './sql/advertisers.sql'
 import sqlInterests from './sql/interests.sql'
 import sqlAdInteractions from './sql/ad-interactions.sql'
-import sqlPostsAndStories from './sql/posts-and-stories.sql'
+import sqlLocations from './sql/locations.sql'
+import sqlLogins from './sql/logins.sql'
 
 import sqlTime from './sql/time.sql'
 
 import { genericDateViewer } from '@/pipelines/generic'
-
-import keplerConfigPublications from './kepler/kepler_config_publications'
 
 import { makeSessions } from './postprocessors'
 
@@ -20,7 +19,7 @@ const blocks: ViewBlocks = [
     id: 'consumption',
     sql: sqlViews,
     showTable: false,
-    files: ['postsViewed', 'videosWatched', 'adsViewed'],
+    files: ['postsViewed'],
     visualization: 'ChartViewDashboard.vue',
     vizProps: {
       graphs: [
@@ -103,13 +102,7 @@ const blocks: ViewBlocks = [
   {
     id: 'interactions',
     sql: sqlInteractions,
-    files: [
-      'likedComments',
-      'likedPosts',
-      'followings',
-      'messages',
-      'personalInfos'
-    ],
+    files: ['likedPosts', 'followings', 'messages', 'personalInfos'],
     showTable: false,
     visualization: 'ChartViewDashboard.vue',
     vizProps: {
@@ -160,7 +153,7 @@ const blocks: ViewBlocks = [
   {
     id: 'ad-interactions',
     sql: sqlAdInteractions,
-    files: ['adsClicked', 'adsViewed'],
+    files: ['adsViewed'],
     showTable: false,
     visualization: 'ChartViewDashboard.vue',
     vizProps: {
@@ -173,16 +166,18 @@ const blocks: ViewBlocks = [
           dateAccessor: '_date'
         },
         {
-          valueLabel: 'interactions',
-          title: 'Ads clicked',
+          valueLabel: 'ads',
+          title: 'Top advertisers',
           cols: '4',
-          type: 'PieChart.vue',
-          valueAccessor: 'clicked'
+          type: 'TopChart.vue',
+          isScrollable: true,
+          topK: 100,
+          valueAccessor: 'title'
         }
       ]
     },
     title: 'Ads 1/3 (Interactions)',
-    text: 'See how many ads you viewed and whether or not you interacted with them.'
+    text: 'See how many ads you viewed and which advertisers showed you the most.'
   },
   {
     id: 'ad-interests',
@@ -192,16 +187,16 @@ const blocks: ViewBlocks = [
     vizProps: {
       graphs: [
         {
-          title: 'Type of interest',
+          title: 'Theme',
           valueLabel: 'value',
           cols: '12',
           type: 'TopChart.vue',
           valueAccessor: '_type',
-          height: 150
+          height: 220
         }
       ]
     },
-    showTable: false,
+    showTable: true,
     title: 'Ads 2/3 (Interests)',
     text: 'See which interests are inferred about you.'
   },
@@ -214,16 +209,58 @@ const blocks: ViewBlocks = [
     text: 'See which advertisers have used your information on Instagram.'
   },
   {
-    id: 'localisation',
-    sql: sqlPostsAndStories,
-    files: ['posts', 'stories'],
-    visualization: 'ChartViewGenericMap.vue',
+    id: 'locations',
+    sql: sqlLocations,
+    files: ['profileBasedIn'],
+    showTable: true,
+    visualization: 'ChartViewDashboard.vue',
     vizProps: {
-      keplerConfig: keplerConfigPublications
+      graphs: [
+        {
+          title: 'Locations',
+          valueLabel: 'locations',
+          cols: '12',
+          type: 'TopChart.vue',
+          valueAccessor: 'location',
+          sumAccessor: 'n',
+          height: 220,
+          isScrollable: true,
+          topK: 100
+        }
+      ]
     },
+    title: 'Locations',
+    text: 'See the coarse places Instagram associates with you.'
+  },
+  {
+    id: 'logins',
+    sql: sqlLogins,
+    files: ['loginActivity'],
     showTable: false,
-    title: 'Localisation',
-    text: 'See your posts and stories that have been geotagged.'
+    visualization: 'ChartViewDashboard.vue',
+    vizProps: {
+      graphs: [
+        {
+          title: 'Logins over time',
+          valueLabel: 'logins',
+          cols: '8',
+          type: 'TimelineChart.vue',
+          dateAccessor: '_date'
+        },
+        {
+          valueLabel: 'logins',
+          title: 'Top IP addresses',
+          cols: '4',
+          height: 220,
+          type: 'TopChart.vue',
+          isScrollable: true,
+          topK: 100,
+          valueAccessor: 'ipAddress'
+        }
+      ]
+    },
+    title: 'Connexions',
+    text: 'See when and from which IP addresses your account was logged into.'
   },
   genericDateViewer
 ]

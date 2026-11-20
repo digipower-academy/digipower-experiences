@@ -17,4 +17,18 @@ SELECT
   datetime AS actionDate,
   'Ad Viewed' AS actionType
 FROM
-  InstagramAdViewed;
+  InstagramAdViewed
+UNION
+SELECT
+  accountName,
+  datetime AS actionDate,
+  'Thread Viewed' AS actionType
+FROM
+  InstagramThreadViewed
+UNION
+SELECT
+  accountName,
+  datetime AS actionDate,
+  'Story Viewed' AS actionType
+FROM
+  InstagramStoryViewed;

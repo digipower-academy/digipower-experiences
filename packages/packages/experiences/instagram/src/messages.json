@@ -101,15 +101,14 @@
                 "valueLabel": "interactions"
               },
               {
-                "title": "Ads clicked",
-                "valueLabel": "interactions"
+                "title": "Top advertisers",
+                "valueLabel": "ads"
               }
           ]
         },
         "headers": {
           "_date": "Date",
-          "title": "Name",
-          "clicked": "Clicked"
+          "title": "Advertiser"
         }
       },
       "ad-interests": {
@@ -236,19 +235,18 @@
         "vizProps": {
           "graphs": [
               {
-                "title": "Annonce vue",
+                "title": "Annonces vues",
                 "valueLabel": "vues"
               },
               {
-                "title": "Annonce cliquer",
-                "valueLabel": "vues"
+                "title": "Top annonceurs",
+                "valueLabel": "pubs"
               }
           ]
         },
         "headers": {
           "_date": "Date",
-          "title": "Nom",
-          "clicked": "Cliquer"
+          "title": "Annonceur"
         }
       },
       "ad-interests": {

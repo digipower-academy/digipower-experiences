@@ -4,14 +4,14 @@
   "hideFileExplorer": false,
   "icon": "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/icons/instagram.png",
   "dataSamples": [
-    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/instagramV2.zip?contenthash=c03f3fb83b90ecaa150a&filename=instagramV2.zip"
+    "https://raw.githubusercontent.com/digipower-academy/digipower-experiences/master/packages/lib/data-samples/instagramV3.zip?contenthash=3689d92caad421d3fc8c&filename=instagramV3.zip"
   ],
   "viewBlocks": [
     {
       "showTable": false,
       "id": "consumption",
-      "sql": "SELECT accountName, datetime AS actionDate, 'Post Viewed' AS actionType FROM InstagramPostViewed UNION SELECT accountName, datetime AS actionDate, 'Video Watched' AS actionType FROM InstagramVideoWatched UNION SELECT accountName, datetime AS actionDate, 'Ad Viewed' AS actionType FROM InstagramAdViewed; ",
-      "files": ["postsViewed", "videosWatched", "adsViewed"],
+      "sql": "SELECT accountName, datetime AS actionDate, 'Post Viewed' AS actionType FROM InstagramPostViewed UNION SELECT accountName, datetime AS actionDate, 'Video Watched' AS actionType FROM InstagramVideoWatched UNION SELECT accountName, datetime AS actionDate, 'Ad Viewed' AS actionType FROM InstagramAdViewed UNION SELECT accountName, datetime AS actionDate, 'Thread Viewed' AS actionType FROM InstagramThreadViewed UNION SELECT accountName, datetime AS actionDate, 'Story Viewed' AS actionType FROM InstagramStoryViewed; ",
+      "files": ["postsViewed"],
       "visualization": "ChartViewDashboard.vue",
       "vizProps": {
         "graphs": [
@@ -49,7 +49,7 @@
       "showTable": false,
       "id": "consumption-time",
       "postprocessor": "makeSessions",
-      "sql": "SELECT * FROM (  SELECT    accountName,    datetime AS _date,    'Post Viewed' AS actionType  FROM    InstagramPostViewed  UNION  SELECT    accountName,    datetime AS _date,    'Video Watched' AS actionType  FROM    InstagramVideoWatched  UNION  SELECT    accountName,    datetime AS _date,    'Ad Viewed' AS actionType  FROM    InstagramAdViewed  UNION  SELECT    accountName,    DATETIME(ROUND(timestampMS), 'unixepoch') AS _date,    'Follow' AS actionType  FROM    InstagramFollowing  UNION  SELECT    accountName,    DATETIME(unixTimestamp, 'unixepoch') AS _date,    'Comment Liked' AS actionType  FROM    InstagramCommentLiked  UNION  SELECT    accountName,    datetime AS _date,    'Post Liked' AS actionType  FROM    InstagramPostLiked  UNION  SELECT    senderName as accountName,    DATETIME(ROUND(timestampMS / 1000), 'unixepoch') AS _date,    'Message Sent' as actionType  FROM    InstagramMessage  WHERE InstagramMessage.senderName IN (SELECT name as username FROM InstagramInfo) ) ORDER BY _date ASC; ",
+      "sql": "SELECT * FROM (  SELECT    accountName,    datetime AS _date,    'Post Viewed' AS actionType  FROM    InstagramPostViewed  UNION  SELECT    accountName,    datetime AS _date,    'Video Watched' AS actionType  FROM    InstagramVideoWatched  UNION  SELECT    accountName,    datetime AS _date,    'Ad Viewed' AS actionType  FROM    InstagramAdViewed  UNION  SELECT    accountName,    DATETIME(ROUND(timestampMS), 'unixepoch') AS _date,    'Follow' AS actionType  FROM    InstagramFollowing  UNION  SELECT    accountName,    DATETIME(unixTimestamp, 'unixepoch') AS _date,    'Comment Liked' AS actionType  FROM    InstagramCommentLiked  UNION  SELECT    accountName,    datetime AS _date,    'Post Liked' AS actionType  FROM    InstagramPostLiked  UNION  SELECT    senderName as accountName,    DATETIME(ROUND(timestampMS / 1000), 'unixepoch') AS _date,    'Message Sent' as actionType  FROM    InstagramMessage  WHERE InstagramMessage.senderName IN (SELECT name as username FROM InstagramInfo)  UNION  SELECT    accountName,    datetime AS _date,    'Thread Viewed' AS actionType  FROM    InstagramThreadViewed  UNION  SELECT    accountName,    datetime AS _date,    'Story Viewed' AS actionType  FROM    InstagramStoryViewed  UNION  SELECT    accountName,    datetime AS _date,    'Repost' AS actionType  FROM    InstagramRepost ) ORDER BY _date ASC; ",
       "visualization": "ChartViewDashboard.vue",
       "vizProps": {
         "graphs": [
@@ -94,14 +94,8 @@
     {
       "showTable": false,
       "id": "interactions",
-      "sql": "SELECT  accountName,  DATETIME(ROUND(timestampMS), 'unixepoch') AS _date,  'Follow' AS interactionType FROM  InstagramFollowing UNION SELECT  accountName,  DATETIME(unixTimestamp, 'unixepoch') AS _date,  'Comment Liked' AS interactionType FROM  InstagramCommentLiked UNION SELECT  accountName,  datetime AS _date,  'Post Liked' AS interactionType FROM  InstagramPostLiked UNION SELECT  senderName as accountName,  DATETIME(ROUND(timestampMS / 1000), 'unixepoch') AS _date,  'Message Sent' as interactionType FROM  InstagramMessage WHERE InstagramMessage.senderName IN (SELECT name as username FROM InstagramInfo) UNION SELECT  senderName as accountName,  DATETIME(ROUND(timestampMS / 1000), 'unixepoch') AS _date,  'Message Received' as interactionType FROM  InstagramMessage WHERE InstagramMessage.senderName NOT IN (SELECT name as username FROM InstagramInfo); ",
-      "files": [
-        "likedComments",
-        "likedPosts",
-        "followings",
-        "messages",
-        "personalInfos"
-      ],
+      "sql": "SELECT  accountName,  DATETIME(ROUND(timestampMS), 'unixepoch') AS _date,  'Follow' AS interactionType FROM  InstagramFollowing UNION SELECT  accountName,  DATETIME(unixTimestamp, 'unixepoch') AS _date,  'Comment Liked' AS interactionType FROM  InstagramCommentLiked UNION SELECT  accountName,  datetime AS _date,  'Post Liked' AS interactionType FROM  InstagramPostLiked UNION SELECT  senderName as accountName,  DATETIME(ROUND(timestampMS / 1000), 'unixepoch') AS _date,  'Message Sent' as interactionType FROM  InstagramMessage WHERE InstagramMessage.senderName IN (SELECT name as username FROM InstagramInfo) UNION SELECT  senderName as accountName,  DATETIME(ROUND(timestampMS / 1000), 'unixepoch') AS _date,  'Message Received' as interactionType FROM  InstagramMessage WHERE InstagramMessage.senderName NOT IN (SELECT name as username FROM InstagramInfo) UNION SELECT accountName, datetime AS _date, 'Comment' AS interactionType FROM InstagramComment UNION SELECT accountName, datetime AS _date, kind AS interactionType FROM InstagramStoryInteraction UNION SELECT accountName, datetime AS _date, 'Saved' AS interactionType FROM InstagramSaved UNION SELECT accountName, datetime AS _date, 'Repost' AS interactionType FROM InstagramRepost; ",
+      "files": ["likedPosts", "followings", "messages", "personalInfos"],
       "visualization": "ChartViewDashboard.vue",
       "vizProps": {
         "graphs": [
@@ -151,8 +145,8 @@
     {
       "showTable": false,
       "id": "ad-interactions",
-      "sql": "SELECT title, DATETIME(ROUND(unixTimestamp), 'unixepoch') AS _date, 'True' as clicked FROM InstagramAdClicked UNION SELECT accountName as title, datetime AS _date, 'False' as clicked FROM InstagramAdViewed; ",
-      "files": ["adsClicked", "adsViewed"],
+      "sql": "SELECT accountName as title, datetime AS _date FROM InstagramAdViewed; ",
+      "files": ["adsViewed"],
       "visualization": "ChartViewDashboard.vue",
       "vizProps": {
         "graphs": [
@@ -164,32 +158,34 @@
             "dateAccessor": "_date"
           },
           {
-            "valueLabel": "interactions",
-            "title": "Ads clicked",
+            "valueLabel": "ads",
+            "title": "Top advertisers",
             "cols": "4",
-            "type": "PieChart.vue",
-            "valueAccessor": "clicked"
+            "type": "TopChart.vue",
+            "isScrollable": true,
+            "topK": 100,
+            "valueAccessor": "title"
           }
         ]
       },
       "title": "Ads 1/3 (Interactions)",
-      "text": "See how many ads you viewed and whether or not you interacted with them."
+      "text": "See how many ads you viewed and which advertisers showed you the most."
     },
     {
-      "showTable": false,
+      "showTable": true,
       "id": "ad-interests",
-      "sql": "SELECT title, 'Ad Interest' as _type FROM InstagramAdInterest UNION SELECT title, 'Topic' as _type FROM InstagramYourTopic UNION SELECT title, 'Reel Topic' as _type FROM InstagramReelTopic UNION SELECT title, 'Reel Sentiment' as _type FROM InstagramReelSentiment; ",
+      "sql": "SELECT title, theme AS _type FROM InstagramAdInterest; ",
       "visualization": "ChartViewDashboard.vue",
       "files": ["adsInterests"],
       "vizProps": {
         "graphs": [
           {
-            "title": "Type of interest",
+            "title": "Theme",
             "valueLabel": "value",
             "cols": "12",
             "type": "TopChart.vue",
             "valueAccessor": "_type",
-            "height": 150
+            "height": 220
           }
         ]
       },
@@ -205,142 +201,58 @@
       "text": "See which advertisers have used your information on Instagram."
     },
     {
-      "showTable": false,
-      "id": "localisation",
-      "sql": "SELECT title, DATETIME(unixTimestamp, 'unixepoch') AS _date, latitude, longitude, 'Post' AS actionType FROM InstagramPost WHERE latitude IS NOT NULL AND longitude IS NOT NULL UNION SELECT title, DATETIME(unixTimestamp, 'unixepoch') AS _date, latitude, longitude, 'Story' AS actionType FROM InstagramStory WHERE latitude IS NOT NULL AND longitude IS NOT NULL; ",
-      "files": ["posts", "stories"],
-      "visualization": "ChartViewGenericMap.vue",
+      "showTable": true,
+      "id": "locations",
+      "sql": "SELECT location, COUNT(*) AS n FROM InstagramLocation WHERE location != '' GROUP BY location ORDER BY n DESC; ",
+      "files": ["profileBasedIn"],
+      "visualization": "ChartViewDashboard.vue",
       "vizProps": {
-        "keplerConfig": {
-          "version": "v1",
-          "config": {
-            "visState": {
-              "filters": [],
-              "layers": [
-                {
-                  "id": "gzlxnlb",
-                  "type": "cluster",
-                  "config": {
-                    "dataId": "57hfllte",
-                    "label": "Publication",
-                    "color": [255, 203, 153],
-                    "highlightColor": [252, 242, 26, 255],
-                    "columns": {
-                      "lat": "latitude",
-                      "lng": "longitude"
-                    },
-                    "isVisible": true,
-                    "visConfig": {
-                      "opacity": 0.8,
-                      "clusterRadius": 40,
-                      "colorRange": {
-                        "name": "ColorBrewer Set1-6",
-                        "type": "qualitative",
-                        "category": "ColorBrewer",
-                        "colors": [
-                          "#e41a1c",
-                          "#377eb8",
-                          "#4daf4a",
-                          "#984ea3",
-                          "#ff7f00",
-                          "#ffff33"
-                        ]
-                      },
-                      "radiusRange": [0, 50],
-                      "colorAggregation": "mode"
-                    },
-                    "hidden": false,
-                    "textLabel": [
-                      {
-                        "field": null,
-                        "color": [255, 255, 255],
-                        "size": 18,
-                        "offset": [0, 0],
-                        "anchor": "start",
-                        "alignment": "center"
-                      }
-                    ]
-                  },
-                  "visualChannels": {
-                    "colorField": {
-                      "name": "actionType",
-                      "type": "string"
-                    },
-                    "colorScale": "ordinal"
-                  }
-                }
-              ],
-              "interactionConfig": {
-                "tooltip": {
-                  "fieldsToShow": {
-                    "57hfllte": [
-                      {
-                        "name": "title",
-                        "format": null
-                      },
-                      {
-                        "name": "_date",
-                        "format": null
-                      },
-                      {
-                        "name": "actionType",
-                        "format": null
-                      }
-                    ]
-                  },
-                  "compareMode": false,
-                  "compareType": "absolute",
-                  "enabled": true
-                },
-                "brush": {
-                  "size": 0.5,
-                  "enabled": false
-                },
-                "geocoder": {
-                  "enabled": false
-                },
-                "coordinate": {
-                  "enabled": false
-                }
-              },
-              "layerBlending": "normal",
-              "splitMaps": [],
-              "animationConfig": {
-                "currentTime": null,
-                "speed": 1
-              }
-            },
-            "mapState": {
-              "bearing": 0,
-              "dragRotate": false,
-              "latitude": 46.48268876272195,
-              "longitude": 7.027939380011415,
-              "pitch": 0,
-              "zoom": 8.079269847392451,
-              "isSplit": false
-            },
-            "mapStyle": {
-              "styleType": "dark",
-              "topLayerGroups": {},
-              "visibleLayerGroups": {
-                "label": true,
-                "road": true,
-                "border": false,
-                "building": true,
-                "water": true,
-                "land": true,
-                "3d building": false
-              },
-              "threeDBuildingColor": [
-                9.665468314072013, 17.18305478057247, 31.1442867897876
-              ],
-              "mapStyles": {}
-            }
+        "graphs": [
+          {
+            "title": "Locations",
+            "valueLabel": "locations",
+            "cols": "12",
+            "type": "TopChart.vue",
+            "valueAccessor": "location",
+            "sumAccessor": "n",
+            "height": 220,
+            "isScrollable": true,
+            "topK": 100
           }
-        }
+        ]
       },
-      "title": "Localisation",
-      "text": "See your posts and stories that have been geotagged."
+      "title": "Locations",
+      "text": "See the coarse places Instagram associates with you."
+    },
+    {
+      "showTable": true,
+      "id": "logins",
+      "sql": "SELECT ipAddress, datetime AS _date, userAgent FROM InstagramLogin; ",
+      "files": ["loginActivity"],
+      "visualization": "ChartViewDashboard.vue",
+      "vizProps": {
+        "graphs": [
+          {
+            "title": "Logins over time",
+            "valueLabel": "logins",
+            "cols": "8",
+            "type": "TimelineChart.vue",
+            "dateAccessor": "_date"
+          },
+          {
+            "valueLabel": "logins",
+            "title": "Top IP addresses",
+            "cols": "4",
+            "height": 220,
+            "type": "TopChart.vue",
+            "isScrollable": true,
+            "topK": 100,
+            "valueAccessor": "ipAddress"
+          }
+        ]
+      },
+      "title": "Logins",
+      "text": "See when and from which IP addresses your account was logged into."
     },
     {
       "showTable": false,
@@ -446,7 +358,7 @@
         },
         "ad-interactions": {
           "title": "Ads 1/3 (Interactions)",
-          "text": "See how many ads you viewed and whether or not you interacted with them.",
+          "text": "See how many ads you viewed and which advertisers showed you the most.",
           "vizProps": {
             "graphs": [
               {
@@ -454,15 +366,14 @@
                 "valueLabel": "interactions"
               },
               {
-                "title": "Ads clicked",
-                "valueLabel": "interactions"
+                "title": "Top advertisers",
+                "valueLabel": "ads"
               }
             ]
           },
           "headers": {
             "_date": "Date",
-            "title": "Name",
-            "clicked": "Clicked"
+            "title": "Advertiser"
           }
         },
         "ad-interests": {
@@ -471,14 +382,51 @@
           "vizProps": {
             "graphs": [
               {
-                "title": "Type of interest",
+                "title": "Theme",
                 "valueLabel": "interests"
               }
             ]
           },
           "headers": {
             "title": "Name",
-            "_type": "Type"
+            "_type": "Theme"
+          }
+        },
+        "locations": {
+          "title": "Locations",
+          "text": "See the coarse places Instagram associates with you.",
+          "vizProps": {
+            "graphs": [
+              {
+                "title": "Locations",
+                "valueLabel": "locations"
+              }
+            ]
+          },
+          "headers": {
+            "location": "Location",
+            "n": "Count"
+          }
+        },
+        "logins": {
+          "title": "Logins",
+          "text": "See when and from which IP addresses your account was logged into.",
+          "vizProps": {
+            "graphs": [
+              {
+                "title": "Logins over time",
+                "valueLabel": "logins"
+              },
+              {
+                "title": "Top IP addresses",
+                "valueLabel": "logins"
+              }
+            ]
+          },
+          "headers": {
+            "_date": "Date",
+            "ipAddress": "IP address",
+            "userAgent": "Device"
           }
         },
         "genericDateViewer": {
@@ -493,15 +441,11 @@
             "Date": "Date",
             "Description": "Description"
           }
+        },
+        "ad-advertisers": {
+          "title": "Ads 3/3 (Advertisers)",
+          "text": "See which advertisers have used your information on Instagram."
         }
-      },
-      "ad-advertisers": {
-        "title": "Ads 3/3 (Advertisers)",
-        "text": "See which advertisers have used your information on Instagram."
-      },
-      "localisation": {
-        "title": "Localisation",
-        "text": "See your posts and stories that have been geotagged."
       }
     },
     "fr": {
@@ -598,23 +542,22 @@
         },
         "ad-interactions": {
           "title": "Publicité 1/3 (Interactions)",
-          "text": "Observer combien de publicités vous voyez et si vous interagissez ou non avec elles.",
+          "text": "Observer combien de publicités vous voyez et quels annonceurs vous en montrent le plus.",
           "vizProps": {
             "graphs": [
               {
-                "title": "Annonce vue",
+                "title": "Annonces vues",
                 "valueLabel": "vues"
               },
               {
-                "title": "Annonce cliquer",
-                "valueLabel": "vues"
+                "title": "Top annonceurs",
+                "valueLabel": "pubs"
               }
             ]
           },
           "headers": {
             "_date": "Date",
-            "title": "Nom",
-            "clicked": "Cliquer"
+            "title": "Annonceur"
           }
         },
         "ad-interests": {
@@ -623,23 +566,56 @@
           "vizProps": {
             "graphs": [
               {
-                "title": "Type d'intérêt",
+                "title": "Thème",
                 "valueLabel": "intérêts"
               }
             ]
           },
           "headers": {
             "title": "Nom",
-            "_type": "Type"
+            "_type": "Thème"
           }
         },
         "ad-advertisers": {
           "title": "Publicité 3/3 (Annonceurs)",
           "text": "Observer quels sont les annonceurs qui utilisent vos informations sur Instagram."
         },
-        "localisation": {
-          "title": "Localisation",
-          "text": "Consultez vos Posts et vos Stories qui ont été géolocalisées."
+        "locations": {
+          "title": "Lieux",
+          "text": "Découvrez les lieux approximatifs qu'Instagram associe à vous.",
+          "vizProps": {
+            "graphs": [
+              {
+                "title": "Lieux",
+                "valueLabel": "lieux"
+              }
+            ]
+          },
+          "headers": {
+            "location": "Lieu",
+            "n": "Nombre"
+          }
+        },
+        "logins": {
+          "title": "Adresses IP",
+          "text": "Découvrez quand et depuis quelles adresses IP votre compte a été utilisé.",
+          "vizProps": {
+            "graphs": [
+              {
+                "title": "Connexions au fil du temps",
+                "valueLabel": "connexions"
+              },
+              {
+                "title": "Top adresses IP",
+                "valueLabel": "connexions"
+              }
+            ]
+          },
+          "headers": {
+            "_date": "Date",
+            "ipAddress": "Adresse IP",
+            "userAgent": "Appareil"
+          }
         },
         "genericDateViewer": {
           "name": "Chronologie",

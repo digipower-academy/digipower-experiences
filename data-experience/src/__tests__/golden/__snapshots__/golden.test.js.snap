@@ -2222,110 +2222,94 @@ Object {
 }
 `;
 
-exports[`instagram with instagramV2.zip view block outputs match the snapshots: ad-advertisers 1`] = `
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: ad-advertisers 1`] = `
 Object {
-  "count": 1090,
+  "count": 14,
   "firstItems": Array [
     Object {
-      "advertiserName": "Airbnb",
-      "hasDataFileCustomAudience": "true",
-      "hasInPersonStoreVisit": "false",
-      "hasRemarketingCustomAudience": "true",
+      "advertiserName": "Sneakers Store",
     },
     Object {
-      "advertiserName": "Havas Media France ADM",
-      "hasDataFileCustomAudience": "true",
-      "hasInPersonStoreVisit": "false",
-      "hasRemarketingCustomAudience": "true",
+      "advertiserName": "Café Bio",
     },
     Object {
-      "advertiserName": "Habu",
-      "hasDataFileCustomAudience": "true",
-      "hasInPersonStoreVisit": "false",
-      "hasRemarketingCustomAudience": "false",
+      "advertiserName": "Banque Mobile",
     },
   ],
   "headers": Array [
     "advertiserName",
-    "hasDataFileCustomAudience",
-    "hasRemarketingCustomAudience",
-    "hasInPersonStoreVisit",
   ],
-  "sha256": "b86d09ca1d0990605f6bc4452b6a1ce472ba6cf1ed474a1793cfc5df90c6ea3c",
+  "sha256": "878c1aabd13aab5b9ad6550ff5fce049e9782a1113fb770c08687f956b0d9ef7",
 }
 `;
 
-exports[`instagram with instagramV2.zip view block outputs match the snapshots: ad-interactions 1`] = `
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: ad-interactions 1`] = `
 Object {
-  "count": 512,
+  "count": 60,
   "firstItems": Array [
     Object {
-      "_date": "2019-04-08 07:32:00",
-      "clicked": "False",
-      "title": "Adams LLC",
+      "_date": "2025-11-14 08:06:51",
+      "title": "cafe.bio",
     },
     Object {
-      "_date": "2018-09-11 17:26:00",
-      "clicked": "False",
-      "title": "Adams, Lopez and Snyder",
+      "_date": "2025-11-12 23:39:03",
+      "title": "appli.rencontre",
     },
     Object {
-      "_date": "2022-03-26 03:17:00",
-      "clicked": "False",
-      "title": "Aguirre, Arroyo and Marsh",
+      "_date": "2025-11-08 23:24:27",
+      "title": "cafe.bio",
     },
   ],
   "headers": Array [
     "title",
     "_date",
-    "clicked",
   ],
-  "sha256": "2da044e8a7cb00f0df847323062d62a0371985a98ef10e4c6c0943908d79c6c8",
+  "sha256": "501c1d3f31975ae0ad441bb8c8eb09cd4a33326ea59f9dc4f8cfce8527d56260",
 }
 `;
 
-exports[`instagram with instagramV2.zip view block outputs match the snapshots: ad-interests 1`] = `
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: ad-interests 1`] = `
 Object {
-  "count": 725,
+  "count": 18,
   "firstItems": Array [
     Object {
-      "_type": "Topic",
-      "title": "2010-2019 Video Games",
+      "_type": "Life events & demographics",
+      "title": "Away from hometown",
     },
     Object {
-      "_type": "Ad Interest",
-      "title": "9GAG",
+      "_type": "Life events & demographics",
+      "title": "Birthday in April",
     },
     Object {
-      "_type": "Ad Interest",
-      "title": "A Bathing Ape",
+      "_type": "Life events & demographics",
+      "title": "Recently moved",
     },
   ],
   "headers": Array [
     "title",
     "_type",
   ],
-  "sha256": "0294395bb6db493c12e152fcde99c86bb2a49ae9d49ec88cd3f1ab503f623f43",
+  "sha256": "30b3a1f53203778f2f077e18ed58e453b8e5ad8146e6a90f678bf80d90953196",
 }
 `;
 
-exports[`instagram with instagramV2.zip view block outputs match the snapshots: consumption 1`] = `
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: consumption 1`] = `
 Object {
-  "count": 1410,
+  "count": 490,
   "firstItems": Array [
     Object {
-      "accountName": "Aaron.bass",
-      "actionDate": "2019-04-23 21:16:00",
+      "accountName": "amberbarrett",
+      "actionDate": "2025-09-02 08:15:43",
       "actionType": "Post Viewed",
     },
     Object {
-      "accountName": "Aaron.blanchard",
-      "actionDate": "2019-06-21 22:20:00",
-      "actionType": "Post Viewed",
+      "accountName": "amberbarrett",
+      "actionDate": "2025-09-02 08:15:43",
+      "actionType": "Thread Viewed",
     },
     Object {
-      "accountName": "Abigail.hester",
-      "actionDate": "2021-01-26 17:13:00",
+      "accountName": "amberbarrett",
+      "actionDate": "2025-09-05 08:19:28",
       "actionType": "Video Watched",
     },
   ],
@@ -2334,46 +2318,48 @@ Object {
     "actionDate",
     "actionType",
   ],
-  "sha256": "df36067248053e7f9d5020a6c194c83b9a4e011cf27ac5f815fd215d84fe357d",
+  "sha256": "c2584162eda60bb26c1bd290c03b47251d65ba732cbb216f1c41c6e3fd831d73",
 }
 `;
 
-exports[`instagram with instagramV2.zip view block outputs match the snapshots: consumption-time 1`] = `
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: consumption-time 1`] = `
 Object {
-  "count": 6,
+  "count": 24,
   "firstItems": Array [
     Object {
       "actions": Array [
-        "Video Watched",
+        "Story Viewed",
       ],
       "duration_m": 1,
-      "end_date": "2022-12-28 12:15:00",
-      "end_timestamp": 1672229700000,
+      "end_date": "2025-11-07 21:02:48",
+      "end_timestamp": 1762549368000,
       "nb_actions": 1,
-      "start_date": "2022-12-28 12:15:00",
-      "start_timestamp": 1672229700000,
+      "start_date": "2025-11-07 21:02:48",
+      "start_timestamp": 1762549368000,
     },
     Object {
       "actions": Array [
-        "Ad Viewed",
+        "Post Viewed",
       ],
       "duration_m": 1,
-      "end_date": "2022-12-29 10:09:00",
-      "end_timestamp": 1672308540000,
+      "end_date": "2025-11-07 21:08:17",
+      "end_timestamp": 1762549697000,
       "nb_actions": 1,
-      "start_date": "2022-12-29 10:09:00",
-      "start_timestamp": 1672308540000,
+      "start_date": "2025-11-07 21:08:17",
+      "start_timestamp": 1762549697000,
     },
     Object {
       "actions": Array [
-        "Ad Viewed",
+        "Comment Liked",
+        "Post Viewed",
+        "Post Liked",
       ],
-      "duration_m": 1,
-      "end_date": "2022-12-30 04:20:00",
-      "end_timestamp": 1672374000000,
-      "nb_actions": 1,
-      "start_date": "2022-12-30 04:20:00",
-      "start_timestamp": 1672374000000,
+      "duration_m": 1.5666666666666667,
+      "end_date": "2025-11-07 23:15:53",
+      "end_timestamp": 1762557353000,
+      "nb_actions": 3,
+      "start_date": "2025-11-07 23:14:19",
+      "start_timestamp": 1762557259000,
     },
   ],
   "headers": Array [
@@ -2383,28 +2369,28 @@ Object {
     "actions",
     "duration_m",
   ],
-  "sha256": "28d65cd4ef1508b01d5afa9fdb513080142af9a7ecfdedd9d3eafeb11deb6168",
+  "sha256": "0712bd1d8776c57f110a3df4fcb427089d8e6555a5eca3de33c20865aa417f84",
 }
 `;
 
-exports[`instagram with instagramV2.zip view block outputs match the snapshots: genericDateViewer 1`] = `
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: genericDateViewer 1`] = `
 Object {
-  "count": 1851,
+  "count": 912,
   "firstItems": Array [
     Object {
       "date": Object {},
-      "description": "Likes Comment Likes > String List Data > [Href : https://www.instagram.com/p/exa…",
-      "filename": "Instagram-fake-data/likes/liked_comments.json",
+      "description": "Messages > [Sender Name : tracyleon, Content : Salut ! Ça va ?, Is Geoblocked Fo…",
+      "filename": "instagram-fake-data/your_instagram_activity/messages/inbox/tracyleon_17958534556…",
     },
     Object {
       "date": Object {},
-      "description": "Likes Comment Likes > String List Data > [Href : https://www.instagram.com/p/exa…",
-      "filename": "Instagram-fake-data/likes/liked_comments.json",
+      "description": "Messages > [Sender Name : jeanne.dupont.demo, Content : À demain !, Is Geoblocke…",
+      "filename": "instagram-fake-data/your_instagram_activity/messages/inbox/tracyleon_17958534556…",
     },
     Object {
       "date": Object {},
-      "description": "Likes Comment Likes > String List Data > [Href : https://www.instagram.com/p/exa…",
-      "filename": "Instagram-fake-data/likes/liked_comments.json",
+      "description": "Messages > [Sender Name : jeanne.dupont.demo, Content : Tu as vu la dernière sto…",
+      "filename": "instagram-fake-data/your_instagram_activity/messages/inbox/tracyleon_17958534556…",
     },
   ],
   "headers": Array [
@@ -2412,28 +2398,28 @@ Object {
     "description",
     "filename",
   ],
-  "sha256": "e1b85adc967bea6b39fa5d8e614750e668ff500722d699978dcab67c8108356c",
+  "sha256": "8fd0c35796108346c0f5d47294c5763c4d8420ac359cd8cf99d6754614b6e264",
 }
 `;
 
-exports[`instagram with instagramV2.zip view block outputs match the snapshots: interactions 1`] = `
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: interactions 1`] = `
 Object {
-  "count": 1317,
+  "count": 357,
   "firstItems": Array [
     Object {
-      "_date": "2008-11-20 07:58:37",
-      "accountName": "Amber Barrett",
-      "interactionType": "Message Received",
+      "_date": "2025-09-01 13:44:30",
+      "accountName": "amberbarrett",
+      "interactionType": "Post Liked",
     },
     Object {
-      "_date": "2009-06-15 22:10:31",
-      "accountName": "Amber Barrett",
-      "interactionType": "Message Received",
+      "_date": "2025-09-01 19:45:16",
+      "accountName": "amberbarrett",
+      "interactionType": "Follow",
     },
     Object {
-      "_date": "2009-10-09 11:10:44",
-      "accountName": "Amber Barrett",
-      "interactionType": "Message Received",
+      "_date": "2025-09-02 08:13:23",
+      "accountName": "amberbarrett",
+      "interactionType": "Post Liked",
     },
   ],
   "headers": Array [
@@ -2441,44 +2427,61 @@ Object {
     "_date",
     "interactionType",
   ],
-  "sha256": "57c93537375dc1cf8665c709f7ddf8acb5453be8b47a22718e4e120ddad261f3",
+  "sha256": "d5b0981062c33181841a078b56c5713c57e05de095dc233bd52e67754e1294e6",
 }
 `;
 
-exports[`instagram with instagramV2.zip view block outputs match the snapshots: localisation 1`] = `
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: locations 1`] = `
 Object {
-  "count": 333,
+  "count": 5,
   "firstItems": Array [
     Object {
-      "_date": "2018-06-09 18:33:28",
-      "actionType": "Post",
-      "latitude": "53.37596",
-      "longitude": "51.3452",
-      "title": "Accept far pressure spend Mrs.",
+      "location": "Lyon",
+      "n": 2,
     },
     Object {
-      "_date": "2018-10-23 18:05:12",
-      "actionType": "Post",
-      "latitude": "29.65163",
-      "longitude": "-82.32483",
-      "title": "Act reflect point everything rise.",
+      "location": "Paris",
+      "n": 1,
     },
     Object {
-      "_date": "2019-09-05 00:23:20",
-      "actionType": "Story",
-      "latitude": "46.65581",
-      "longitude": "32.6178",
-      "title": "Activity any blue partner.",
+      "location": "Marseille",
+      "n": 1,
     },
   ],
   "headers": Array [
-    "title",
-    "_date",
-    "latitude",
-    "longitude",
-    "actionType",
+    "location",
+    "n",
   ],
-  "sha256": "35f174be13b129187f2ffbd0415aa20e7c5b4ccee305a03d744a8e121a228410",
+  "sha256": "dd6438bc88ce0ff488dfdc55b1e9192f854cfab5e6e360b18ff70a57324c393e",
+}
+`;
+
+exports[`instagram with instagramV3.zip view block outputs match the snapshots: logins 1`] = `
+Object {
+  "count": 25,
+  "firstItems": Array [
+    Object {
+      "_date": "2025-11-13 19:55:49",
+      "ipAddress": "192.0.2.14",
+      "userAgent": "Instagram 350.0.0 Android (34/14; samsung; SM-A546B)",
+    },
+    Object {
+      "_date": "2025-11-07 21:02:13",
+      "ipAddress": "192.0.2.14",
+      "userAgent": "Instagram 350.0.0 Android (34/14; samsung; SM-A546B)",
+    },
+    Object {
+      "_date": "2025-11-04 13:02:10",
+      "ipAddress": "192.0.2.14",
+      "userAgent": "Instagram 350.0.0 Android (34/14; samsung; SM-A546B)",
+    },
+  ],
+  "headers": Array [
+    "ipAddress",
+    "_date",
+    "userAgent",
+  ],
+  "sha256": "5daf1966e7d924b712d51b413a1cb28cbaf193cfb693596fc98ef9f416bc61c1",
 }
 `;
 

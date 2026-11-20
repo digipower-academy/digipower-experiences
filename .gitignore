@@ -1,7 +1,13 @@
 /.log/
 
-# MAC Files
-.DS_STORE
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+__MACOSX/
+.Spotlight-V100
+.Trashes
 
 /node_modules
 /data-experience/.log/
