@@ -33,4 +33,32 @@ SELECT
   'Message Received' as interactionType
 FROM
   InstagramMessage
-WHERE InstagramMessage.senderName NOT IN (SELECT name as username FROM InstagramInfo);
+WHERE InstagramMessage.senderName NOT IN (SELECT name as username FROM InstagramInfo)
+UNION
+SELECT
+  accountName,
+  datetime AS _date,
+  'Comment' AS interactionType
+FROM
+  InstagramComment
+UNION
+SELECT
+  accountName,
+  datetime AS _date,
+  kind AS interactionType
+FROM
+  InstagramStoryInteraction
+UNION
+SELECT
+  accountName,
+  datetime AS _date,
+  'Saved' AS interactionType
+FROM
+  InstagramSaved
+UNION
+SELECT
+  accountName,
+  datetime AS _date,
+  'Repost' AS interactionType
+FROM
+  InstagramRepost;
